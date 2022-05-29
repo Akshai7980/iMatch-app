@@ -1,0 +1,285 @@
+<!-- -- besties page design -- -->
+
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #707072;">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab6" style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios" style="color: white;
+    font-size: 15px;" *ngIf="userDetails">
+    <div  class="top-number">
+      <span>{{userDetails.bestie_count}}</span>
+    </div>
+      BESTIES
+
+      <img *ngIf="userDetails.profile_pic != '' || userDetails.profile_pic != null || userDetails.profile_pic != undefined" [src]=userDetails.profile_pic alt="" class="top-profile-pic" style="background-color: white;" (click)="gotoProfile()">
+
+      <!-- <ion-icon name="caret-down-outline" class="top-drop-icon"></ion-icon> -->
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- <ion-grid> -->
+    <ion-row *ngIf="bestieDetails">
+
+      <div class="top-container-style">
+
+        <ion-item lines="none">
+          <ion-avatar class="person-profile-img">
+            <img *ngIf="bestieDetails.profile_pic != '' || bestieDetails.profile_pic != null || bestieDetails.profile_pic != undefined" [src]="bestieDetails.profile_pic" alt="">
+          </ion-avatar>
+          <!-- <ion-label class="person-name-text">Pritty Kavitha</ion-label> -->
+          <ion-label class="person-name-text"> {{bestieDetails.name}} </ion-label>
+
+
+          <ion-chip slot="end" class="top-chip-styles" (click)="addMoreBesties()">
+            <!-- <img src="../../assets/icon/add.png" alt="" class="add-more-icon"> -->
+            <ion-icon name="add-circle" class="add-more-icon"></ion-icon>
+            <ion-label class="chip-label-text">ADD MORE BESTIE</ion-label>
+          </ion-chip>
+
+        </ion-item>
+
+      </div>
+
+    </ion-row>
+
+    <!-- <ion-row> -->
+
+      <!-- <div>
+        <div *ngIf="ourStory">
+          <h1>OUR STORY</h1>
+          <div>
+            <ion-textarea auto-grow="true">{{ourStory.text}}</ion-textarea>
+          </div>
+        </div>
+      </div> -->
+
+      <div>
+      <ion-card style="background-image: linear-gradient(to right, #ee1809 , #8a5a5a); border-radius: 10px; width: -webkit-fill-available;" *ngIf="ourStory">
+        <ion-card-header style="color: white;">OUR STORY</ion-card-header>
+        <img src="../../assets/icon/besties/edit.png" alt="" class="near-card-header-img" (click)="gotoOurStory()">
+        <ion-card-content style="color: white; line-height: 14px; font-size: 12px; position: relative; bottom: 20px;" auto-grow="true"> {{ourStory[0]?.text}}
+        </ion-card-content>
+      </ion-card>
+    </div>
+
+    <ion-row>
+      <ion-card style="background-image: linear-gradient(to right, #0a0700 , #595d5e); border-radius: 10px; width: -webkit-fill-available;" *ngIf="ourSlogan">
+        <ion-card-header style="color: white;">OUR FAVOURITE WORD / SLOGAN</ion-card-header>
+        <img src="../../assets/icon/besties/edit.png" alt="" class="near-card-header-img" (click)="gotoOurSlogan()">
+        <ion-card-content style="color: white; line-height: 14px; font-size: 12px; position: relative; bottom: 20px;" auto-grow="true"> {{ourSlogan[0]?.text}}
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+    <ion-row>
+      <ion-card style="background-image: linear-gradient(to right, #e39b09 , #787570); border-radius: 10px; width: -webkit-fill-available;" *ngIf="ourLetter">
+        <ion-card-header style="color: white;">A LETTER TO MY BEST FRIEND</ion-card-header>
+        <img src="../../assets/icon/besties/edit.png" alt="" class="near-card-header-img" (click)="gotoLetter()">
+        <ion-card-content style="color: white; line-height: 14px; font-size: 12px; position: relative; bottom: 20px;" auto-grow="true"> {{ourLetter[0]?.text}}
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+    <div style="display: flex; padding: 7px;">
+
+    <!-- <ion-row> -->
+
+      <!-- <ion-col> -->
+
+        <div style="text-align: center;">
+          <ion-card class="bottom-card">
+            <div style="background-color: #707072; height: 105px; width: -webkit-fill-available; border-radius: 10px;">
+              <img *ngIf="MediaFiles"  [src]="MediaFiles[0]?.file_link" onerror="this.src='../../assets/icon/besties/707072.png';" alt="" class="bottom-card-small-img">
+            </div>
+            <!-- <img src="../../assets/icon/besties/{{userDetails.profile_pic}}.png" onerror="this.src='../../assets/icon/besties/707072.png';" alt="" class="bottom-card-small-img"> -->
+
+            <img src="../../assets/icon/besties/upload.png" alt="" class="inside-card-upload-img" (click)="PresentActionSheet()">
+            <ion-card-header class="card-header-text">UPLOAD</ion-card-header>
+            <p class="text-below-card-header">IMAGE/VIDEO</p>
+          </ion-card>
+        </div>
+
+      <!-- </ion-col> -->
+
+      <!-- <ion-col> -->
+
+        <div style="text-align: center;">
+          <ion-card class="bottom-card">
+            <div style="background-color: #707072; height: 105px; width: -webkit-fill-available; border-radius: 10px;">
+              <img *ngIf="MediaFiles"  [src]="MediaFiles[1]?.file_link" onerror="this.src='../../assets/icon/besties/707072.png';" alt="" class="bottom-card-small-img">
+            </div>
+            <img src="../../assets/icon/besties/upload.png" alt="" class="inside-card-upload-img" (click)="PresentActionSheet()">
+            <ion-card-header class="card-header-text">UPLOAD</ion-card-header>
+            <p class="text-below-card-header">IMAGE/VIDEO</p>
+          </ion-card>
+        </div>
+
+      <!-- </ion-col> -->
+
+      <!-- <ion-col> -->
+
+        <div style="text-align: center;">
+          <ion-card class="bottom-card">
+            <div style="background-color: #707072; height: 105px; width: -webkit-fill-available; border-radius: 10px;">
+              <img *ngIf="MediaFiles"  [src]="MediaFiles[2]?.file_link" onerror="this.src='../../assets/icon/besties/707072.png';" alt="" class="bottom-card-small-img">
+            </div>           
+             <img src="../../assets/icon/besties/upload.png" alt="" class="inside-card-upload-img" (click)="PresentActionSheet()">
+            <ion-card-header class="card-header-text">UPLOAD</ion-card-header>
+            <p class="text-below-card-header">IMAGE/VIDEO</p>
+          </ion-card>
+        </div>
+
+      <!-- </ion-col> -->
+
+    <!-- </ion-row> -->
+
+  <!-- </ion-grid> -->
+</div>
+
+    <div style="display: flex; justify-content: flex-end; margin: 15px 0px 15px;">
+      <img *ngIf="CountDetails" src="../../assets/icon/blog/heart.png" alt="" style="height: 20px; margin-right: 5px; position: relative; top: 7px;"  (click)="ToLikeBesties()"> <span style="margin-right: 10px; position: relative; top: 7px; font-size: 12px;"> {{CountDetails.total_like_count}} </span>
+      <img *ngIf="CountDetails" src="../../assets/icon/com.png" alt="" style="height: 20px; margin-right: 5px; position: relative; top: 7px;" (click)="GoToBestiesComment()"> <span style="margin-right: 10px; position: relative; top: 7px; font-size: 12px;"> {{CountDetails.total_comment_count}} </span>
+      <ion-button *ngIf="isDisable==true" style="text-transform: none; margin-right: 10px;" size="small" shape="round" (click)="ToDisableComment($event, 'disable')">Disable Comment</ion-button>
+      <ion-button *ngIf="isDisable==false" style="text-transform: none; margin-right: 10px; --background: #707072; color: black;" size="small" shape="round" (click)="ToDisableComment($event, 'enable')">Enable Comment</ion-button>
+    </div>
+
+</ion-content>
+
+<!-- -- besties-user-view-page -- -->
+
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar style="--background: #707072;">
+    <ion-title mode="ios" style="color: white;
+    font-size: 15px;">
+    <span class="top-number">2</span>
+      BESTIES
+      <img src="../../assets/icon/besties/trvl4.jpg" alt="" class="top-profile-pic">
+      <ion-icon name="caret-down-outline" class="top-drop-icon"></ion-icon>
+    </ion-title>
+  </ion-toolbar>m   
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-grid>
+    <ion-row>
+
+      <div class="top-container-style">
+
+        <ion-item lines="none">
+          <ion-avatar class="person-profile-img">
+            <img src="../../assets/icon/besties/thanos.jpg" alt="">
+          </ion-avatar>
+          <ion-label class="person-name-text">Pritty Kavitha</ion-label>
+
+            <img src="../../assets/icon/besties/add.png" alt="" class="add-more-icon">
+
+        </ion-item>
+
+      </div>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-card style="background-image: linear-gradient(to right, #ee1809 , #8a5a5a); border-radius: 10px;">
+        <ion-card-header style="color: white;margin-bottom: 10px;">OUR STORY</ion-card-header>
+        <ion-card-content style="color: white;
+        line-height: 14px;
+        font-size: 12px;
+        position: relative;
+        bottom: 20px;">
+          It is a long established fact that a reader 
+          will be distracted by the readable content 
+          of a page when looking at its layout. The 
+          point of using Lorem Ipsum is that it has a 
+          more-or-less normal distribution of letters, 
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+    <ion-row>
+      <ion-card style="background-image: linear-gradient(to right, #0a0700 , #595d5e); border-radius: 10px;">
+        <ion-card-header style="color: white;margin-bottom: 10px;">OUR FAVOURITE WORD / SLOGAN</ion-card-header>
+        <ion-card-content style="color: white;
+        line-height: 14px;
+        font-size: 12px;
+        position: relative;
+        bottom: 20px;">
+          It is a long established fact that a reader 
+          will be distracted by the readable content 
+          of a page when looking at its layout.
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+    <ion-row>
+      <ion-card style="background-image: linear-gradient(to right, #e39b09 , #787570); border-radius: 10px;">
+        <ion-card-header style="color: white;margin-bottom: 10px;">A LETTER TO MY BEST FRIEND</ion-card-header>
+        <ion-card-content style="color: white;
+        line-height: 14px;
+        font-size: 12px;
+        position: relative; 
+        bottom: 20px;">
+          It is a long established fact that a reader 
+          will be distracted by the readable content 
+          of a page when looking at its layout.
+        </ion-card-content>
+      </ion-card>
+    </ion-row>
+
+    <ion-row>
+
+      <ion-col>
+
+        <div style="text-align: center;">
+          <ion-card class="bottom-card">
+            <img src="../../assets/icon/besties/trvl1.jpg" alt="" class="bottom-card-small-img">
+          </ion-card>
+        </div>
+
+      </ion-col>
+
+      <ion-col>
+
+        <div style="text-align: center;">
+          <ion-card class="bottom-card">
+            <img src="../../assets/icon/besties/drop.png" alt="" class="play-button-inside-card">
+            <img src="../../assets/icon/besties/trvl2.jpg" alt="" class="bottom-card-small-img">
+          </ion-card>
+        </div>
+
+      </ion-col>
+
+      <ion-col>
+
+        <div style="text-align: center;">
+          <ion-card class="bottom-card">
+          </ion-card>
+        </div>
+
+      </ion-col>
+
+    </ion-row>
+
+    <div class="last-container">
+      <ion-row>
+        <ion-col class="last-cols">
+          <img src="../../assets/icon/besties/heart.png" alt="" style="height: 15px; width: 16px;">
+          <span class="last-col-text">20m</span> 
+        </ion-col>
+  
+        <ion-col class="last-cols">
+          <img src="../../assets/icon/besties/comment.png" alt="" style="height: 15px; width: 18px;">
+          <span class="last-col-text">10k</span>
+        </ion-col>
+      </ion-row>
+    </div>
+    
+  </ion-grid>
+
+</ion-content>
+ -->

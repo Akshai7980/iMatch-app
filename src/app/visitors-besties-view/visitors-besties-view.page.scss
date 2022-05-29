@@ -1,0 +1,95 @@
+.top-profile-pic{
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    right: 33px;
+    bottom: 5px;
+}
+.top-number{
+    border-radius: 50%;
+    background-color: white;
+    color: #707072;
+    font-size: small;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 130px;
+    bottom: 16px;
+}
+.top-drop-icon{
+    position: absolute;
+    right: 15px;
+    color: white;
+}
+.item-styles{
+    border-left: 5px solid #bcbcbc;
+    border-radius: 10px;
+    padding: 0px;
+    margin: 18px;
+    box-shadow: 1px 1px #ccccce;
+    border-top: 1px solid #80808038;
+}
+.name-text{
+    position: relative;
+    bottom: 15px;
+    left: 15px;
+}
+.text-near-icons{
+    position: relative;
+    bottom: 4px;
+    left: 3px;
+}
+.container-inside-item{
+    width: 117px;
+    position: relative;
+    top: 12px;
+    text-align: center;
+    font-size: 12px;
+    right: 110px;
+}
+.text-near-img-icons{
+    position: relative;
+    left: 3px;
+    bottom: 3px;
+}
+.add-img{
+    height: 30px;
+    width: 30px;
+    position: relative;
+    right: 40px;
+}
+.last-drop-img{
+    position: absolute;
+    top: 30px;
+    right: -9px;
+    border-top-left-radius: 31px;
+}
+
+.custom-skeleton ion-skeleton-text {
+    line-height: 13px;
+  }
+  
+  .custom-skeleton ion-skeleton-text:last-child {
+    margin-bottom: 5px;
+  }
+
+  .top-chip-styles{
+    background-color: #707072;
+    width: 118px;
+    height: 26px;
+    border: 1px solid black;
+}
+.chip-label-text{
+    color: white;
+    font-size: 9px;
+    position: absolute;
+    right: 9px;
+}
+
+.add-more-icon{
+    font-size: x-large;
+    position: relative;
+    right: 6px;
+}

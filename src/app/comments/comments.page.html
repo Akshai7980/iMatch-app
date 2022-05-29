@@ -1,0 +1,203 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+    <ion-title style="margin-left: -60px;">COMMENTS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: #707072">
+
+  <form [formGroup]="OpenMatchCommentForm" (ngSubmit)="toAddComment()">
+
+    <div>
+
+      <ion-item class="top-container-item" lines="none" *ngIf="userDetails">
+        <ion-input placeholder="Write a comment ....." style="color:white;" formControlName="comment" [(ngModel)]="userComment.comment" autocapitalize="true"></ion-input>
+        <img [src]="userDetails.profile_pic" alt="" slot="end" class="top-person-img">
+      </ion-item>
+
+    </div>
+  </form>
+
+    <div>
+
+      <ion-item lines="none" style="--background: #707072;">
+        <p class="top-left-text" *ngIf="commentDetails">{{this.commentDetails.length}} Comments</p>
+        <ion-button slot="end" class="top-right-red-button" type="submit" (click)="toAddComment()" [disabled]="!OpenMatchCommentForm.valid">
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          ADD YOUR COMMENT</ion-button>
+      </ion-item>
+
+      <p style="padding-left: 20px; background-color: #9e9e9e; height: 45px; padding-top: 10px;" *ngIf="commentDetails?.length==0" >Be the first person to leave a comment ....</p>
+    
+
+      <div style="padding: 5px" *ngFor="let comment of commentDetails; let i = index;">
+
+        <div style="display: flex;">
+          <div style="height: 45px; width: 45px; margin-right: 10px; text-align: center; border-radius: 5px;">
+            <img style="border-radius: 5px;" [src]="comment.commented_userprofile" alt="" onerror="this.onerror=null;this.src='../../assets/icon/profile/user.png';">
+          </div>
+
+          <div style="background-color: white; width: -webkit-fill-available; border-radius: 5px;">
+            <div style="background-color: #a9a9a969; padding: 7px;">
+              
+              <span> <strong> {{comment.commented_username}} </strong> </span> <span style="font-size: 11px; margin-left: 10px;"> said on {{comment.commented_at | date}} @ {{comment.commented_at | date:'shortTime'}} </span>
+            </div>
+
+            <div style="padding: 15px;">
+              <span> {{comment.comment}} </span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; padding: 10px; border-top: .5px solid darkgrey;">
+
+              <div>
+                <img src="../../assets/icon/lik-2.png" alt="" class="bottom-small-img-icons" (click)='toLikeComment($event,comment)'>
+                <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;"> {{comment.total_like_count}} </span>
+              </div>
+
+              <div>
+                <img src="../../assets/icon/lik-1.png" alt="" class="bottom-small-img-icons">
+                <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;"> {{comment.total_like_count}} </span>
+              </div>
+
+              <div>
+                <img src="../../assets/icon/com.png" alt="" class="bottom-small-img-icons" (click)="toShowReplyComment($event, comment, i)">
+                <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;" (click)="toHideReplyComment($event, comment, i)"> {{comment.reply}} </span>
+              </div>
+
+              <div style="padding: 0px 40px 0px 40px;">
+
+              </div>
+
+              <div>
+                <ion-button slot="end" size="small" shape="round" class="bottom-right-red-button" (click)="toShowReplyField($event,comment)">REPLY</ion-button>
+              </div>
+
+            </div>
+
+            <!-- comment reply section -->
+            <div *ngIf="showReplyComment[i]==true" class="animate__animated animate__fadeIn">
+              <div *ngFor="let reply of ReplyCommentArray; let i = index" style="display: flex; padding: 5px;">
+                <div style="text-align: center; margin-right: 5px; padding: 4px;">
+                  <img style="border-radius: 5px; height: 45px; width: 45px;" [src]="reply.commented_userprofile" alt="" onerror="this.onerror=null;this.src='../../assets/icon/profile/user.png';">
+                  <p style="margin: -5px; font-size: 13px;"> <strong> {{reply.commented_username}} </strong> </p>
+                  <span style="font-size: 10px;"> said on {{reply.commented_at| date}} @ {{comment.commented_at | date:'shortTime'}}  </span>
+              </div>
+
+              <div style="width: -webkit-fill-available; height: -webkit-fill-available; background-color: #A29465; border-radius: 5px;">
+                <div style="padding: 15px;">
+                  <span> {{reply.comment}} </span>
+                </div>
+    
+                <div style="display: flex; justify-content: space-between; padding: 0px 20px 10px 0px; float: right;">
+    
+                  <div>
+                    <img src="../../assets/icon/lik-2.png" alt="" class="bottom-small-img-icons" (click)='toLikeComment($event,reply)'>
+                    <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;"> {{reply.total_like_count}} </span>
+                  </div>
+    
+                  <div>
+                    <img src="../../assets/icon/lik-1.png" alt="" class="bottom-small-img-icons">
+                    <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;"> {{reply.total_like_count}} </span>
+                  </div>
+    
+                  <div>
+                    <img src="../../assets/icon/com.png" alt="" class="bottom-small-img-icons" (click)="toShowReplyComment($event, reply, i)">
+                    <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;" (click)="toHideReplyComment($event, reply, i)"> </span>
+                  </div>
+  
+                </div>
+              </div>
+            </div>
+            <!-- comment reply section -->
+          </div>
+
+        </div>
+      </div>
+      </div>
+
+    <!-- <div>
+
+      <div style="background: #707072; height: 152px;" *ngFor="let comment of commentDetails; let i=index">
+      <img [src]="comment.commented_userprofile" alt="" class="left-profile-img">
+
+      <div class="container">
+
+        <ion-row>
+          <ion-item lines="none" class="top-item">
+            <h6 class="person-name-text">{{comment.commented_username}}</h6>
+            <p class="time-text">said on {{comment.commented_at | date}} @ {{comment.commented_at | date:'shortTime'}}</p>
+          </ion-item>
+        </ion-row>
+
+        <ion-row style="background-color: white; height: 60px; width: 320px; border-bottom: 0.5px solid #80808070">
+          <p class="content-text">{{comment.comment}}</p>
+        </ion-row>
+
+        <ion-row>
+          <ion-item lines="none" style="width: -webkit-fill-available; height: 41px;">
+            <img src="../../assets/icon/lik-2.png" alt="" class="bottom-small-img-icons" (click)='toLikeComment($event,comment)'>
+            <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;"> {{comment.total_like_count}} </span>
+
+            <img src="../../assets/icon/lik-1.png" alt="" class="bottom-small-img-icons">
+            <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;"> {{comment.total_like_count}} </span>
+
+            <img src="../../assets/icon/com.png" alt="" class="bottom-small-img-icons" style="margin-left: 25px;" (click)="toShowReplyComment($event, comment, i)">
+            <span style="font-size: 12px; position: relative; bottom: 1px; left: 2px;" (click)="toHideReplyComment($event, comment, i)"> {{comment.replied_comment}} </span>
+
+            <ion-button slot="end" size="small" shape="round" class="bottom-right-red-button" (click)="toShowReplyField($event,comment)">REPLY</ion-button>
+          </ion-item>
+        </ion-row>
+      </div>
+
+    </div>
+
+    <div *ngIf="showReplyComment">
+      <p>comments reply</p>
+    </div>
+
+  </div> -->
+
+
+    <!-- <div *ngIf="commentId == this.ReplyComments?.replied_comment"> -->
+    <!-- <div *ngIf="showReplyComment">
+    <div *ngFor="let reply of ReplyCommentArray; let i=index" style="display: flex; background-color: white; margin: 0px 4px 0px 65px; padding: 10px; position: relative; bottom: 15px;" class="animate__animated animate__fadeIn">
+      <div style="text-align: center;">
+        <img [src]="reply.commented_userprofile" alt="" class="left-reply-profile-img">
+        <p style="margin: 0px; font-size: 12px; font-weight: 600;"> {{reply.commented_username}} </p>
+        <p style="margin: 1px; font-size: 11px; color: grey;"> said on {{reply.commented_at | date}} </p>
+        <p style="margin: 0px; font-size: 11px; color: grey;">@ {{reply.commented_at | date:'shortTime'}} </p>
+      </div>
+
+      <div style="background-color: #a39465; border-radius: 5px; padding: 0px 0px 0px 15px; width: -webkit-fill-available;">
+        <p> {{reply.comment}} </p>
+
+        <div style="text-align: end; font-size: 13px; margin-right: 15px; margin-top: 50px;">
+          <img src="../../assets/icon/lik-2.png" alt="" class="bottom-small-img-icons"> <span style="position: relative; bottom: 2px; left: 4px;">0</span>
+          <img src="../../assets/icon/lik-1.png" alt="" class="bottom-small-img-icons"> <span style="position: relative; bottom: 2px; left: 4px;">0</span>
+          <img src="../../assets/icon/com.png" alt="" class="bottom-small-img-icons"> <span style="position: relative; bottom: 2px; left: 4px;">0</span>
+        </div>
+
+      </div>
+    </div>
+  </div> -->
+<!-- </div> -->
+
+  </div>
+
+</ion-content>
+
+<ion-footer *ngIf="doReply==true" class="animate__animated animate__fadeIn">
+  <ion-toolbar>
+    <p *ngIf="ReplyArray" style="font-size: 13px; color: white; letter-spacing: 0.5px; background-color: #a39465; padding: 5px 15px; border-radius: 20px; margin: 5px 15px;">Replying to {{ReplyArray.commented_username + '`s'}} comment ...</p>
+    <div style=" display: flex; background-color: white; padding: 0px 15px; letter-spacing: 0.5px; font-size: 13px; font-weight: 600;">
+      <form [formGroup]="ReplyCommentForm" style="display: flex; width: -webkit-fill-available;" (ngSubmit)="toAddReply($event,ReplyArray)">
+      <img [src]="ReplyArray.commented_userprofile" alt="" style="border-radius: 50%; height: 30px; width: 30px; margin: 5px;">
+      <ion-input formControlName="reply" [(ngModel)]="userReply.reply" placeholder="Add a reply ..." autocapitalize="true"> @{{ReplyArray.commented_username}} </ion-input>
+      <ion-button style="text-transform: none;" size="small" shape="round" type="submit" [disabled]="!this.ReplyCommentForm.valid">Send Reply</ion-button>
+    </form>
+    </div>
+  </ion-toolbar>
+</ion-footer>

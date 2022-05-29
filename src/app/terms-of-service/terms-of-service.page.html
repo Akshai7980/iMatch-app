@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-buttons slot="start">
+          <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+    <ion-title style="margin-left: -60px;">TERMS OF SERVICE</ion-title>
+  </ion-toolbar>
+  <div style="background-color: #70707221; font-family: OpenSansExtraBold; font-size: 18px; color: #707072; height: 75px;">
+    <img style="width: 45px; margin: 18px 0 0 30px;" src="../../assets/icon/help-invitation-terms/terms.png">
+  <div style="margin: -48px 0 5px 92px;">Terms of Service</div>
+  
+  <div style=" font-family: OpenSansSemiBold; font-size: 13px; color: #707072; margin: -2px 0 0 96px;">Updated 10/12/2020</div>
+</div>
+</ion-header>
+
+<ion-content >
+  <div>
+
+      <div style="margin-top: 15px; font-family: OpenSansBold; margin-left: 20px; font-size: 12px; margin-right: 5px;">
+        <strong style="font-size: 14px;">1- Terms and Conditions</strong>
+        <p style="font-family: OpenSansRegular; color:#707072">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In tellus integer feugiat 
+          scelerisque varius morbi. Praesent semper feugiat nibh sed pulvinar. In est ante in nibh mauris.
+        </p>
+      
+        <strong style="font-size: 14px;">2- Terms and Conditions</strong>
+        <p style="font-family: OpenSansRegular; color:#707072">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In tellus integer feugiat 
+          scelerisque varius morbi. Praesent semper feugiat nibh sed pulvinar. In est ante in nibh mauris.
+        </p>
+      
+        <strong style="font-size: 14px;">3- Terms and Conditions</strong>
+        <p style="font-family: OpenSansRegular; color:#707072">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In tellus integer feugiat 
+          scelerisque varius morbi. Praesent semper feugiat nibh sed pulvinar. In est ante in nibh mauris.
+        </p>
+      
+      </div>
+  </div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border" style="height: 130px; margin-top: 30px; margin-bottom: -10px;">
+  <ion-checkbox color="success" class="check-box" [(ngModel)]="myBoolean_Terms" (ionChange)="onMyBooleanChange()" ></ion-checkbox>
+  <div style="font-family: OpenSansRegular; color: #707072; font-size: 12px; margin-left: 47px;">I agree with the <b style="color: black; font-family: OpenSansBold">Terms and Conditions</b> </div>
+  <ion-checkbox color="success" class="check-box" style="margin-top: 10px;" [(ngModel)]="myBoolean_Policy" (ionChange)="onMyBooleanChange()" ></ion-checkbox>
+  <div style="font-family: OpenSansRegular; color: #707072; font-size: 12px; margin-top: 9px; margin-left: 47px; margin-bottom: 25px;">I agree with the <b style="color: black; font-family: OpenSansBold">Privacy Policy</b> </div>
+  <ion-button shape="round" expand="block" color="primary" style="color: white; margin-left: 18px; font-size: 14px; width: 135px; font-family: OpenSansExtraBold;" (click)="onDecline()">DECLINE</ion-button> 
+  <ion-button shape="round" expand="block" color="warning" style="color: black; margin-top: -40px ;margin-left: 205px; font-size: 14px; width: 135px; font-family: OpenSansExtraBold;" [disabled]="!checkedbtn" (click)="onAccept()" >ACCEPT</ion-button> 
+</ion-footer>

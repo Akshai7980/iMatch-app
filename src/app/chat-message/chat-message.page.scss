@@ -1,0 +1,129 @@
+/* PAGE HEADER */
+.tabone_header {
+    background: #707072;
+    position: relative;
+}
+// .tabone_header_left {
+    
+// }
+.tabone_header_right {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.logo-img {
+    height: 25px;
+    max-width: 25px;
+}
+.chat_top-header {
+    padding: 1px;
+    color: #ffffff;
+    text-align: center;
+}
+.chat_top-header h3 {
+    font-size: 20px;
+}
+.chat_top-header p {
+    font-size: 10px;
+    margin-top: -5px;
+}
+.chat-image-centre {
+    height: 75px;
+    width: 70px;
+    margin-bottom: -20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+    background-color: white;
+}
+.chat-img-circle {
+    height: 55px;
+    width: 55px;
+    position: relative;
+    bottom: 5px;
+    padding: 1px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 50%;
+    opacity: 0.5;
+    background-color: white;
+}
+.chat-image-profile {
+    height: 50px;
+    width: 50px;
+}
+.chat-image-profile img {
+    height: 100%;
+    width: 100%;
+}
+
+/* ODD CHAT MESSAGE */
+.chat-div-head {
+    width: 85%;
+}
+.chat-div {
+    margin-left: 18px;
+    padding: 5px 10px;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 7px -3px;
+}
+.chat-div p {
+    font-size: 11px;
+    line-height: 17px;
+}
+.chat-time {
+    position: absolute;
+    right: 5px;
+    bottom: -32px;
+    font-size: 11px;
+}
+
+/* EVEN CHAT MESSAGE */
+.second-chat-div {
+    padding: 5px 10px;
+    background: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0px 1px 7px -3px;
+}
+.second-chat-image-profile {
+    height: 50px;
+    width: 50px;
+    margin-left: 18px;
+}
+.second-chat-image-profile img {
+    height: 100%;
+    width: 100%;
+}
+.second-chat-div P {
+    font-size: 11px;
+    line-height: 17px;
+}
+.second-chat-time {
+    position: absolute;
+    bottom: -32px;
+    font-size: 11px;
+}
+/* SEARCH SECTION */
+.searchbar_div {
+    width: 90%;
+}
+.text-field-icons{
+    height: 35px;
+    width: 35px;
+    position: relative;
+    left: 3px;
+    top: 2px;
+    margin-right: 10px;
+}
+.type_inputfield {
+    border-radius: 30px;
+    box-shadow: 0px 1px 7px -3px;
+}
+.ion-input-message {
+    font-size: 14px;
+}
+.item-native {
+    background: red;
+    padding-left: 0;
+}

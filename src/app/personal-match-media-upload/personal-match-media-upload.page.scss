@@ -1,0 +1,234 @@
+ion-content{
+    --background: url('../../assets/icon/help-invitation-terms/invitation-bg.png') 0 0/100% 100% no-repeat;
+}
+
+.input-field {
+    border: 1px solid #b6b6b7;
+    background: #cdcdce30;
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.box{
+    width: 88%;
+    // height: 243px;
+    border: 1px solid transparent;
+    background-color: #707072;
+    margin-left: 6%;
+    margin-top: 6%;
+    border-radius: 5px;
+}
+
+.inner-box{
+    border: 1px solid #e0e0e0;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    margin: 5%;
+    border-radius: 5px;
+}
+
+.inner-box div{
+    position: relative;
+    ion-img{
+        width: 45%;
+    }
+    ion-thumbnail{
+        border: 1px solid #fcbb3b;
+        background-color: #ffffffcc;
+        position: absolute;
+        right: 4%;
+        top: 12%;
+        height: 65px;
+        width: 65px;
+    }
+}
+
+.custom-file-input {
+    color: transparent;
+  }
+  .custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'Select some files';
+    color: #4c2d00;
+    display: inline-block;
+    // background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    // border: 1px solid #999;
+    border-radius: 20px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    // text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active {
+    outline: 0;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+  }
+  
+  body {
+    padding: 20px;
+  }
+
+//   custom-file-input-Capture-Image
+  .custom-file-input-Capture-Image {
+    color: transparent;
+  }
+  .custom-file-input-Capture-Image::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input-Capture-Image::before {
+    content: 'Capture Image';
+    color: #4c2d00;
+    // width: 180px;
+    display: inline-block;
+    // background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    // border: 1px solid #999;
+    border-radius: 20px;
+    // padding: 5px 8px;
+    // padding: 10px 0px 10px 0px;
+
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    // text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+    // margin-top: 20px;
+  }
+
+  body {
+    padding: 20px;
+  }
+
+//   custom-file-input-Capture-Image
+
+// custom-file-input-storage
+  .custom-file-input-storage {
+    color: transparent;
+  }
+  .custom-file-input-storage::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input-storage::before {
+    content: 'Files From Phone Storage';
+    color: #4c2d00;
+    width: 180px;
+    display: inline-block;
+    // background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    // border: 1px solid #999;
+    border-radius: 20px;
+    // padding: 5px 8px;
+    // padding: 10px 0px 10px 0px;
+
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    // text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+    position: relative;
+    top: 10%;
+    // margin-top: 20px;
+  }
+
+  body {
+    padding: 20px;
+  }
+
+//   custom-file-input-storage
+
+// custom-file-input-Capture-Video
+.custom-file-input-Capture-Video {
+    color: transparent;
+  }
+  .custom-file-input-Capture-Video::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input-Capture-Video::before {
+    content: 'Capture Video';
+    color: #4c2d00;
+    // width: 180px;
+    display: inline-block;
+    // background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    // border: 1px solid #999;
+    border-radius: 20px;
+    // padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    // text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+    // margin-top: 20px;
+    // padding: 10px 0px 10px 0px;
+
+
+  }
+  body {
+    padding: 20px;
+  }
+
+//   custom-file-input-Capture-Video
+
+// custom-file-input-Capture-Audio
+.custom-file-input-Capture-Audio {
+    color: transparent;
+  }
+  .custom-file-input-Capture-Audio::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input-Capture-Audio::before {
+    content: 'Capture Audio';
+    color: #4c2d00;
+    // width: 180px;
+    display: inline-block;
+    // background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);
+    // border: 1px solid #999;
+    border-radius: 20px;
+    // padding: 5px 8px;
+    // padding: 10px 0px 10px 0px;
+
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    // text-shadow: 1px 1px #fff;
+    font-weight: 700;
+    font-size: 10pt;
+    // margin-top: 20px;
+
+  }
+    body {
+    padding: 20px;
+  }
+//   custom-file-input-Capture-Audio
+
+
+//   .custom-file-input-storage:hover::before {
+//     border-color: black;
+//   }
+//   .custom-file-input-storage:active {
+//     outline: 0;
+//   }
+//   .custom-file-input-storage:active::before {
+//     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9); 
+//   }
+  
+//   body {
+//     padding: 20px;
+//   }

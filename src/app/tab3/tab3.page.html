@@ -1,0 +1,74 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <img src="../../assets/icon/chat/back.png" alt="" style="height: 16px;width: 10px;position: absolute;left: 20px;" (click)="togoBack()">
+        <ion-title style="width: 300px;margin-left: 40px;">CALL FOR A MATCH</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+
+    <ion-searchbar mode="ios" [formControl]="searchControl" (keyup)="onSearchInput($event)" animated></ion-searchbar>
+
+    <div *ngIf="searching" class="spinner-container">
+      <ion-spinner></ion-spinner>
+    </div>
+
+    <div style="display: flex; margin-left: 20px;" *ngIf="showCategory==true">
+
+      <ion-chip style="background-color: #ffc3008f;" (click)="toListCategory('bestie')">
+        <ion-icon name="caret-forward-circle"></ion-icon>
+        <ion-label style="font-size: 12px; font-weight: 600;">Bestie List</ion-label>
+      </ion-chip>
+  
+      <ion-chip style="background-color: #00bcd480;" (click)="toListCategory('squad')">
+        <ion-icon name="caret-forward-circle"></ion-icon>
+        <ion-label style="font-size: 12px; font-weight: 600;">Squad List</ion-label>
+      </ion-chip>
+  
+      <ion-chip style="background-color: #ff980087;" (click)="toListCategory('fan')">
+        <ion-icon name="caret-forward-circle"></ion-icon>
+        <ion-label style="font-size: 12px; font-weight: 600;">Fan List</ion-label>
+      </ion-chip>
+  
+    </div>
+
+    <div style="display: flex; margin-left: 20px;" *ngIf="showCategory==true">
+      <ion-chip style="background-color: bisque;" (click)="toListCategory('fan-of')">
+        <ion-icon name="caret-forward-circle"></ion-icon>
+        <ion-label style="font-size: 12px; font-weight: 600;">Fan Of List</ion-label>
+      </ion-chip>
+  
+      <ion-chip style="background: #8bc34a9e;" (click)="toListCategory('invite')">
+        <ion-icon name="caret-forward-circle"></ion-icon>
+        <ion-label style="font-size: 12px; font-weight: 600;">Invite Others</ion-label>
+      </ion-chip>
+    </div>
+
+    <div *ngFor=" let user of allUsers">  
+      <ion-item lines="none" class="item-styles , animate__animated animate__fadeIn">
+            <div>
+          <img [src]="user.profile_pic" style="height: 50px; width: 50px; border-radius: 50%;" (click)="addToMatch($event,user)">
+            </div>
+    
+        <ion-label style="margin-left: 15px;">{{user.name}}</ion-label>
+
+        <img src="../../assets/icon/add.png" alt="" style="height: 30px; width: 30px;" (click)="addToMatch($event,user)">
+      </ion-item>
+    </div>
+
+  </ion-content>
+
+  <!-- <ion-footer *ngIf="ShowFooter==true" class="animate__animated animate__slideOutDown animate__delay-3s">
+    <ion-toolbar>
+      <div style="background-color: #707072; margin: 10px;">
+        <div style="border: 1px solid #ffffff8f; padding: 10px; border-radius: 4px; color: #dcdcdc;">
+          <div style="text-align: center;">
+            <img src="../../assets/icon/help-invitation-terms/bar.png" alt="">
+          </div>
+          <h6 *ngIf="userDetails">Hai {{userDetails.name}} !</h6>
+          <h2>Whom you want to call for a match ?
+          </h2>
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-footer>   -->

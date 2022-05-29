@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+
+    <div style="text-align: center; position: relative; right: 25px;">
+    <ion-title>OUR STORY</ion-title>
+   </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+
+    <div style="margin: 20px;">
+      <ion-textarea  type="text" [(ngModel)]="userStory" autocapitalize="true" auto-grow="true" class="textarea" placeholder="What is on your mind ....."></ion-textarea>
+    </div>
+
+    <div style="text-align: center;">
+      <ion-button size="small" shape="round" style="text-transform: none;" (click)="SubmitUserStory()">Save</ion-button>
+    </div>
+
+  </div>
+
+</ion-content>

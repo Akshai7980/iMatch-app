@@ -1,0 +1,67 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <img src="../../assets/icon/chat/back.png" alt="" style="height: 16px;width: 10px;position: absolute;left: 20px;" (click)="togoBack()">
+      <ion-title style="width: 300px;margin-left: 40px;">
+        PROFILE
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+
+    <div class="profile-content"  *ngIf="userDetails">
+      <div style="padding: 25px;">
+          <img *ngIf="userDetails" [src]=userDetails.profile_pic alt="" onerror="this.onerror=null;this.src='../../assets/icon/profile/user.png';" class="profile-img">
+      </div>
+      
+      <div class="text-field-div">
+
+        <div style="display: flex; justify-content: center; margin-bottom: 10px;">
+          <div style="margin: 5px; background-color: #9E9E9E; padding: 10px; border-radius: 5px; text-align: center; color: white; font-weight: 600; font-size: 11px;">
+            <p style="margin: 0px;">FAN</p>
+            <p style="margin: 0px;"> {{userDetails.fans_count}} </p>
+          </div>
+
+          <div style="margin: 5px; background-color: #9E9E9E; padding: 10px; border-radius: 5px; text-align: center; color: white; font-weight: 600; font-size: 11px;">
+            <p style="margin: 0px;">FAN OF</p>
+            <p style="margin: 0px;"> {{userDetails.fans_of_count}} </p>
+          </div>
+
+          <div style="margin: 5px; background-color: #9E9E9E; padding: 10px; border-radius: 5px; text-align: center; color: white; font-weight: 600; font-size: 11px;">
+            <p style="margin: 0px;">BESTIE</p>
+            <p style="margin: 0px;"> {{userDetails.bestie_count}} </p>
+          </div>
+
+          <div style="margin: 5px; background-color: #9E9E9E; padding: 10px; border-radius: 5px; text-align: center; color: white; font-weight: 600; font-size: 11px;">
+            <p style="margin: 0px;">SQUAD</p>
+            <p style="margin: 0px;">{{userDetails.squad_count}} </p>
+          </div>
+
+          <div style="margin: 5px; background-color: #9E9E9E; padding: 10px; border-radius: 5px; text-align: center; color: white; font-weight: 600; font-size: 11px;">
+            <p style="margin: 0px;">MATCH</p>
+            <p style="margin: 0px;"> {{userDetails.matches_count}} </p>
+          </div>
+        </div>
+  
+        <ion-label position="fixed" class="input-field-label">User Name</ion-label>
+        <ion-input class="input-field" [readonly]="true" value="{{userDetails.name}}">  </ion-input>
+  
+        <ion-label position="fixed" class="input-field-label">Bio</ion-label>
+        <ion-textarea class="input-field" [readonly]="true" value="{{userDetails.bio}}" autoGrow="true">  </ion-textarea>
+  
+        <ion-label position="fixed" class="input-field-label">Phone Number</ion-label>
+        <ion-input class="input-field" [readonly]="true" value="{{userDetails.phone_number}}">  </ion-input>
+  
+        <ion-label position="fixed" class="input-field-label">Email</ion-label>
+        <ion-input class="input-field" [readonly]="true" value="{{userDetails.email}}">  </ion-input>
+
+        <ion-label position="fixed" class="input-field-label">Gender</ion-label>
+        <ion-input class="input-field" [readonly]="true" value="{{userDetails.gender}}">  </ion-input>
+  
+        <ion-label position="University Name" class="input-field-label">University Name</ion-label>
+        <ion-input class="input-field" [readonly]="true" value="{{userDetails.university_name}}">  </ion-input>
+  
+      </div>
+    </div>
+  </ion-content>
+  

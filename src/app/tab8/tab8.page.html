@@ -1,0 +1,496 @@
+<ion-header>
+    <!-- <ion-toolbar> -->
+    <div class="tabone_header">
+      <div class="tabone_header_left">
+        <ion-buttons>
+          <ion-menu-button class="Hamburg_icon"></ion-menu-button>
+        </ion-buttons>
+      </div>
+      <div class="tabone_header_right">
+        <div style="margin-left: 10px; font-size: 25px; color:#ffffff">
+          <ion-icon name="settings-outline"></ion-icon>
+        </div>
+        <div style="margin-left: 10px;">
+
+          <img *ngIf="userDetails" [src]="userDetails.profile_pic" alt="" style="height: 45px; width: 45px; border-radius: 50%; background-color: #fcfcfc; padding: 2px;" (click)="gotoProfile()">
+
+        </div>
+        <div style="margin-left: 5px; font-size: 20px; color:#ffffff">
+          <ion-icon name="caret-down-outline"></ion-icon>
+        </div>
+      </div>
+    </div>
+    <!-- </ion-toolbar> -->
+  </ion-header>
+  
+  <!-- PAGE CONTENT SECTION  -->
+  <!-- IMAGE SLIDERS SECTION  -->
+  
+  <ion-content>
+    <div class="home-content">
+      <ion-searchbar value="" class="home-searchbar" (click)="gotoSearchUsers()"></ion-searchbar>
+      <div class="home_slide_div">
+
+        <ion-slides pager="true" loop="true" [options]="slideOpts" class="animate__animated animate__fadeIn">
+          <ion-slide style="padding: 5px; --bullet-background: white; --bullet-background-active: white;">
+            <div class="slide">
+              <img src="../../assets/icon/banner.png" alt="" class="logo-img">
+            </div>
+          </ion-slide>
+  
+          <ion-slide style="padding: 5px;">
+            <img src="../../assets/icon/banner.png" alt="" class="logo-img">
+          </ion-slide>
+  
+          <ion-slide style="padding: 5px;">
+            <img src="../../assets/icon/banner.png" alt="" class="logo-img">
+          </ion-slide>
+  
+          <ion-slide style="padding: 5px;">
+            <img src="../../assets/icon/banner.png" alt="" class="logo-img">
+          </ion-slide>
+  
+          <ion-slide style="padding: 5px;">
+            <img src="../../assets/icon/banner.png" alt="" class="logo-img">
+          </ion-slide>
+  
+          <ion-slide style="padding: 5px;">
+            <img src="../../assets/icon/banner.png" alt="" class="logo-img">
+          </ion-slide>
+  
+        </ion-slides>
+      </div>
+  
+      <!-- MULTIPLE SLIDES SECTION  -->
+
+      <div style="display: flex; width: 100%;">
+        <div style="display: flex; overflow-x: auto;" class="main_multiple_slide">
+          <div style="margin-right: 5px;" class="sub_multiple_slide" *ngFor="let hashTag of HashTagOptions; let i = index">
+            <div  class="circle_multiple_slide" style="margin: 0px 15px 0px 15px;">
+              <img [src]="hashTag.image" alt="" class="logo-img">
+            </div>
+            <p style="position: relative; left: 25px; width: 33px;"> {{hashTag.name}} </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- <ion-slides>
+
+      <ion-slide #mySlider pager="true">
+      <div class="main_multiple_slide">
+        <div class="sub_multiple_slide">
+          <div class="circle_multiple_slide" (click)="gotoFunny()">
+            <img src="../../assets/icon/funny.png" alt="" class="logo-img">
+          </div>
+          <p>Funny</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide" (click)="gotoArtAndEntertainment()">
+            <img src="../../assets/icon/arts.png" alt="" class="logo-img">
+          </div>
+          <p>Art & Entertainment</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide" (click)="gotoBeautyAndFashion()">
+            <img src="../../assets/icon/beauty.png" alt="" class="logo-img">
+          </div>
+          <p>Beauty & Fashion</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide">
+            <img src="../../assets/icon/health.png" alt="" class="logo-img">
+          </div>
+          <p>Health & Food</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide">
+            <img src="../../assets/icon/schol.png" alt="" class="logo-img">
+          </div>
+          <p>Education</p>
+        </div> -->
+  
+        <!-- <div class="slide-next-arrow">
+          <img src="../../assets/icon/arrow.png" alt="" class="logo-img" (click)="swipeNext()">
+        </div> -->
+  
+      <!-- </div>
+    </ion-slide>
+
+    <ion-slide>
+      <div class="main_multiple_slide">
+        <div class="sub_multiple_slide">
+          <div class="circle_multiple_slide">
+            <img src="../../assets/icon/funny.png" alt="" class="logo-img">
+          </div>
+          <p>Events and others</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide">
+            <img src="../../assets/icon/arts.png" alt="" class="logo-img">
+          </div>
+          <p>Home and decors</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide">
+            <img src="../../assets/icon/beauty.png" alt="" class="logo-img">
+          </div>
+          <p>Luxuries</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide">
+            <img src="../../assets/icon/health.png" alt="" class="logo-img">
+          </div>
+          <p>Business</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide">
+            <img src="../../assets/icon/schol.png" alt="" class="logo-img">
+          </div>
+          <p>Charity</p>
+        </div> -->
+  
+        <!-- <div class="slide-next-arrow">
+          <img src="../../assets/icon/arrow.png" alt="" class="logo-img">
+        </div> -->
+  
+      <!-- </div>
+    </ion-slide> -->
+
+    <!-- <ion-slide>
+      <div class="main_multiple_slide">
+        <div class="sub_multiple_slide">
+          <div class="circle_multiple_slide" (click)="gotoiMatchTop100()">
+            <img src="../../assets/icon/funny.png" alt="" class="logo-img">
+          </div>
+          <p>iMatch top 100</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;">
+          <div class="circle_multiple_slide" (click)="gotoNews()">
+            <img src="../../assets/icon/arts.png" alt="" class="logo-img">
+          </div>
+          <p>News</p>
+        </div>
+  
+        <div class="sub_multiple_slide" style="margin-left: 12px;" (click)="gotoBlog()">
+          <div class="circle_multiple_slide">
+            <img src="../../assets/icon/beauty.png" alt="" class="logo-img">
+          </div>
+          <p>Blog</p>
+        </div>
+  
+      </div>
+    </ion-slide> -->
+
+  <!-- </ion-slides> -->
+
+      <div class="multiple-slide-more" (click)="toOpenIconsPanel()">
+        <ion-button fill="clear" class="multiple-slide-more_button">More</ion-button>
+      </div>
+
+      <div *ngIf="!showIcons">
+
+      </div>
+
+  
+      <!-- ONGOING CONTEST SECTION  -->
+      <div class="home-ongoing-contest">
+        <p>Ongoing contest</p>
+
+        <div style="display: flex; position: relative; bottom: 10px;">
+
+          <div class="go-icon" >
+            <img *ngIf="!ImageIcons" src="../../assets/icon/drop.png" alt="" (click)="toShowImageIcons()">
+            <img *ngIf="ImageIcons" src="../../assets/icon/drop.png" alt="" (click)="toHideImageIcons()">
+          </div>
+
+          <div *ngIf="ImageIcons" style="display: flex; justify-content: center; margin: 10px; width: 270px;" class="animate__animated animate__fadeIn">
+
+            <div class="ongoing-img-icons">
+              <img src="../../assets/icon/img1.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('image')">
+            </div>
+  
+            <div class="ongoing-img-icons">
+              <img src="../../assets/icon/vid1.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('video')">
+            </div>
+  
+            <div class="ongoing-img-icons">
+              <img src="../../assets/icon/aud1.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('audio')">      
+            </div>
+  
+            <div class="ongoing-img-icons">
+              <img src="../../assets/icon/attach1.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('attachment')">
+            </div>
+  
+            <div class="ongoing-img-icons">
+              <img src="../../assets/icon/link1.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('link')">
+            </div>
+  
+          </div>
+
+        </div>
+
+        <p *ngIf="ongoingDetails?.length==0" style="border: 1px solid grey; background-color: #9E9E9E; padding: 10px; border-radius: 5px; text-align: center;">Currently you are having no Ongoing Contests to display here !!!</p>
+        
+        <!-- <div style="margin-bottom: 15px;">
+
+        <div class="contest-image-div" *ngFor="let details of ongoingDetails; let i = index" style="margin-bottom: 5px;">
+          <div class="image-div" (click)="goToOngoingContestPage($event, details, i, 'USER')">
+            <img [src]="details.receiver_image" alt="" style="border-radius: 7px 0px 0px 7px;" onerror="this.src='../../assets/icon/no_media.png';">
+          </div>
+
+          <div class="vs-image">
+            <img src="../../assets/icon/vs.png" alt="">
+          </div>
+
+          <div class="image-div" (click)="goToOngoingContestPage($event, details, i, 'USER')">
+            <img [src]="details.sender_image" alt="" style="border-radius: 0px 7px 7px 0px; filter: blur(8px); -webkit-filter: blur(8px);" onerror="this.src='../../assets/icon/no_media.png';">
+          </div>
+
+        </div>
+      </div> -->
+
+      </div>
+
+      <div style="display: flex; flex-wrap: wrap; margin-bottom: 20px; margin-left: 20px;">
+        <div *ngFor=" let details of ongoingDetails ; let i = index" style="display: flex; margin-right: -20px" (click)="goToOngoingContestPage($event, details, i, 'VISITOR')">
+          <div>
+            <img *ngIf="details.receiver_image_type==='image'" [src]="details.receiver_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/no_media.png';" class="animate__animated animate__fadeIn animate__delay-1s">
+            <img *ngIf="details.receiver_image_type==='audio'" style="object-fit: contain;" [src]="details.receiver_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/mic-icons.jpg';" class="animate__animated animate__fadeIn animate__delay-1s">
+            <img *ngIf="details.receiver_image_type==='text'" style="object-fit: cover;" [src]="details.receiver_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/word-icon.png';" class="animate__animated animate__fadeIn animate__delay-1s">
+            <img *ngIf="details.receiver_image_type==='link'" style="object-fit: cover;" [src]="details.receiver_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/link-icon.png';" class="animate__animated animate__fadeIn animate__delay-1s">
+            <video style="width: 55px; height: 45px;" *ngIf="details.receiver_image_type==='video'" [src]="details.receiver_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/play-button.png';" class="animate__animated animate__fadeIn animate__delay-1s"></video>
+          </div>
+
+          <div>
+            <img *ngIf="details.sender_image_type==='image'" [src]="details.sender_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/no_media.png';" class="animate__animated animate__fadeIn animate__delay-1s">
+            <img *ngIf="details.sender_image_type==='audio'" style="object-fit: contain;" [src]="details.sender_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/mic-icons.jpg';" class="animate__animated animate__fadeIn animate__delay-1s">
+            <img *ngIf="details.sender_image_type==='text'" style="object-fit: cover;" [src]="details.sender_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/word-icon.png';" class="animate__animated animate__fadeIn animate__delay-1s">
+            <img *ngIf="details.sender_image_type==='link'" style="object-fit: cover;" [src]="details.sender_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/link-icon.png';" class="animate__animated animate__fadeIn animate__delay-1s">
+            <video style="width: 55px; height: 45px;" *ngIf="details.sender_image_type==='video'" [src]="details.sender_image" alt="" style="height: 55px; width: 45px;" onerror="this.src='../../assets/icon/play-button.png';" class="animate__animated animate__fadeIn animate__delay-1s"></video>
+          </div>
+
+          <div style="position: relative; right: 50%; top: 17px;">
+            <img src="../../assets/icon/vs.png" alt="" style="height: 25px;">
+          </div>
+        </div>
+      </div>
+  
+      <!-- ORANGE BOXES SECTION  -->
+      <div class="main_orange_row">
+        <div (click)="goToPage('trending')">
+          <div class="sub_orange_row" style="padding: 25px;">
+            <img src="../../assets/icon/trends.png" alt="">
+          </div>
+          <p>Trending</p>
+        </div>
+  
+        <div (click)="goToPage('headliners')">
+          <div class="sub_orange_row">
+            <img src="../../assets/icon/headlines.png" alt="">
+          </div>
+          <p>Headlines of the month</p>
+        </div>
+  
+        <div (click)="goToPage('goodies')">
+          <div class="sub_orange_row">
+            <img src="../../assets/icon/goodies.png" alt="">
+          </div>
+          <p>Goodies of the Moment</p>
+        </div>
+      </div>
+  
+      <!--RECOMMENDED SECTION  -->
+      <div class="recommended_section">
+        <p>Recommended For You</p>
+
+        <div style="display: flex; width: 100%;">
+          <div style="display: flex; overflow-x: auto;">
+            <div style="display: flex;">
+              <div style="text-align: center; width: 105px; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: 105px;" *ngFor="let user of RecommendedForYou; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 11px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              <!-- <div style="text-align: center; width: 90px; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideFirst; let i = index">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div> -->
+            </div>
+          </div>
+        </div>
+
+
+        <!-- <ion-slides #slides [options]="slideOpts" (ionSlideDidChange)="ionSlideChanges(slides)"> -->
+
+          <!-- First Slide Starts -->
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideFirst; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+          <!-- First Slide Ends -->
+
+          <!-- Second Slide Starts -->
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideSecond; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+        <!-- Second Slide Ends -->
+
+        <!-- Third Slide Starts -->
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideThird; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+        <!-- Third Slide Ends -->
+
+        <!-- Fourth Slide Starts -->
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideFourth; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+          <!-- Fourth Slide Ends -->
+
+          <!-- Fifth Slide Starts -->
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideFifth; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+          <!-- Fifth Slide Ends -->
+
+                    <!-- Sixth Slide Starts -->
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideSixth; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+                    <!-- Sixth Slide Ends -->
+
+                    <!-- Seventh Slide Starts -->
+
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideSeventh; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+                              <!-- Seventh Slide Ends -->
+
+                    <!-- Eighth Slide Starts -->
+
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideEighth; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+                                        <!-- Eighth Slide Ends -->
+
+            <!-- Ninth Slide Starts -->
+
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideNinth; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+          <!-- Ninth Slide Ends -->
+
+            <!-- Tenth Slide Starts -->
+
+          <!-- <ion-slide>
+
+            <div style="display: flex;">
+
+              <div style="text-align: center; width: 40%; border: 0.5px solid #ffffff82; padding: 5px; border-radius: 10px; margin-right: 5px; height: fit-content;" *ngFor="let user of SlideTenth; let i = index" (click)="gotoUserProfile($event,user)">
+                <img [src]="user.profile_pic" alt="" style="border-radius: 50%; height: 60px; width: 60px;background: white; padding: 2px;">
+                <p style="font-size: 12px; font-family: 'OpenSansRegular'; font-weight: 600; margin-top: 1px;"> {{user.name}} </p>
+              </div>
+
+              </div>
+
+          </ion-slide> -->
+                    <!-- Tenth Slide Ends -->
+
+
+        <!-- </ion-slides> -->
+        
+      </div>
+      <!-- <div class="recommended-next-arrow">
+        <img src="../../assets/icon/arrow.png" alt="" class="logo-img , animate__animated animate__fadeOutRight animate__infinite	" (click)="nextSlide()">
+      </div> -->
+    </div>
+  </ion-content>

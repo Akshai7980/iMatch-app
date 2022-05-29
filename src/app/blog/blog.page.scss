@@ -1,0 +1,197 @@
+.container{
+    margin-top: 13px;
+    padding: 10px;
+    margin-right: 20px;
+    height: 565px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  
+      .text-container{
+          position: relative;
+          bottom: 243px;
+          margin-left: 10px;
+          margin-top: 10px;
+          height: 100px;
+          width: 100px;
+          white-space: normal;
+  
+          .text-heading{
+              color: white;
+              font-size: 15px;
+              font-weight: 600;
+            }
+  
+            .text-para{
+              color: white;
+              font-size: 10.5px;
+              letter-spacing: .5px;
+              position: relative;
+              bottom: 10px;
+            }
+  
+            .page-text{
+              color: white;
+              font-size: 9px;
+              position: relative;
+              bottom: 12px;
+            }
+  
+      }
+  
+      .text-container-second{
+          position: relative;
+          bottom: 240px;
+          margin-left: 10px;
+          margin-top: 10px;
+          height: 100px;
+          width: 100px;
+          white-space: normal;
+  
+          .text-heading{
+              color: white;
+              font-size: 15px;
+              font-weight: 600;
+            }
+  
+            .text-para{
+              color: white;
+              font-size: 10.5px;
+              letter-spacing: .5px;
+              position: relative;
+              bottom: 10px;
+            }
+  
+            .page-text{
+              color: white;
+              font-size: 9px;
+              position: relative;
+              bottom: 12px;
+            }
+      }
+  
+      .text-container-third{
+          float: right;
+          height: 100px;
+          width: 110px;
+          position: relative;
+          bottom: 430px;
+          height: 100px;
+          white-space: normal;
+  
+          .text-heading{
+              color: white;
+              font-size: 15px;
+              font-weight: 600;
+            }
+  
+            .text-para{
+              color: white;
+              font-size: 10.5px;
+              letter-spacing: .5px;
+              position: relative;
+              bottom: 10px;
+            }
+  
+            .page-text{
+              color: white;
+              font-size: 9px;
+              position: relative;
+              bottom: 12px;
+            }
+      }
+  }
+  
+      .bottom-container{
+        position: relative;
+        bottom: 333px;
+        border-radius: 5px;
+        border: 1px solid #dbe0e3;
+        border-top: 0px;
+        padding-left: 13px;
+        padding-right: 10px;
+        height: 330px;
+        white-space: normal;
+  
+            .person-img{
+              border-radius: 50%;
+              height: 35px;
+              width: 35px;
+              margin-right: 5px;
+          }
+          .count-text{
+            color: #6f6f71;
+            font-size: 14px;
+            margin-right: 15px;
+          }
+          .hand-img{
+            height: 21px;
+            width: 26px;
+            position: relative;
+            left: 28px;
+            bottom: 2px;
+          }
+          .hand1-img{
+            height: 21px;
+            width: 26px;
+            position: relative;
+            bottom: 2px;
+          }
+          .clock-img{
+            height: 16px;
+            width: 16px;
+            position: relative;
+            left: 25px;
+          }
+          h4{
+              font-weight: 600;
+              font-size: 19px !important;
+          }
+          .content{
+            font-size: 13px;
+              color: #9197a9;
+              position: relative;
+              bottom: 10px;
+              line-height: 20px;
+              letter-spacing: .5px;
+          }
+  
+      }
+  
+      h3{
+        font-weight: 700;
+      }
+  
+      .container-sub{
+        margin-top: 10px;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 1px 1px 5px 1px #d4d9dc;
+        padding: 3px;
+        margin: 10px;
+        border-top: 1px solid #d4d9dc;
+        border-left: 1px solid #d4d9dc;
+        position: relative;
+        bottom: 80px;
+    }
+  
+    .content-container{
+      position: absolute;
+      width: 240px;
+      right: 6px;
+      top: -5px;
+  
+  }
+  
+  .show-all-button{
+      --background: white;
+      color: black;
+      font-weight: 600;
+      text-transform: none;
+      --padding-bottom: 15px;
+      --padding-end: 20px;
+      --padding-start: 20px;
+      --padding-top: 15px;
+      position: relative;
+      left: 15px;
+  }

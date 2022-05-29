@@ -1,0 +1,191 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative;right: 15px;">PERSONAL MATCH MEDIA UPLOAD</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="box">
+    <div  class="inner-box">
+      <div style="text-align: center;">
+          <img src="../../assets/icon/help-invitation-terms/bar.png" style="height: 130px; width: 180px;">
+      </div>
+
+      <div style="background-color: #444446; margin-top: -5%; padding: 20px 10px 10px 10px; border-right: 1px solid #e0e0e0; text-align: center;">
+        
+
+        <div *ngIf="this.FolderClicked===true" style="text-align: -webkit-center; margin-bottom: 20px;">
+          <!-- <div *ngFor="let url of urls" style="display: flex;"> -->
+            <!-- <img [src]="url" alt="" style="height: 180px; width: 125px;"> -->
+          <!-- <p style="font-size: 15px; color: white; background-color: #5e5e5f; border-radius: 10px; padding: 20px; width: 150px;"> {{files}} </p> -->
+          <!-- </div> -->
+
+          <div *ngFor="let files of selectedFiles" style="width: 130px;">
+          <p style="font-size: 10px; color: white; background-color: #5e5e5f; border-radius: 5px; padding: 5px; width: 130px;"> {{files.name}} </p>
+
+          </div>
+        </div>
+
+        <div *ngIf="this.FolderClicked===false" style="text-align: -webkit-center; margin-bottom: 20px;">
+          <!-- <div *ngFor="let url of urls" style="display: flex;">
+            <img [src]="url" alt="" style="height: 180px; width: 125px;">
+          </div> -->
+
+          <div *ngFor="let files of MediaFiles" style="width: 130px;">
+          <p style="font-size: 10px; color: white; background-color: #5e5e5f; border-radius: 5px; padding: 5px; width: 130px;"> {{files.name}} </p>
+
+          </div>
+        </div>
+
+        <div *ngIf="hideImageSpace==true">
+
+          <form [formGroup]="Invitation">
+
+            <ion-input formControlName="caption" [(ngModel)]="userData.caption" placeholder="Enter Caption" class="input-field" autocapitalize="true"></ion-input>
+
+            <div style="justify-content: center;display: flex;flex-wrap: wrap;">
+            <ion-chip style="background-color: #f44336; display: inline-block;
+            justify-content: center;
+            flex-wrap: nowrap;">
+              <!-- <ion-icon name="folder-open"></ion-icon> -->
+              <input #file class="custom-file-input-storage" formControlName="file" style="width: 160px;" type="file" multiple (change)="fileChangeEvent($event, 'folder')">
+              <!-- (change)="fileChangeEvent($event,'folder')" -->
+
+              <!-- value="file" formControlName="file" [(ngModel)]="userData.file" -->
+              <!-- <ion-label>Files From Phone Storage</ion-label> -->
+            </ion-chip>
+
+            <ion-chip style="background-color: #9c27b0; display: inline-block;
+            flex-wrap: nowrap;">
+              <!-- (click)="CaptureImage()" -->
+              <!-- <ion-icon name="camera"></ion-icon> -->
+              <input #file class="custom-file-input-Capture-Image" style="width: 92px;" formControlName="file" accept="image/*" capture type="file" multiple (change)="fileChangeEvent($event,'image')">
+              <!-- <ion-label>Capture Image</ion-label> -->
+            </ion-chip>
+
+            <ion-chip style="background-color: #3f51b5; display: inline-block;
+            flex-wrap: nowrap;">
+              <!-- <ion-icon name="videocam"></ion-icon> -->
+              <input #file class="custom-file-input-Capture-Video" formControlName="file" style="width: 92px;" accept="video/*" capture type="file" multiple (change)="fileChangeEvent($event,'video')">
+              <!-- <ion-label>Capture Video</ion-label> -->
+            </ion-chip>
+
+            <ion-chip style="background-color: #2196f3; display: inline-block;
+            flex-wrap: nowrap;">
+              <!-- <ion-icon name="mic-circle"></ion-icon> -->
+              <input #file class="custom-file-input-Capture-Audio" formControlName="file" style="width: 90px;" accept="audio/*" capture type="file" multiple (change)="fileChangeEvent($event,'audio')">
+              <!-- <ion-label>Capture Audio</ion-label> -->
+            </ion-chip>
+
+            <ion-chip style="background-color: #009688;" (click)="toShowLinkInputFiled()">
+              <!-- <ion-icon name="link"></ion-icon> -->
+              <!-- <ion-input formControlName="file" [(ngModel)]="userData.file" style="display: none;" accept="audio/*" capture type="file" multiple (change)="fileChangeEvent($event)"></ion-input> -->
+              <ion-label>Share Links</ion-label>
+            </ion-chip>
+
+            <ion-chip style="background-color: #ff9800;" (click)="toShowTextArea()">
+              <!-- <ion-icon name="text"></ion-icon> -->
+              <!-- <ion-input formControlName="file" [(ngModel)]="userData.file" style="display: none;" accept="audio/*" capture type="file" multiple (change)="fileChangeEvent($event)"></ion-input> -->
+              <ion-label>Share Wordings</ion-label>
+            </ion-chip>
+
+          </div>
+
+            <!-- (click)="toSubmitLinkField()" -->
+
+            <!-- <ion-label> media
+              <ion-input class="custom-file-input" formControlName="file" accept="image/*,video/*,audio/*" capture [(ngModel)]="userData.file" type="file" multiple placeholder="Upload a file ..." (change)="fileChangeEvent($event)"></ion-input>
+            </ion-label> -->
+
+            <!-- <input type="file" class="custom-file-input"> -->
+
+            <!-- <div>
+
+              <div style="display: flex;
+              justify-content: center;
+              padding: 10px;">
+                <img *ngIf="urls" [src]="urls[0]" alt="" style="height: 180px;
+                width: 125px;
+                padding: 15px;"> -->
+                                <!-- <img *ngIf="urls" [src]="urls[1]" alt="" style="height: 180px;
+                                width: 125px;
+                                padding: 15px;"> -->
+                <!-- *ngIf="imgURL" -->
+                <!-- <p *ngFor="let files of selectedFiles" style="font-size: 15px; color: white; background-color: #5e5e5f; border-radius: 10px; padding: 20px; width: 150px;"> {{files.name}} </p> -->
+              <!-- </div> -->
+
+              <!-- <div style="display: flex;
+              justify-content: center;
+              padding: 10px;">
+                <img  [src]="imgURL" alt="" style="height: 180px;
+                width: 125px;
+                padding: 15px;"> -->
+                <!-- *ngIf="imgURL" -->
+                <!-- <p style="font-size: 15px; color: white; background-color: #5e5e5f; border-radius: 10px; padding: 20px; width: 150px;"> {{files[1]?.name}} </p>
+              </div> -->
+
+            <!-- </div> -->
+
+            <!-- <div> -->
+  
+              <!-- <img *ngIf="imgURL" [src]="imgURL" alt="" onerror="this.onerror=null;this.src='../../assets/icon/help-invitation-terms/bg2.png';"> -->
+              <!-- <img *ngIf="MediaFiles" [src]="MediaFiles[1]?.name" alt="" onerror="this.onerror=null;this.src='../../assets/icon/help-invitation-terms/bg2.png';"> -->
+  
+            <!-- </div> -->
+
+            <!-- <div style="display: flex; text-align: center; justify-content: center;" *ngIf="hideImageSpace==true">
+              <img *ngIf="MediaArray" [src]="MediaArray.name" onerror="this.onerror=null;this.src='../../assets/icon/help-invitation-terms/bg2.png';" style="height: 150px; width: 130px;" (click)="presentActionSheet()">
+              <img *ngIf="MediaArray" [src]="MediaArray.name" onerror="this.onerror=null;this.src='../../assets/icon/help-invitation-terms/bg2.png';" style="height: 150px; width: 130px;" (click)="presentActionSheet()">
+              </div> -->
+
+            <ion-button color="warning" style="font-family: OpenSansBold;" type="submit" (click)="submit()">Launch</ion-button>
+            <!-- (click)="ToLaunchAMatch($event)" -->
+
+          </form>
+        </div>
+
+
+          <form [formGroup]="LinkInputForm">
+            <div *ngIf="isLink==true" class="animate__animated animate__fadeInUp">
+              <ion-input formControlName="caption" [(ngModel)]="userLink.caption" placeholder="Enter Caption" class="input-field" autocapitalize="true"></ion-input>
+
+              <ion-textarea formControlName="link1" [(ngModel)]="userLink.link1" placeholder="Enter Your Link" class="input-field" auto-grow="true" type="url" value="https://"></ion-textarea>
+              <ion-textarea formControlName="link2" [(ngModel)]="userLink.link2" placeholder="Enter Your Link" class="input-field" auto-grow="true" type="url" value="https://"></ion-textarea>
+  
+              <ion-button color="warning" style="font-family: OpenSansBold;" type="submit" (click)="submit()">Launch</ion-button>
+            </div>
+          </form>
+
+          <form [formGroup]="TextInputForm">
+            <div *ngIf="isWordings==true" class="animate__animated animate__fadeInUp">
+              <ion-input formControlName="caption" [(ngModel)]="userText.caption" placeholder="Enter Caption" class="input-field" autocapitalize="true"></ion-input>
+
+              <ion-textarea formControlName="text1" [(ngModel)]="userText.text1" placeholder="Enter Your Wording" class="input-field" auto-grow="true" type="text"></ion-textarea>
+              <ion-textarea formControlName="text2" [(ngModel)]="userText.text2" placeholder="Enter Your Wording" class="input-field" auto-grow="true" type="text"></ion-textarea>
+              
+              <ion-button color="warning" style="font-family: OpenSansBold;" type="submit" (click)="submit()">Launch</ion-button>
+            </div>
+          </form>
+
+          <!-- <form>
+            <div>
+              <ion-input placeholder="Enter Caption"></ion-input>
+
+              <ion-label>
+
+              </ion-label>
+
+              <input type="file">
+            </div>
+          </form> -->
+          
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,45 @@
+.heading{
+    font-family: OpenSansBold;
+    font-size: 1em;
+    text-align: center;
+}
+
+.box{
+    font-family: OpenSansRegular;
+    font-size: 14px;
+    width: 115px;
+    height: 75px;
+    border-radius: 4px;
+    text-align: center;
+    padding-top: 25px;
+    color: white;
+
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #707072;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .input-box{
+    position: absolute;
+    margin-top: 530px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0px 0px 5px 2px gainsboro;
+    margin-left: 10px;
+    margin-right: 10px;
+    font-family: OpenSansSemiBold;
+    font-size: 13px;
+  }
+
+  .sc-ion-input-md-h{
+    --placeholder-opacity: 1;
+    width: 94%;
+    --padding-start: 20px;
+    --padding-top: 12px;
+    --padding-bottom: 13px;
+  }

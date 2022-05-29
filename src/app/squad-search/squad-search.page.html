@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 20px;">SEARCH SQUAD</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar mode="ios" [formControl]="searchControl" (ionChange)="onSearchInput($event)" animated></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <ion-item lines="none" class="item-styles" *ngFor=" let user of allUsers ; let i = index" (click)="addToList($event,user)">
+    <ion-avatar style="height: 50px; width: 50px;">
+
+      <img [src]="user.profile_pic" >
+      <!-- <img  *ngIf="user.profile_pic == '' "  src="../../assets/icon/profile/user.png" /> -->
+
+    </ion-avatar>
+    <ion-label style="margin-left: 15px;">{{user.name}}</ion-label>
+    <img src="../../assets/icon/add.png" alt="" style="height: 30px; width: 30px;" >
+  </ion-item>
+
+</ion-content>

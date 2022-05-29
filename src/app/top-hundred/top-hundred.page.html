@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 15px;">FLIP BOARD</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- PAGE CONTENT SECTION  -->
+<ion-content>
+  <div class="page-background-image">
+    <div class="page-background-div">
+      <div class="logo-div">
+        <img src="../../assets/icon/what_would/logo.png" alt="">
+        <h6>TOP 100</h6>
+        <p>WE HEART YOU</p>
+      </div>
+
+      <div style="margin-top: 30px; overflow: scroll; height: 55vh;">
+        <div class="tot-num">
+          <p>01 - 10</p>
+        </div>
+
+        <div class="list-items" >
+          <ol>
+            <div *ngFor="let top of TopHundred">
+            <li> {{top.username}} <span> {{top.fan_count}} </span> </li>
+          </div>
+
+            <!-- <div style="margin-top: 10px; margin-left: -20px;">
+              <div class="tot-num">
+                <p>11 - 20</p>
+              </div>
+            </div> -->
+
+            <!-- <li>James <span>100k Fans</span> </li>
+            <li>Elizabeth <span>100k Fans</span> </li>
+            <li>James Albert <span>100k Fans</span> </li>
+            <li>Andrew <span>100k Fans</span> </li>
+            <li>Martyn <span>100k Fans</span> </li>
+            <li>James <span>100k Fans</span> </li>
+            <li>Elizabeth <span>100k Fans</span> </li>
+            <li>James Albert <span>100k Fans</span> </li>
+            <li>Andrew <span>100k Fans</span> </li>
+            <li>Martyn <span>100k Fans</span> </li> -->
+
+            <!-- <div style="margin-top: 10px; margin-left: -20px;">
+              <div class="tot-num">
+                <p>21 - 30</p>
+              </div>
+            </div> -->
+
+            <!-- <li>James <span>100k Fans</span> </li>
+            <li>Elizabeth <span>100k Fans</span> </li>
+            <li>James Albert <span>100k Fans</span> </li>
+            <li>Andrew <span>100k Fans</span> </li>
+            <li>Martyn <span>100k Fans</span> </li>
+            <li>James <span>100k Fans</span> </li>
+            <li>Elizabeth <span>100k Fans</span> </li>
+            <li>James Albert <span>100k Fans</span> </li>
+            <li>Andrew <span>100k Fans</span> </li>
+            <li>Martyn <span>100k Fans</span> </li> -->
+
+            <!-- <div style="margin-top: 10px; margin-left: -20px;">
+              <div class="tot-num">
+                <p>21 - 30</p>
+              </div>
+            </div> -->
+
+            <!-- <li>James <span>100k Fans</span> </li>
+            <li>Elizabeth <span>100k Fans</span> </li>
+            <li>James Albert <span>100k Fans</span> </li>
+            <li>Andrew <span>100k Fans</span> </li>
+            <li>Martyn <span>100k Fans</span> </li>
+            <li>James <span>100k Fans</span> </li>
+            <li>Elizabeth <span>100k Fans</span> </li>
+            <li>James Albert <span>100k Fans</span> </li>
+            <li>Andrew <span>100k Fans</span> </li>
+            <li>Martyn <span>100k Fans</span> </li> -->
+
+          </ol>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>

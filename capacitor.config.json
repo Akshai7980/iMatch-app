@@ -1,0 +1,24 @@
+{
+  "appId": "com.sics.imatch",
+  "appName": "iMatch",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 5000
+    },    
+    "PushNotifications": {
+      "presentationOptions": ["badge", "sound", "alert"]
+    },
+    "LocalNotifications": {
+      "sound": "alarm.wav"
+    }
+  },
+  "GoogleAuth": {
+    "scopes": ["profile", "email"],
+    "serverClientId": "758700265051-ga7cag2l55o94isl5of45j3v9veqhspb.apps.googleusercontent.com",
+    "forceCodeForRefreshToken": true
+  },
+  "cordova": { }
+}

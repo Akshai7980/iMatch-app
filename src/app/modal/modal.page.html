@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title style="margin-left: 25px; font-size: 18px; font-family: OpenSansBold; text-transform: uppercase;">{{heading}}</ion-title>
+    <ion-icon name="close-outline" slot="end" size="large" (click)="dismissModal()" style="margin-top: -23px; width: 26px;"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+
+  <div *ngFor="let c of content">
+    <div class='div-heading'>{{c.title}}</div>
+    <div class='div-content'>{{c.description}}</div>
+    <div class='div-border'></div>
+  </div>
+  
+  <ion-button shape="round" expand="block" color="danger" class="cancel-button" (click)="dismissModal()">CANCEL</ion-button>
+
+</ion-content>

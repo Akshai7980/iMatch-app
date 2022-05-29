@@ -1,0 +1,294 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 25px;">ONGOING MATCH</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="top-icons-container">
+    <ion-row>
+      <ion-col class="col-icon">
+        <img src="../../assets/icon/img.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('image')">
+      </ion-col>
+
+      <ion-col class="col-icon">
+        <img src="../../assets/icon/vid.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('video')">
+      </ion-col>
+
+      <ion-col class="col-icon">
+        <img src="../../assets/icon/aud.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('audio')">      
+      </ion-col>
+
+      <ion-col class="col-icon">
+        <img src="../../assets/icon/attach.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('attachment')">
+      </ion-col>
+
+      <ion-col style="border: 1px solid #bebebf; border-radius: 5px;">
+        <img src="../../assets/icon/link.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('link')">
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!-- <ion-slides pager="true" #slides>
+    <ion-slide></ion-slide>
+  </ion-slides> -->
+
+
+  <ion-slides pager="true" #slides>
+
+    <div style="text-align: center; padding: 50px;" *ngIf="ongoingDetails===undefined">
+      <div>
+        <img src="../../assets/icon/landing/splash.jpg" alt="" style="height: 300px; width: 290px; border-radius: 50%; border: 15px solid #9E9E9E;">
+      </div>
+
+      <div>
+        <h4>Currently You Are Having No Ongoing Matches</h4>
+      </div>
+    </div>
+
+            <!-- Slide Starts Here -->
+
+    <ion-slide *ngFor="let details of ongoingDetails; let i = index;" style="padding: 20px;" class="animate__animated animate__flipInY">
+
+      <div style="border-radius: 5px; box-shadow: 1px 2px 5px 3px #9e9e9ea6; margin-bottom: 30px; margin-top: -20px; border-top: 1px solid #c9c9c9;">
+        <div style="display: flex; padding: 3px;">
+  
+          <div style="width: 178px; height: 255px;">
+            <div style="padding: 3px;">
+              <img *ngIf="details.receiver_image_type==='image'" [src]="details.receiver_image" alt="" onerror="this.src='../../assets/icon/login/bg.png';" style="border-radius: 7px; height: 255px; width: 100%;">
+              <a *ngIf="details.receiver_image_type==='link'" [href]="details.receiver_image" style=" border-radius: 7px; height: 255px; width: 100%; font-size: 10px;"> {{details.receiver_image}} </a>
+              <ion-textarea *ngIf="details.receiver_image_type==='text'" readonly autoGrow style=" border-radius: 7px; height: auto; width: 100%; font-size: 10px;" > {{details.receiver_image}} </ion-textarea>
+              <video *ngIf="details.receiver_image_type==='video'" [src]="details.receiver_image" controls controlsList="nodownload" style=" border-radius: 7px; height: 255px; width: 100%;"></video>
+              <audio *ngIf="details.receiver_image_type==='audio'" [src]="details.receiver_image" controls controlsList="nodownload" style=" border-radius: 7px; height: 255px; width: 100%;"></audio>
+            </div>
+          </div>
+  
+            <div>
+              <img src="../../assets/icon/vs.png" alt="" style="height: 33px; width: 33px; position: absolute; top: 23%; right: 46%;">
+            </div>
+  
+          <div style="width: 178px; height: 255px;">
+            <div style="padding: 3px;">
+              <img *ngIf="details.sender_image_type==='image'" [src]="details.sender_image" alt="" style="border-radius: 7px; height: 255px; width: 100%;" onerror="this.src='../../assets/icon/login/bg.png';">
+              <a *ngIf="details.sender_image_type==='link'" [href]="details.sender_image" style=" border-radius: 7px; height: 255px; width: 100%; font-size: 10px;"> {{details.sender_image}} </a>
+              <ion-textarea *ngIf="details.sender_image_type==='text'" readonly autoGrow style=" border-radius: 7px; height: auto; width: 100%; font-size: 10px;"> {{details.sender_image}} </ion-textarea>
+              <video *ngIf="details.sender_image_type==='video'" [src]="details.sender_image" controls controlsList="nodownload" style=" border-radius: 7px; height: 255px; width: 100%;"></video>
+              <audio *ngIf="details.sender_image_type==='audio'" [src]="details.sender_image" controls controlsList="nodownload" style=" border-radius: 7px; height: 255px; width: 100%;"></audio>
+            </div>
+          </div>
+  
+        </div>
+
+        <div style="display: flex; justify-content: space-around; position: relative; bottom: 52px; left: 58px;" *ngIf="userDetails.userStatus==='VISITOR'">
+          <div style="display: flex; background-color: white; border-radius: 25px; border: 1px solid grey;">
+            <span style="position: relative; top: 2px; margin: 3px 0px 0px 5px;"> {{details.receiver_likecount}} </span>
+            <img *ngIf="details.visitorliked_receiver==='0'" src="../../assets/icon/04.png" alt="" style="height: 25px; width: 29px; margin: 4px 4px 3px 4px;" (click)="toLikeForReceiver($event, details, i)">
+            <img *ngIf="details.visitorliked_receiver==='1'" src="../../assets/icon/shoot.png" alt="" style="height: 25px; width: 29px; margin: 4px 4px 3px 4px;" (click)="toLikeForReceiver($event, details, i)">
+          </div>
+
+          <div style="display: flex;     background-color: white; border-radius: 25px; border: 1px solid grey;">
+            <span style="position: relative; top: 2px; margin: 3px 0px 0px 5px;"> {{details.sender_likecount}} </span>
+            <img *ngIf="details.visitorliked_sender=='0'" src="../../assets/icon/04.png" alt="" style="height: 25px; width: 29px; margin: 4px 4px 3px 4px;" (click)="toLikeForSender($event, details, i)">
+            <img *ngIf="details.visitorliked_sender=='1'" src="../../assets/icon/shoot.png" alt="" style="height: 25px; width: 29px; margin: 4px 4px 3px 4px;" (click)="toLikeForSender($event, details, i)">
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-around; position: relative; bottom: 52px; left: 58px;" *ngIf="userDetails.userStatus!='VISITOR'">
+          <div style="display: flex; background-color: white; border-radius: 25px; border: 1px solid grey;">
+            <span style="position: relative; top: 2px; margin: 3px 0px 0px 5px;"> {{details.receiver_likecount}} </span>
+            <img *ngIf="details.userliked_receiver==='0'" src="../../assets/icon/04.png" alt="" style="height: 25px; width: 29px; margin: 4px 4px 3px 4px;" (click)="toLikeForReceiver($event, details, i)">
+            <img *ngIf="details.userliked_receiver==='1'" src="../../assets/icon/shoot.png" alt="" style="height: 25px; width: 29px; margin: 4px 4px 3px 4px;" (click)="toLikeForReceiver($event, details, i)">
+          </div>
+
+          <div style="display: flex;     background-color: white; border-radius: 25px; border: 1px solid grey;">
+            <span style="position: relative; top: 2px; margin: 3px 0px 0px 5px;"> {{details.sender_likecount}} </span>
+            <img *ngIf="details.userliked_sender=='0'" src="../../assets/icon/04.png" alt="" style="height: 25px; width: 29px; margin: 4px 4px 3px 4px;" (click)="toLikeForSender($event, details, i)">
+            <img *ngIf="details.userliked_sender=='1'" src="../../assets/icon/shoot.png" alt="" style="height: 25px; width: 29px; margin: 4px 4px 3px 4px;" (click)="toLikeForSender($event, details, i)">
+          </div>
+        </div>
+        
+        <div style="display: flex; justify-content: space-around; margin-top: -20px;">
+
+          <div style="display: flex;">
+            <div>
+              <img [src]="details.receiver_profile" alt="" style="border-radius: 50%; border: 1px solid; height: 45px; width: 45px;">
+            </div>
+            <span style="font-size: 15px; font-weight: 600; margin-left: 10px; position: relative; top: 13px;"> {{details.receiver_name}} </span>
+          </div>
+
+          <div style="display: flex;">
+            <div>
+              <img [src]="details.sender_profile" alt="" style="border-radius: 50%; border: 1px solid; height: 45px; width: 45px;">
+            </div>
+            <span style="font-size: 15px; font-weight: 600; margin-left: 10px; position: relative; top: 13px;"> {{details.sender_name}} </span>
+          </div>
+
+        </div>
+
+        <div style="text-align: center; margin-top: 15px; padding: 10px;">
+          <span> <strong> {{details.description}} </strong> </span>
+
+          <div style="display: flex; justify-content: center; margin-top: 15px">
+            <div style="margin-right: 25px; display: flex;">
+              <span style="position: relative; top: 3px; margin: 5px;" (click)="toshowPersonalScores($event, details)">{{details.total_likecount}} Hits</span>
+            </div>
+
+            <div style="display: flex;">
+              <span style="position: relative; top: 3px; margin: 5px;"> {{details.total_comment_count}} </span>
+              <img src="../../assets/icon/share.png" alt="" style="height: 25px; width: 27px; position: relative; top: 5px;" (click)="openComments($event,details)">
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 25px; background-color: #9e9e9e7d; display: flex; justify-content: center; height: 45px;">
+          <img src="../../assets/icon/03.png" alt="" style="height: 25px; width: auto; margin-top: 7px;">
+          <span style="font-size: 14px; padding: 10px; color: grey;"> {{details.remaining_time}} / {{details.time_duration}} </span>
+        </div>
+
+        <div *ngIf="showPersonalScores" style="position: absolute; top: 75%; border: 2px solid #8080808c; border-radius: 5px;">
+          <div (click)="toHidePopover()">
+            <ion-item lines="none">
+
+                <ion-avatar>
+                  <ion-img [src]="details.receiver_profile"></ion-img>
+                </ion-avatar>
+
+                <span style="margin-left: 12px;font-size: 14px;">{{details.receiver_name}}</span>
+                  <ion-img src="../../assets/icon/shoot.png" style="height: 25px; margin-left: 20px;"></ion-img>
+                <span>{{details.receiver_likecount}}</span>
+
+            </ion-item>
+
+            <ion-item lines="none">
+
+              <ion-avatar>
+                <ion-img [src]="details.sender_profile"></ion-img>
+              </ion-avatar>
+
+              <span style="margin-left: 12px;font-size: 14px;">{{details.sender_name}}</span>
+                <ion-img src="../../assets/icon/shoot.png" style="height: 25px; margin-left: 20px;"></ion-img>
+              <span>{{details.sender_likecount}}</span>
+
+            </ion-item>
+          </div>
+      </div>
+
+      </div>
+
+    </ion-slide>
+        <!-- Slide Ends Here -->
+
+        <!-- slide starts here -->
+    <!-- <ion-slide *ngFor="let details of ongoingDetails; let i=index;" class="animate__animated animate__flipInY">
+
+      <div style=" margin: 10px;box-shadow: 1px 1px 10px 0px;padding: 5px;margin-top: 0px !important;border-radius: 3px; border-top: 2px solid #80808078 ; margin-bottom: 35px;">
+
+        <div style=" display: flex; ">
+
+          <div>
+
+            <div style="height: 255px; width: 195px;">
+              <img *ngIf="details.receiver_image_type==='image'" [src]="details.receiver_image" alt="" style=" border-radius: 7px; height: 255px; width: 100%;" onerror="this.src='../../assets/icon/login/bg.png';">
+              <a *ngIf="details.receiver_image_type==='link'" [href]="details.receiver_image" style=" border-radius: 7px; height: 255px; width: 100%; font-size: 10px;">{{details.receiver_image}}</a> -->
+              <!-- <ion-textarea *ngIf="details.receiver_image_type==='link'" readonly style=" border-radius: 7px; height: 255px; width: 195px; font-size: 10px;"> {{details.receiver_image}} </ion-textarea> -->
+              <!-- <ion-textarea *ngIf="details.receiver_image_type==='text'" readonly autoGrow style=" border-radius: 7px; height: 255px; width: 100%; font-size: 10px;" > {{details.receiver_image}} </ion-textarea>
+              <video *ngIf="details.receiver_image_type==='video'" [src]="details.receiver_image" controls style=" border-radius: 7px; height: 255px; width: 100%;"></video>
+              <audio *ngIf="details.receiver_image_type==='audio'" [src]="details.receiver_image" controls style=" border-radius: 7px; height: 255px; width: 100%;"></audio> -->
+              <!-- *ngIf="details.receiver_image_type==='image'" -->
+              <!-- <ion-textarea *ngIf="details.receiver_image_type==='text'" readonly class="text-match-style" autoGrow>{{details.receiver_image}}</ion-textarea>
+              <video *ngIf="details.receiver_image_type==='video'" [src]="details.receiver_image" controls style="height: 255px; width: 185px;"></video>
+              <audio *ngIf="details.receiver_image_type==='audio'" [src]="details.receiver_image" controls style="height: 185px; width: 165px;"></audio>
+              <div style="width: 160px; height: auto; padding: 15px">
+              <a *ngIf="details.receiver_image_type==='link'" [href]="details.receiver_image">{{details.receiver_image}}</a> -->
+              <!-- </div> -->
+            <!-- </div> -->
+
+            <!-- <div style=" border-radius: 50%;height: 50px;width: 50px;float: right;position: relative;bottom: 25px;right: 15px;background-color: white;border: 1px solid grey; ">
+              <span style="position: relative; bottom: 5px;"> {{details.receiver_likecount}} </span>
+              <img *ngIf="details.visitorliked_receiver=='0'" src="../../assets/icon/04.png" alt="" style=" width: 29px;height: 25px; margin-top: 10px; " (click)="toLikeForReceiver($event, details, i)">
+              <img *ngIf="details.visitorliked_receiver=='1'" src="../../assets/icon/shoot.png" alt="" style=" width: 29px;height: 25px; margin-top: 10px; " (click)="toLikeForReceiver($event, details, i)">
+            </div> -->
+
+            <!-- <div style="text-align: start">
+              <img [src]="details.receiver_profile" alt="" style=" border-radius: 50%; height: 40px; width: 40px; float: left; border: 1px solid;">
+              <p style=" font-size: 14px; margin-top: 25px; font-weight: 600; position: relative; left: 10px; text-align: left; top: 10px;">{{details.receiver_name}}</p> -->
+              <!-- <span style=" font-size: 10px; position: relative; bottom: 20px; color: grey; left: 10px;">{{details.receiver_email}}</span> -->
+            <!-- </div> -->
+
+            <!-- <h6 style="font-size: 16px !important; margin: 0px !important; margin-top: 45px !important; position: relative; left: 50%;">{{details.description}}</h6>
+
+          </div> -->
+
+          <!-- <div style=" padding: 3px; "></div>
+
+          <div style=" position: absolute; height: 30px; top: 20%; right: 44%; ">
+            <img src="../../assets/icon/vs.png" alt="">
+          </div>
+
+          <div> -->
+
+            <!-- <div style="height: 255px; width: 195px;">
+              <img *ngIf="details.sender_image_type==='image'" [src]="details.sender_image" alt="" style=" border-radius: 7px; height: 255px; width: 100%" onerror="this.src='../../assets/icon/login/bg.png';">
+              <a *ngIf="details.sender_image_type==='link'" [href]="details.sender_image" style=" border-radius: 7px; height: 255px; width: 100%; font-size: 10px;">{{details.sender_image}}</a> -->
+              <!-- <ion-textarea *ngIf="details.sender_image_type==='link'" readonly autoGrow> {{details.sender_image}} </ion-textarea> -->
+              <!-- <ion-textarea *ngIf="details.sender_image_type==='text'" readonly autoGrow style=" border-radius: 7px; height: 255px; width: 100%; font-size: 10px;"> {{details.sender_image}} </ion-textarea>
+              <video *ngIf="details.sender_image_type==='video'" [src]="details.sender_image" controls style=" border-radius: 7px; height: 255px; width: 100%;"></video>
+              <audio *ngIf="details.sender_image_type==='audio'" [src]="details.sender_image" controls style=" border-radius: 7px; height: 255px; width: 100%;"></audio> -->
+              <!-- *ngIf="details.sender_image_type==='image'" -->
+              <!-- <ion-textarea *ngIf="details.receiver_image_type==='text'" readonly class="text-match-style" autoGrow>{{details.receiver_image}}</ion-textarea>
+              <video *ngIf="details.receiver_image_type==='video'" [src]="details.receiver_image" controls style="height: 255px; width: 185px;"></video>
+              <audio *ngIf="details.receiver_image_type==='audio'" [src]="details.receiver_image" controls style="height: 185px; width: 165px;"></audio>
+              <div style="width: 160px; height: auto; padding: 15px">
+              <a *ngIf="details.receiver_image_type==='link'" [href]="details.receiver_image">{{details.receiver_image}}</a>
+              </div> -->
+            <!-- </div> -->
+
+            <!-- <div style=" border-radius: 50%; height: 50px; width: 50px; float: right; position: relative; bottom: 25px; right: 15px; background-color: white; border: 1px solid grey;">
+              <span style="position: relative; bottom: 5px;"> {{details.sender_likecount}} </span>
+              <img *ngIf="details.visitorliked_sender=='0'" src="../../assets/icon/04.png" alt="" style=" width: 29px; height: 25px; margin-top: 10px;" (click)="toLikeForSender($event, details, i)">
+              <img *ngIf="details.visitorliked_sender=='1'" src="../../assets/icon/shoot.png" alt="" style=" width: 29px;height: 25px; margin-top: 10px; " (click)="toLikeForSender($event, details, i)">
+            </div>
+            <div style="text-align: start">
+              <img [src]="details.sender_profile" alt="" style="border-radius: 50%; height: 40px; width: 40px; float: left; border: 1px solid;">
+              <p style="font-size: 14px; margin-top: 25px; font-weight: 600; position: relative; left: 10px; text-align: left; top: 10px;">{{details.sender_name}}</p> -->
+              <!-- <span style="font-size: 10px; position: relative; bottom: 20px;  color: grey;left: 10px;">{{details.sender_email}}</span> -->
+            <!-- </div> -->
+            <!-- <h6 style="font-size: 16px !important; margin: 0px !important; margin-top: 45px !important; display: none;">{{details.description}}</h6> -->
+
+          <!-- </div> -->
+
+        <!-- </div> -->
+
+        <!-- <div style="display: flex; margin-top: 15px; position: relative; left: 35%; top: 18px;">
+          <div style="position: relative; top: 6px;">
+            <span style="font-weight: 600; font-size: 15px;">{{details.total_likecount}} </span>
+            <span (click)="toshowPersonalScores($event, details)"> Hits </span> -->
+            <!-- <img src="../../assets/icon/likes.png" alt="" style="height: 27px; width: 30px; margin-left: 11px;" (click)="toshowPersonalScores($event,details)"> -->
+          <!-- </div>
+
+          <div style="margin-left: 20px;">
+            <span style="font-weight: 600; font-size: 15px;">{{details.total_comment_count}}</span>
+            <img src="../../assets/icon/share.png" alt="" style="height: 27px; width: 30px; margin-left: 11px;" (click)="openComments($event,details)">
+          </div>
+        </div> -->
+
+        <!-- <div> -->
+        <!-- <div style="background-color: #8080803d;padding: 7px;margin-top: 45px;height: 55px;">
+          <img src="../../assets/icon/03.png" alt="" style="height: 20px;">
+          <span style="font-size: 14px;color: grey;margin-left: 15px;"> {{details.remaining_time}} / {{details.time_duration}} </span> -->
+          <!-- {{ RemainingTime | date: 'hh:mm:ss'}} -->
+          <!-- <p style=" margin: 0px;font-size: 13px;float: right;margin-top: 30px;color: grey;">{{HoursAgo | date:'hh'}} hours ago</p> -->
+          <!-- <p> {{RemainingTime | date: 'hh:mm:ss a'}} </p> -->
+        <!-- </div>
+      </div> -->
+
+    <!-- </ion-slide> -->
+    <!-- slide ends here -->
+
+  </ion-slides>
+
+</ion-content>

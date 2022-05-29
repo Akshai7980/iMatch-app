@@ -1,0 +1,39 @@
+.profile-content{
+    text-align: center;
+    background-color: #707072;
+}
+.profile-img{
+    border: 1px solid #000000bf;
+    height: 95px;
+    width: 95px;
+    border-radius: 50%;
+    padding: 3px;
+    background-color: white;
+}
+.profile-img-text{
+    color: white;
+    margin: 0px;
+}
+.text-field-div{
+    padding: 25px;
+    background-color: white;
+    border-radius: 25px 25px 0px 0px;
+    text-align: left;
+}
+.input-field-label{
+    color: grey;
+    margin-left: 5px;
+}
+.input-field{
+    border: 1px solid #9E9E9E;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+ion-checkbox{
+    margin-left: 25px;
+    position: relative;
+    top: 5px;
+}
+.native-input:disabled{
+    opacity:0 !important;
+ }

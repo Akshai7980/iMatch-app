@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab6" style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+
+    <div style="text-align: center;">
+      <ion-title style="position: relative;right: 5%;">A LETTER TO MY BEST FRIEND</ion-title>
+    </div>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+
+    <div style="margin: 20px;">
+      <ion-textarea type="text" [(ngModel)]="userLetter" autocapitalize="true" auto-grow="true" class="textarea" placeholder="What is on your mind ....."></ion-textarea>
+    </div>
+
+    <div style="text-align: center;">
+    <ion-button size="small" shape="round" style="text-transform: none;" (click)="SubmitUserLetter()">Save</ion-button>
+    </div>
+
+  </div>
+
+
+</ion-content>

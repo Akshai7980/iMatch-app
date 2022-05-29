@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab6" style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+
+    <div style="text-align: center;">
+    <ion-title style="position: relative;right: 5%;">OUR FAVOURITE WORD / SLOGAN</ion-title>
+    </div>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+    <div style="margin: 20px;">
+      <ion-textarea type="text" [(ngModel)]="userSlogan" autocapitalize="true" auto-grow="true" class="textarea" placeholder="What is on your mind ....."></ion-textarea>
+    </div>
+
+    <div style="text-align: center;">
+    <ion-button shape="round" size="small" style="text-transform: none;" (click)="SubmitUserSlogan()">Save</ion-button>
+    </div>
+  </div>
+
+</ion-content>

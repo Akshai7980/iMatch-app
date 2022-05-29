@@ -1,0 +1,113 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative;right: 25px;">INVITATION</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="box">
+    <div  class="inner-box">
+      <div>
+          <ion-img src="../../assets/icon/help-invitation-terms/bar.png" (click)="presentActionSheet()"></ion-img>
+          <ion-thumbnail slot="end">
+            <img *ngIf="opponentDetails" [src]="opponentDetails.profile_pic" onerror="this.onerror=null;this.src='../../assets/icon/profile/Quser.jpg';">
+          </ion-thumbnail>
+          <span *ngIf="opponentDetails">{{opponentDetails.name}}</span>
+
+      </div>
+
+      <form [formGroup]="invitation">
+
+      <div style="font-size: 13px; margin-left: 5%; margin-top: 10%; margin-right: 5%; color: #fcfcfc;">
+        <ion-textarea formControlName="description" [(ngModel)]="userData.description" placeholder="Enter Match Description" class="input-textarea" autocapitalize="true"></ion-textarea>
+      </div>
+
+      <div style="background-color: #444446; margin-top: 5%; padding: 20px 10px 10px 10px; border-right: 1px solid #e0e0e0; text-align: center;">
+        <div>
+
+          <div style="display: flex;">
+
+            <div style="font-size: 16px; color: white; font-weight: 900; margin-bottom: 25px;">Duration of Contest</div>
+
+            <div>
+              <img src="../../assets/icon/i.png" alt="" style="height: 30px; width: 33px; position: relative; left: 7px;">
+            </div>
+
+            <div>
+              <ion-select placeholder="Time" formControlName="duration" [(ngModel)]="userData.duration">
+                <ion-select-option value="1 hour">1 Hour</ion-select-option>
+                <ion-select-option value="2 hour">2 Hours</ion-select-option>
+                <ion-select-option value="3 hour">3 Hours</ion-select-option>
+                <ion-select-option value="4 hour">4 Hours</ion-select-option>
+                <ion-select-option value="5 hour">5 Hours</ion-select-option>
+                <ion-select-option value="6 hour">6 Hours</ion-select-option>
+                <ion-select-option value="7 hour">7 Hours</ion-select-option>
+                <ion-select-option value="8 hour">8 Hours</ion-select-option>
+                <ion-select-option value="9 hour">9 Hours</ion-select-option>
+                <ion-select-option value="10 hour">10 Hours</ion-select-option>
+                <ion-select-option value="11 hour">11 Hours</ion-select-option>
+                <ion-select-option value="12 hour">12 Hours</ion-select-option>
+                <ion-select-option value="13 hour">13 Hours</ion-select-option>
+                <ion-select-option value="14 hour">14 Hours</ion-select-option>
+                <ion-select-option value="15 hour">15 Hours</ion-select-option>
+                <ion-select-option value="16 hour">16 Hours</ion-select-option>
+                <ion-select-option value="17 hour">17 Hours</ion-select-option>
+                <ion-select-option value="18 hour">18 Hours</ion-select-option>
+                <ion-select-option value="19 hour">19 Hours</ion-select-option>
+                <ion-select-option value="20 hour">20 Hours</ion-select-option>
+                <ion-select-option value="21 hour">21 Hours</ion-select-option>
+                <ion-select-option value="22 hour">22 Hours</ion-select-option>
+                <ion-select-option value="23 hour">23 Hours</ion-select-option>
+                <ion-select-option value="1 day">1 Day</ion-select-option>
+                <ion-select-option value="2 day">2 Days</ion-select-option>
+                <ion-select-option value="3 day">3 Days</ion-select-option>
+                <ion-select-option value="4 day">4 Days</ion-select-option>
+                <ion-select-option value="5 day">5 Days</ion-select-option>
+                <ion-select-option value="6 day">6 Days</ion-select-option>
+                <ion-select-option value="7 day">7 Days</ion-select-option>
+              </ion-select>
+            </div>
+
+
+          </div>
+
+          <div *ngIf="hideImageSpace==true">
+            <img *ngIf="isDummyImage==true" style="height: 165px; width: 155px;" src="../../assets/icon/bg2new.png" alt="" (click)="presentActionSheet()">
+            <img *ngIf="isImage==true" type='image/jpeg' style="height: 165px; width: 155px;" [src]="FileTransferResponse.filename" onerror="this.onerror=null;this.src='../../assets/icon/loader.gif';">
+          <!-- <img *ngIf="FileTransferResponse?.length==0 || isImage==false" style="height: 165px; width: 155px;" src="../../assets/icon/bg2new.png" (click)="presentActionSheet()"> -->
+            <video *ngIf="isVideo==true" style="height: 165px; width: 155px;" [src]="FileTransferResponse.filename" controls controlsList="nodownload" onerror="this.onerror=null;this.src='../../assets/icon/loader.gif';">
+            <!-- <source  type="video/mp4"> -->
+            </video>
+            <audio *ngIf="isAudio==true" style="height: 165px; width: 155px;" [src]="FileTransferResponse.filename" controls controlsList="nodownload" onerror="this.onerror=null;this.src='../../assets/icon/loader.gif';">
+            <!-- <source  type="video/mp4"> -->
+            </audio>
+          <!-- <img *ngIf="FileTransferResponse==undefined" style="height: 165px; width: 155px;" src="../../assets/icon/bg2new.png" onerror="this.onerror=null;this.src='../../assets/icon/bg2new.png';" (click)="presentActionSheet()"> -->
+          </div>
+
+          <div *ngIf="isLink==true">
+            <form [formGroup]="LinkInputForm">
+            <ion-textarea formControlName="link" [(ngModel)]="userLink.link" placeholder="Enter Your Link" class="input-field" auto-grow="true" type="url"></ion-textarea>
+            </form>
+          </div>
+
+          <div *ngIf="isWording==true">
+            <form [formGroup]="WordingInputForm">
+            <ion-textarea formControlName="wording" [(ngModel)]="userWording.wording" placeholder="Enter Your Wording" class="input-field" auto-grow="true" type="text"></ion-textarea>
+            </form>
+          </div>
+
+          <div>
+            <ion-input formControlName="caption" [(ngModel)]="userData.caption" placeholder="Enter Caption" class="input-field" autocapitalize="true"></ion-input>
+          </div>
+        </div>
+        <ion-button type="submit" color="warning" style="font-family: OpenSansBold;" type="submit" (click)="toCallForAMatch()">CALL FOR A MATCH</ion-button>
+      </div>
+
+  </form>
+
+    </div>
+  </div>
+</ion-content>

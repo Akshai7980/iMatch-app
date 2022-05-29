@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 15px;">WHAT WOULD I DO IF..</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- PAGE CONTENT SECTION  -->
+<ion-content>
+  <div class="page-content">
+    <div style="text-align: center;">
+      <h4 style="font-size: 16px; font-weight: 700;">This week's iQuery</h4>
+    </div>
+
+    <h4 style="font-size: 12px">WHAT WOULD YOU DO</h4>
+    <div class="comment-div">
+      <div class="comment-box-bg">
+        <p class="animate__animated animate__fadeIn" *ngIf="AdminQuestions"> {{AdminQuestions.message1}} </p>
+      </div>
+      <div class="comment-box-bg" style="margin-left: 10px;">
+        <p class="animate__animated animate__fadeIn" *ngIf="AdminQuestions"> {{AdminQuestions.message2}} </p>
+      </div>
+      <img src="../../assets/icon/activity/vs.png" alt="" style="position: absolute; width: 25px; height: 25px;">
+    </div>
+
+    <!--First Div Opening -->
+    <!-- <div > -->
+    <div class="comment-div" style="margin-top: 20px;" *ngIf="Answers!=''">
+
+      <div class="comment-box" style="background-color: #ffffff; height: 110px;">
+        <p *ngIf="Answers" style="position: relative; bottom: 10px;"> {{Answers.answer1}} </p>
+      </div>
+
+      <div class="comment-box" style="margin-left: 10px; background-color: #ffffff; height: 110px;">
+        <p *ngIf="Answers" style="position: relative; bottom: 10px;"> {{Answers.answer2}} </p>
+      </div>
+
+      <img src="../../assets/icon/activity/vs.png" alt="" style="position: absolute; width: 25px; height: 25px;">
+      <img *ngIf="Like1==undefined || Like1?.status=='dislike'" src="../../assets/icon/what_would/04.png" alt="" class="box-image" (click)="toLikeAnswer1($event,Answers)">
+      <img *ngIf="Like1!=undefined && Like1?.status=='like'" src="../../assets/icon/what_would/shoot.png" alt="" class="box-image" (click)="toLikeAnswer1($event,Answers)">
+
+      <img *ngIf="Like2==undefined || Like2?.status=='dislike'" src="../../assets/icon/what_would/04.png" alt="" class="box-image_two" (click)="toLikeAnswer2($event,Answers)">
+      <img *ngIf="Like1!=undefined && Like2?.status=='like'" src="../../assets/icon/what_would/shoot.png" alt="" class="box-image_two" (click)="toLikeAnswer2($event,Answers)">
+    </div>
+  <!-- </div> -->
+    <!--First  Div closing -->
+
+    <!-- Second Div Opening -->
+    <div class="comment-div" style="margin-top: 20px;" *ngIf="Answers==''">
+
+      <form [formGroup]="answerForm" (ngSubmit)="toSendAnswer($event,AdminQuestions)" style="display: contents;">
+      <div class="comment-box" style="background-color: #ffffff; height: 110px;">
+        <ion-textarea placeholder="Enter Your Answer" formControlName="answer1" [(ngModel)]="userAnswer.answer1" clearOnEdit="true" autocapitalize="true"></ion-textarea>
+      </div>
+
+      <div class="comment-box" style="margin-left: 10px; background-color: #ffffff; height: 110px;">
+        <ion-textarea placeholder="Enter Your Answer" formControlName="answer2" [(ngModel)]="userAnswer.answer2" clearOnEdit="true" autocapitalize="true"></ion-textarea>
+      </div>
+      <ion-button style="text-transform: none; position: absolute; top: 113px;" size="small" shape="round" [disabled]="!answerForm.valid" type="submit">Done</ion-button>
+      </form>
+
+      <img src="../../assets/icon/activity/vs.png" alt="" style="position: absolute; width: 25px; height: 25px;">
+    </div>
+    <!-- Second Div Closing -->
+
+    <form [formGroup]="commentForm" (ngSubmit)="toSendComment($event,Answers)">
+    <div style="margin: 60px 30px 20px 30px;">
+      <ion-item lines="none">
+        <ion-input formControlName="comment" placeholder="Enter Comment" type="text" class="comment-area" [(ngModel)]="userComment.comment">
+          <img src="../../assets/icon/what_would/comment.png" alt="" style="width: 20px; height: 15px; margin: 10px;">
+        </ion-input>
+        <ion-button type="submit" shape="round" size="small" style="margin-left: 5px;" [disabled]="!commentForm.valid">send</ion-button>
+      </ion-item>
+    </div>
+  </form>
+
+  </div>
+
+  <div style="background: #f4f6f7; padding: 10px;">
+    <div style="text-align: center;">
+      <h4 style="font-size: 16px; font-weight: 700; line-height: 0px;">My iQuery</h4>
+    </div>
+
+    <h4 style="font-size: 12px">WHAT WOULD i DO</h4>
+
+    <div>
+
+    <div class="comment-div" *ngFor="let iQuery of MyiQuery">
+      <div class="comment-box-bg">
+        <span class="animate__animated animate__fadeIn">{{iQuery.query1}}</span>
+      </div>
+      <div class="comment-box-bg" style="margin-left: 10px;">
+        <span class="animate__animated animate__fadeIn">{{iQuery.query2}}</span>
+      </div>
+      <img src="../../assets/icon/activity/vs.png" alt="" style="position: absolute; width: 25px; height: 25px;">
+
+      <ion-button style="text-transform: none; position: absolute; top: 90%; left: 20px;" size="small" shape="round" (click)="toRemoveiQuery($event,iQuery)">Remove iQuery</ion-button>
+      <ion-button style="text-transform: none; position: absolute; top: 90%; right: 45px;" size="small" shape="round" (click)="toEditiQuery($event,iQuery)">Edit iQuery</ion-button>
+    </div>
+
+    <form [formGroup]="iQueryForm" (ngSubmit)="toSendEditediQuery($event,SingleQuery)" style="display: contents;">
+    <div class="comment-div" *ngIf="showEditArea" style="background-color: #70707252; padding: 30px 15px 30px 15px; border-radius: 8px;">
+      <ion-icon name="close" (click)="toCloseEditArea()" style="position: absolute; color: white; background-color: black; top: 2px; right: 2px; border-radius: 50%; padding: 3px;"></ion-icon>
+        <div class="comment-box-bg">
+          <ion-textarea type="text" formControlName="iQuery1" [(ngModel)]="useriQuery.iQuery1" autocapitalize="true" autoGrow="true" class="animate__animated animate__fadeIn" *ngIf="SingleQuery" value="{{SingleQuery.query1}}"> {{SingleQuery.query1}} </ion-textarea>
+        </div>
+        <div class="comment-box-bg" style="margin-left: 10px;">
+          <ion-textarea type="text" formControlName="iQuery2" [(ngModel)]="useriQuery.iQuery2" autocapitalize="true" autoGrow="true" class="animate__animated animate__fadeIn" *ngIf="SingleQuery" value="{{SingleQuery.query2}}"> {{SingleQuery.query2}} </ion-textarea>
+        </div>
+      <img src="../../assets/icon/activity/vs.png" alt="" style="position: absolute; width: 25px; height: 25px;">
+      <ion-button style="text-transform: none; position: absolute; top: 125px;" size="small" shape="round" [disabled]="!iQueryForm.valid" type="submit">Done</ion-button>
+    </div>
+  </form>
+
+</div>
+
+    <div class="comment-div , animate__animated animate__fadeIn" *ngIf="showTextArea">
+      
+      <form [formGroup]="iQueryForm" (ngSubmit)="toSendiQuery($event,Answers)" style="display: contents;">
+      <div class="comment-box , animate__animated animate__fadeIn" style="background-color: #ffffff; height: 100px;">
+        <ion-textarea placeholder="Enter here" formControlName="iQuery1" type="text" [(ngModel)]="useriQuery.iQuery1" clearOnEdit="true" autocapitalize="true"></ion-textarea>
+      </div>
+
+      <div class="comment-box , animate__animated animate__fadeIn" style="margin-left: 10px; background-color: #ffffff; height: 100px;">
+        <ion-textarea placeholder="Enter here" formControlName="iQuery2" type="text" [(ngModel)]="useriQuery.iQuery2" clearOnEdit="true" autocapitalize="true"></ion-textarea>
+      </div>
+
+      <img src="../../assets/icon/activity/vs.png" alt="" style="position: absolute; width: 25px; height: 25px;">
+
+      <ion-button style="text-transform: none; position: absolute; top: 110px;" shape="round" [disabled]="!iQueryForm.valid" type="submit">Done</ion-button>
+    </form>
+
+    </div>
+
+    <div style="text-align: center; margin-top: 60px;">
+      <ion-button fill="clear" class="add-button" (click)="toShowTextArea()">
+        <img src="../../assets/icon/what_would/plus.png" alt=""
+          style="height:15px; width: 15px; margin-right: 5px;">Create More
+      </ion-button>
+    </div>
+
+  </div>
+</ion-content>

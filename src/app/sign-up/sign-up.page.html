@@ -1,0 +1,59 @@
+
+<ion-content class="bg">
+
+  <div style="text-align: center; margin-top: 80px;">
+    <img src="../../assets/icon/sign-up/logo.png" alt="" class="logo-img">
+  </div>
+
+    <div style="padding:30px; margin-top: 30px;">
+
+      <form [formGroup]="formgroup" (ngSubmit)="signUp()"> 
+
+    <ion-row>
+      <ion-input formControlName="name" [(ngModel)]="userData.name" placeholder="Name" class="input-field" type="text" autocapitalize="true">
+        <img src="../../assets/icon/sign-up/user.png" alt="" class="text-field-icons">
+        </ion-input>
+    </ion-row>
+
+    <ion-row>
+      <ion-input formControlName="phone" [(ngModel)]="userData.phone" placeholder="Phone Number" class="input-field" type="number">
+        <img src="../../assets/icon/sign-up/phone.png" alt="" class="text-field-icons">
+
+      <ion-select  type="text" formControlName="code" [(ngModel)]="userData.code" style="padding: 0px;" placeholder="🇳🇬NG+234" class="select-code" value="🇳🇬 NG +234"> 
+        <ion-select-option *ngFor="let flag of flags" value="{{flag.dial_code}}"><span>{{flag.flag}}</span>  <span>({{flag.code}})</span> <span>{{flag.dial_code}}</span></ion-select-option>
+      </ion-select>
+        </ion-input>
+
+    </ion-row>
+
+    <ion-row>
+      <ion-input formControlName="email" [(ngModel)]="userData.email" placeholder="Email   (eg: Example@gmail.com)" class="input-field" autocapitalize="true">
+        <img src="../../assets/icon/sign-up/email.png" alt="" class="text-field-icons">
+        </ion-input>
+    </ion-row>
+
+    <ion-row>
+      <ion-input formControlName="password" [(ngModel)]="userData.password" placeholder="Password   (eg: Example01)" class="input-field" type="Password">
+        <img src="../../assets/icon/sign-up/lock.png" alt="" class="text-field-icons">
+        </ion-input>
+    </ion-row>
+
+    <!-- <ion-row>
+      <ion-input formControlName="university" [(ngModel)]="userData.university" placeholder="University Name" class="input-field" type="text" autocapitalize="true">
+        <img src="../../assets/icon/sign-up/university.png" alt="" class="text-field-icons">
+        </ion-input>
+    </ion-row> -->
+
+      <ion-button type="submit" shape="round" expand="block" class="button-sign-up"> SIGN UP </ion-button>
+
+      <div>
+        <p style="color: #c0bfc0;margin-left: 24px;font-size: 13px;text-align: center;">Already have an account ? 
+          <ion-button fill="clear" style="color: #ea6850;margin-bottom: 15px;margin-left: -10px;" [routerLink]="['/login']" value="refresh">Sign in</ion-button> </p>
+      </div>
+
+      </form>
+
+</div>
+
+
+</ion-content>

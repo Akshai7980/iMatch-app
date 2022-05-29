@@ -1,0 +1,325 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+    <ion-title style="margin-left: -60px;">HEADLINERS OF THE MOMENT</ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content>
+  
+    <!-- Slider -->
+  
+    <ion-slides pager="true" class="headliners-slides">
+  
+      <!-- Slide 1 -->
+  
+      <ion-slide style="position: relative;">
+  
+        <div class="slides" >
+  
+          <div class="slide1-heart">
+            <ion-icon name="heart" color="warning"></ion-icon>
+            <span *ngIf="FirstHeadliner" style="font-family: OpenSansSemiBold; font-size: 15px; position: absolute; margin-top: -1px; margin-left: 5px;"> {{FirstHeadliner.likes}} </span>
+          </div>
+  
+          <div class="slide1-openMatch">
+            <img style="width: 80px; position: relative; left: -18px;" src="../../assets/icon/headliners/match.png">
+            <span style="position: absolute; color: #f21908; font-family: OpenSansExtraBold; font-size: 11px; font-weight: bold; margin: 67px 0px 0px -116px;">Open Match Contest</span>
+          </div>
+  
+          <div class="slide1-profile">
+            <ion-avatar slot="end" style="position: relative; margin: -70px 0px 0px 235px; width: 65px;">
+              <img *ngIf="FirstHeadliner" style="border: 2px solid #fcbb3b; height: 60px;" [src]="FirstHeadliner.profile_pic">
+
+            </ion-avatar>
+            <span style="position: absolute; font-family: OpenSansExtraBold; font-size: 10px; font-weight: bold; margin: -1px 0px 0px 95px;" *ngIf="FirstHeadliner"> {{FirstHeadliner.name}} </span>
+            <span> <ion-icon name="add" class="add-icon"></ion-icon> </span>
+          </div>
+            
+        </div>
+  
+      </ion-slide>
+  
+      <!-- Slide 1 Ends -->
+  
+      <!-- Slide 2 Starts-->
+  
+      <ion-slide>
+  
+      <div class="slides">
+
+        <!-- First Half -->
+
+        <div class="slide2-top">
+          
+          <div>
+             
+            <img style="width: 235px; height: 48px;" src="../../assets/icon/headliners/arrow.png">
+            <img style="width: 25px; margin: 0 0 16px -185px" src="../../assets/icon/headliners/glove.png">
+            <img style="width: 25px; margin: 0 0 15px 12px; transform: rotate(180deg)" src="../../assets/icon/headliners/glove.png">
+            <div style="margin: -50px 0 30px 16px; padding-top: 10px;">
+              <ion-icon name="heart" color="warning" style="margin: 0 0 0px 143px;"></ion-icon>
+              <span *ngIf="SecondHeadliner" style="font-family: OpenSansSemiBold; font-size: 14px; position: absolute; margin-top: -2px; margin-left: 5px; color: white;"> {{SecondHeadliner.likes}} </span>
+            </div>
+              
+          </div>
+  
+          <ion-avatar slot="end" style="position: relative; margin: -64px 0px 0px 471px; width: 45px;">
+            <img *ngIf="SecondHeadliner" style="border: 2px solid #fcbb3b; height: 40px;" [src]="SecondHeadliner.profile_pic">
+          </ion-avatar>
+          <span *ngIf="SecondHeadliner" style="position: absolute; font-family: OpenSansBold; font-size: 12px; font-weight: bold; margin: -25px 0px 0px 195px;"> {{SecondHeadliner.name}} </span>
+  
+        </div>
+  
+        <!-- First Half Ends -->
+  
+        <!-- Second Half -->
+  
+        <div class="slide2-bottom" *ngIf="SecondHeadliner">
+          
+          <div>
+  
+            <img style="width: 200px; height: 48px; transform: rotate(180deg)" src="../../assets/icon/headliners/arrow.png">
+            <div style="margin: -108px 0 36px -262px; padding-top: 10px;">
+                <ion-icon name="heart" color="warning" style="margin: 0 0 -61px 145px;"></ion-icon>
+                <span style="font-family: OpenSansSemiBold; font-size: 14px; position: absolute; margin-top: 57px; margin-left: 5px; color: white;">{{SecondHeadliner.like}}</span>
+              </div>
+            <img style="width: 25px; margin: 0 0 20px 107px; transform: rotate(0deg);" src="../../assets/icon/headliners/glove.png">
+            <img style="width: 25px; margin: 0 0 17px 12px; transform: rotate(180deg)" src="../../assets/icon/headliners/glove.png">
+            
+  
+          </div>
+          
+          <ion-avatar slot="end" style="position: relative; margin: -69px 0px -7px -94px; width: 45px;">
+            <img style="border: 2px solid #fcbb3b; height: 40px; margin: 5px 0 0px 8px;" [src]="SecondHeadliner.profile_pic">
+          </ion-avatar>
+          <span style="position: absolute; font-family: OpenSansBold; font-size: 12px; font-weight: bold; margin: -14px 0px 0px -183px;">{{SecondHeadliner.name}}</span>
+          
+        </div>
+
+        <!-- Second Half Ends -->
+
+      </div>
+          
+      </ion-slide>
+
+      <!-- Slide 2 Ends -->
+
+      <!-- Slide 3 starts -->
+      <ion-slide>
+  
+        <div class="slides">
+  
+          <!-- First Half -->
+  
+          <div class="slide2-top">
+            
+            <div style="position: relative; left: 55px; top: 3px;">
+               
+              <img style="width: 222px; height: 48px;" src="../../assets/icon/headliners/arrow.png">
+              <div style="position: relative; bottom: 42px;">
+                <span style="font-size: 14px; position: absolute; color: white; font-weight: 600; font-family: OpenSansSemiBold; left: 31%; top: 3px;">Personal Match</span>
+                <img style="width: 25px; margin: 0 0 15px 89px; transform: rotate(0deg);" src="../../assets/icon/headliners/glove.png">
+                <img style="width: 25px; margin: 0 0 17px 12px; transform: rotate(180deg)" src="../../assets/icon/headliners/glove.png">
+              </div>
+                
+            </div>
+    
+            <ion-avatar slot="end" style="position: relative; margin: -90px 0px 0px 478px; width: 45px; bottom: 5px;">
+              <img style="border: 2px solid #fcbb3b; height: 40px; margin: 5px 0 0px 8px;" src="../../assets/icon/headliners/user.png">
+  
+            </ion-avatar>
+            <span style="position: absolute; font-family: OpenSansBold; font-size: 12px; font-weight: bold; margin: -25px 0px 0px 195px;">User Name</span>
+    
+          </div>
+    
+          <!-- First Half Ends -->
+    
+          <!-- Second Half -->
+    
+          <div class="slide2-bottom">
+            
+            <div>
+    
+              <img style="width: 200px; height: 48px; transform: rotate(180deg)" src="../../assets/icon/headliners/arrow.png">
+              <div style="margin: -108px 0 36px -262px; padding-top: 10px;">
+                  <span style="font-family: OpenSansSemiBold; font-size: 14px; position: absolute; margin-top: 57px; margin-left: 65px; color: white;">Comments</span>
+                </div>
+                <img style="width: 24px; height: 21px; position: relative; top: 23px; left: 40px;" src="../../assets/icon/headliners/msg.png" alt="">
+                <span style="color: white; position: relative; top: 17px; left: 46px; font-size: 14px;">0</span>
+
+            </div>
+            
+            <ion-avatar slot="end" style="position: relative; margin: -30px 0px -7px -94px; width: 45px;">
+              <img style="border: 2px solid #fcbb3b; height: 40px; margin: 5px 0 0px 8px;" src="../../assets/icon/headliners/user.png">
+  
+            </ion-avatar>
+            <span style="position: absolute; font-family: OpenSansBold; font-size: 12px; font-weight: bold; margin: -13px 0px 0px -192px;">User Name</span>
+            
+          </div>
+  
+          <!-- Second Half Ends -->
+  
+        </div>
+            
+        </ion-slide>
+  
+      <!-- Slide 3 Ends -->
+  
+      <!-- Slide 4 Starts -->
+  
+      <ion-slide>
+  
+        <div class="slides">
+  
+          <!-- First Half -->
+  
+          <div class="slide2-top">
+            
+            <div style="position: relative; left: 55px; top: 3px;">
+               
+              <img style="width: 222px; height: 48px;" src="../../assets/icon/headliners/arrow.png">
+              <div style="position: relative; bottom: 42px;">
+                <span style="font-size: 14px; position: absolute; color: white; font-weight: 600; font-family: OpenSansSemiBold; bottom: 3px; left: 32%;">Squad List</span>
+                <img style="width: 24px; height: 21px; position: relative; top: 3px; left: 30px;" src="../../assets/icon/headliners/heart.png" alt="">
+                <span style="color: white; margin-left: 6px; font-size: 14px; position: relative; top: -3px; left: 34px;">0</span>
+              </div>
+                
+            </div>
+    
+            <ion-avatar slot="end" style="position: relative; margin: -70px 0px 0px 478px; width: 45px; bottom: 5px;">
+              <img style="border: 2px solid #fcbb3b; height: 40px; margin: 5px 0 0px 8px;" src="../../assets/icon/headliners/user.png">
+  
+            </ion-avatar>
+            <span style="position: absolute; font-family: OpenSansBold; font-size: 12px; font-weight: bold; margin: -25px 0px 0px 195px;">User Name</span>
+    
+          </div>
+    
+          <!-- First Half Ends -->
+    
+          <!-- Second Half -->
+    
+          <div class="slide2-bottom">
+            
+            <div>
+    
+              <img style="width: 200px; height: 48px; transform: rotate(180deg)" src="../../assets/icon/headliners/arrow.png">
+              <div style="margin: -108px 0 36px -262px; padding-top: 10px;">
+                  <span style="font-family: OpenSansSemiBold; font-size: 14px; position: absolute; margin-top: 57px; margin-left: 65px; color: white;">iQuery</span>
+                </div>
+              <img style="width: 24px; height: 21px; position: relative; top: 22px; left: 10px;" src="../../assets/icon/headliners/heart.png" alt="">
+              <span style="color: white; position: relative; top: 15px; left: 16px; font-size: 14px;">0</span>
+            </div>
+            
+            <ion-avatar slot="end" style="position: relative; margin: -33px 0px -7px -94px; width: 45px;">
+              <img style="border: 2px solid #fcbb3b; height: 40px; margin: 5px 0 0px 8px;" src="../../assets/icon/headliners/user.png">
+  
+            </ion-avatar>
+            <span style="position: absolute; font-family: OpenSansBold; font-size: 12px; font-weight: bold; margin: -13px 0px 0px -192px;">User Name</span>
+            
+          </div>
+  
+          <!-- Second Half Ends -->
+  
+        </div>
+            
+        </ion-slide>
+  
+      <!-- Slide 4 Ends -->
+  
+    </ion-slides>
+  
+    <!-- Slider Ends -->
+  
+    <!-- Content Below Slider -->
+  
+    <div style="margin-top: -10px;">
+  
+      <ion-item  lines="none">
+        <ion-avatar slot="start">
+          <img *ngIf="FirstHeadliner" style="border: 2px solid #fcbb3b; height: 35px;" [src]="FirstHeadliner.profile_pic">
+        </ion-avatar>
+        <ion-label style="margin-top: 5px;" *ngIf="FirstHeadliner"> {{FirstHeadliner.name}} </ion-label>
+        <ion-icon name="add-circle" color="dark" slot="end" (click)="toAddFirstUserasFan($event,FirstHeadliner)"></ion-icon>
+      </ion-item>
+      
+      <div class="border-bottom"></div>
+  
+    </div>
+
+    <div style="margin-top: -10px;">
+  
+      <ion-item  lines="none">
+        <ion-avatar slot="start">
+          <img *ngIf="SecondHeadliner" style="border: 2px solid #fcbb3b; height: 35px;" [src]="SecondHeadliner.profile_pic">
+        </ion-avatar>
+        <ion-label style="margin-top: 5px;" *ngIf="SecondHeadliner"> {{SecondHeadliner.name}} </ion-label>
+        <ion-icon name="add-circle" color="dark" slot="end" (click)="toAddSecondUserasFan($event,SecondHeadliner)"></ion-icon>
+      </ion-item>
+      
+      <div class="border-bottom"></div>
+  
+    </div>
+
+    <div style="margin-top: -10px;">
+  
+      <ion-item  lines="none">
+        <ion-avatar slot="start">
+          <img *ngIf="ThirdHeadliner" style="border: 2px solid #fcbb3b; height: 35px;" [src]="ThirdHeadliner.profile_pic">
+        </ion-avatar>
+        <ion-label style="margin-top: 5px;" *ngIf="ThirdHeadliner"> {{ThirdHeadliner.name}} </ion-label>
+        <ion-icon name="add-circle" color="dark" slot="end" (click)="toAddThirdUserasFan($event,ThirdHeadliner)"></ion-icon>
+      </ion-item>
+      
+      <div class="border-bottom"></div>
+  
+    </div>
+
+    <div style="margin-top: -10px;">
+  
+      <ion-item  lines="none">
+        <ion-avatar slot="start">
+          <img *ngIf="FourthHeadliner" style="border: 2px solid #fcbb3b; height: 35px;" [src]="FourthHeadliner.profile_pic">
+        </ion-avatar>
+        <ion-label style="margin-top: 5px;" *ngIf="FourthHeadliner"> {{FourthHeadliner.name}} </ion-label>
+        <ion-icon name="add-circle" color="dark" slot="end" (click)="toAddFourthUserasFan($event,FourthHeadliner)"></ion-icon>
+      </ion-item>
+      
+      <div class="border-bottom"></div>
+  
+    </div>
+
+    <div style="margin-top: -10px;">
+  
+      <ion-item  lines="none">
+        <ion-avatar slot="start">
+          <img *ngIf="FifthHeadliner" style="border: 2px solid #fcbb3b; height: 35px;" [src]="FifthHeadliner.profile_pic">
+        </ion-avatar>
+        <ion-label style="margin-top: 5px;" *ngIf="FifthHeadliner"> {{FifthHeadliner.name}} </ion-label>
+        <ion-icon name="add-circle" color="dark" slot="end" (click)="toAddFifthUserasFan($event,FifthHeadliner)"></ion-icon>
+      </ion-item>
+      
+      <div class="border-bottom"></div>
+  
+    </div>
+
+    <div style="margin-top: -10px;">
+  
+      <ion-item  lines="none">
+        <ion-avatar slot="start">
+          <img *ngIf="SixthHeadliner" style="border: 2px solid #fcbb3b; height: 35px;" [src]="SixthHeadliner.profile_pic">
+        </ion-avatar>
+        <ion-label style="margin-top: 5px;" *ngIf="SixthHeadliner"> {{SixthHeadliner.name}} </ion-label>
+        <ion-icon name="add-circle" color="dark" slot="end" (click)="toAddSixthUserasFan($event,SixthHeadliner)"></ion-icon>
+      </ion-item>
+      
+      <div class="border-bottom"></div>
+  
+    </div>
+  
+    <!-- Content Below Slider Ends -->
+  
+  </ion-content>
+  

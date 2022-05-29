@@ -1,0 +1,162 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative;right: 25px;">BESTIES ACTIONS</ion-title>
+
+    <div class="tabone_header_right">
+      <div style="margin-left: 10px;">
+        <img *ngIf="userDetails" [src]="userDetails.profile_pic" alt="" style="height: 46px;width: 46px;border-radius: 50%;border: 1px solid white;position: relative;bottom: 9px;">
+      </div>
+      <div style="margin-left: 3px;font-size: 16px;color: #ffffff;position: relative;bottom: 8px;">
+        <ion-icon name="caret-down-outline"></ion-icon>
+      </div>
+    </div>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- PAGE CONTENT SECTION  -->
+<ion-content [fullscreen]="true">
+  <div class="squadList_background">
+    <!-- FIRST BOX DIV SECTION  -->
+    <!-- <div class="box_div_session">
+      <div style="background-color: #707072; width: 30%; padding-bottom: 0; text-align: center; color: #ffffff;">
+        
+        <div style="margin-right: 3px; position: relative;">
+          <div>
+            <div class="contest-image-div">
+              <div class="image-div_first" style="height: 45px;">
+                <img src="../../assets/icon/activity/train1.jpg" alt="">
+              </div>
+              <div class="image-div_first" style="height: 45px;">
+                <img src="../../assets/icon/activity/train2.jpg" alt="">
+              </div>
+            </div>
+            <div class="contest-image-div">
+              <div class="image-div_first" style="height: 45px;">
+                <img src="../../assets/icon/activity/train3.jpg" alt="">
+              </div>
+              <div class="image-div_first" style="height: 45px;">
+                <img src="../../assets/icon/activity/train4.jpg" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div style="position: absolute; top: 30%; left: 42%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 18px; height: 18px;">
+          </div>
+          <div style="position: absolute; top: 22%; left: 40%;">
+            <img src="../../assets/icon/activity/vid1.png" alt="" style="width: 5px; height: 5px;">
+          </div>
+          <div style="position: absolute; top: 22%; left: 90%;">
+            <img src="../../assets/icon/activity/vid1.png" alt="" style="width: 5px; height: 5px;">
+          </div>
+          <div style="position: absolute; top: 58%; left: 40%;">
+            <img src="../../assets/icon/activity/vid1.png" alt="" style="width: 5px; height: 5px;">
+          </div>
+          <div style="position: absolute; top: 58%; left: 90%;">
+            <img src="../../assets/icon/activity/vid1.png" alt="" style="width: 5px; height: 5px;">
+          </div>
+
+          <div class="box_m">
+            <img src="../../assets/icon/tab1-profile.png" alt="" style="height:20px; width: 20px">
+            <p>Linnie Craig</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="right_content">
+        <p style="line-height: 20px; font-size: 13px; color: #ffffff;">My bestie Linne Craig launched an open match</p> -->
+        <!-- color="success" -->
+        <!-- <ion-icon name="create-outline"  style="height: 15px; right: 0; top: 0; width:25px; color: white; position: absolute;"></ion-icon> -->
+        <!-- <p class="right_content_time">20 hours ago</p>
+      </div>
+      
+    </div> -->
+
+    <div class="box_div_session , animate__animated animate__fadeIn" style="margin-top: 20px;" *ngFor="let actions of BestiesAction">
+      <div style="background-color: #707072; width: 30%; padding-bottom: 0; text-align: center; color: #ffffff;">
+        
+        <div style="margin-right: 3px; position: relative;">
+          <div style="margin-left: 3px; position: relative;">
+            <div class="contest-image-div">
+              <div class="image-div-object">
+                <img [src]="actions.receiver_image" alt="">
+              </div>
+              <div class="image-div-object">
+                <img [src]="actions.sender_image" alt="">
+              </div>
+            </div>
+            <div style="position: absolute; top: 35%; left: 44%;">
+              <img src="../../assets/icon/activity/vs.png" alt="" style="width: 18px; height: 18px;">
+            </div>
+            <div style="position: absolute; top: 80%; left: 43%;">
+              <img src="../../assets/icon/activity/aud1.png" alt="" style="width: 7px; height: 7px;">
+            </div>
+            <div style="position: absolute; top: 80%; left: 90%;">
+              <img src="../../assets/icon/activity/aud1.png" alt="" style="width: 7px; height: 7px;">
+            </div>
+  
+          </div>
+          <div class="box_m">
+            <img [src]="actions.userprofile" alt="" style="height:20px; width: 20px;border-radius: 50%;">
+            <p>{{actions.username}}</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="right_content">
+        <p style="line-height: 20px; font-size: 13px; color: #ffffff;">My bestie {{actions.username}} launched an open match</p>
+        <!-- color="success" -->
+        <!-- <ion-icon name="create-outline"  style="height: 15px; right: 0; top: 0; width:25px; color: white; position: absolute;"></ion-icon> -->
+        <p class="right_content_time">{{actions.time | date:'HH'}} hours ago</p>
+      </div>
+      
+    </div>
+
+    <!-- <div class="box_div_session" style="margin-top: 20px;">
+      <div style="background-color: #707072; width: 30%; padding-bottom: 0; text-align: center; color: #ffffff;">
+        
+        <div style="margin-right: 3px; position: relative;">
+          <div style="margin-left: 3px; position: relative;">
+            <div class="contest-image-div" style="padding: 15px 0; border-radius: 5px; background: #c7c1c4;">
+              <div class="image-div" style="height: 50px;">
+                <img src="../../assets/icon/activity/avengers.jpg" alt="">
+              </div>
+              <div class="image-div" style="height: 50px;">
+                <img src="../../assets/icon/activity/hulk.jpg" alt="">
+              </div>
+              <div class="image-div" style="height: 50px;">
+                <img src="../../assets/icon/activity/aven.jpg" alt="">
+              </div>
+            </div>
+            <div style="position: absolute; top: 40%; left: 24%;">
+              <img src="../../assets/icon/activity/vs.png" alt="" style="width: 15px; height: 15px;">
+            </div>
+            <div style="position: absolute; top: 40%; left: 60%;">
+              <img src="../../assets/icon/activity/vs.png" alt="" style="width: 15px; height: 15px;">
+            </div>
+          </div>
+          <div class="box_m">
+            <img src="../../assets/icon/tab1-profile.png" alt="" style="height:20px; width: 20px">
+            <p>Isa</p>
+          </div>
+        </div>
+
+      </div>
+      <div class="right_content">
+        <p style="line-height: 20px; font-size: 13px; color: #ffffff;">My bestie Isa launched an open match</p> -->
+        <!-- color="success" -->
+        <!-- <ion-icon name="create-outline"  style="height: 15px; right: 0; top: 0; width:25px; color: white; position: absolute;"></ion-icon> -->
+        <!-- <p class="right_content_time">20 hours ago</p>
+      </div>
+      
+    </div> -->
+
+  </div>
+
+
+</ion-content>

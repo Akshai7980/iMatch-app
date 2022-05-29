@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "758700265051",
+    "firebase_url": "https://imatch-game.firebaseio.com",
+    "project_id": "imatch-game",
+    "storage_bucket": "imatch-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758700265051:android:24043f308bab2f0211f97e",
+        "android_client_info": {
+          "package_name": "com.sics.imatch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758700265051-omlhrgffgk6ep7mg8dgq433anig4r3nr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sics.imatch",
+            "certificate_hash": "a36a6fb1ad112d1d616cfa2c7a54ed96b611e495"
+          }
+        },
+        {
+          "client_id": "758700265051-83etk8b1u1bohge5m3t8l21jkc2uke2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyXns3ZakOW5aOlC6onS_r8tA-17wvNyo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758700265051-8dmupvsqdgq1uq2t3hus65ifrjjqorb3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

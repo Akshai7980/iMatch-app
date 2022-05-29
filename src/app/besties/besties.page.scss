@@ -1,0 +1,191 @@
+// -- besties page styles -- 
+
+.top-profile-pic{
+    height: 46px;
+    width: 46px;
+    border-radius: 50%;
+    border: 1px solid white;
+    position: absolute;
+    right: 20px;
+    bottom: 6px;
+}
+.top-number{
+    border-radius: 50%;
+    background-color: white;
+    color: #707072;
+    font-size: small;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    margin-right: 10px;
+    left: 115px;
+}
+.top-drop-icon{
+    position: absolute;
+    right: 30px;
+    color: white;
+}
+.top-container-style{
+    width: 100%;
+    border-bottom: 3px solid #0000002e;
+}
+.chip-label-text{
+    color: white;
+    font-size: 9px;
+    position: absolute;
+    right: 9px;
+}
+.person-profile-img{
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+    margin-right: 10px;
+}
+.person-name-text{
+    font-size: small;
+    font-weight: 700;
+}
+.near-card-header-img{
+    height: 15px;
+    float: right;
+    width: 15px;
+    position: relative;
+    bottom: 38px;
+    right: 5px;
+}
+.bottom-card-small-img{
+    border-radius: 11px;
+    height: 105px;
+    width: 87px;
+    width: fit-content;
+}
+.bottom-card{
+    border-radius: 10px;
+    line-height: 0px;
+    margin: 4px;
+    background-color: #d2d2d4;
+}
+.inside-card-upload-img{
+    height: 35px;
+    width: 35px;
+    position: relative;
+    bottom: 20px;
+}
+.card-header-text{
+    position: absolute;
+    font-size: x-small;
+    color: black;
+    bottom: 16px;
+    left: 30px;
+    text-align: center;
+}
+.text-below-card-header{
+    color: black;
+    font-size: smaller;
+    font-weight: 700;
+    position: relative;
+    bottom: 7px;
+}
+.add-more-icon{
+    font-size: x-large;
+    position: relative;
+    right: 6px;
+}
+.top-chip-styles{
+    background-color: #707072;
+    width: 118px;
+    height: 26px;
+    border: 1px solid black;
+}
+
+// -- besties-user-view-page styles --
+
+// .top-profile-pic{
+//     height: 46px;
+//     width: 46px;
+//     border-radius: 50%;
+//     border: 1px solid white;
+//     position: absolute;
+//     right: 50px;
+//     bottom: 6px;
+// }
+// .top-number{
+//     border-radius: 50%;
+//     background-color: white;
+//     color: #707072;
+//     font-size: small;
+//     height: 20px;
+//     width: 20px;
+//     position: absolute;
+//     left: 135px;
+//     bottom: 16px;
+// }
+// .top-drop-icon{
+//     position: absolute;
+//     right: 30px;
+//     color: white;
+// }
+// .top-container-style{
+//     width: 100%;
+//     border-bottom: 3px solid #0000002e;
+// }
+
+// .person-profile-img{
+//     height: 55px;
+//     width: 55px;
+//     border: 1px solid black;
+//     margin-right: 10px;
+// }
+// .person-name-text{
+//     font-size: small;
+//     font-weight: 700;
+// }
+
+// .bottom-card-small-img{
+//     border-radius: 11px;
+//     height: 105px;
+//     width: fit-content;
+// }
+// .bottom-card{
+//     border-radius: 10px;
+//     line-height: 0px;
+//     margin: 5px;
+//     background-color: #d2d2d4;
+//     height: 100px;
+//     width: 105px;
+// }
+// .add-more-icon{
+//     height: 30px;
+//     width: 30px;
+
+// }
+// .play-button-inside-card{
+//     position: absolute;
+//     top: 33px;
+//     left: 35px;
+//     height: 35px;
+//     width: 35px;
+// }
+// .last-container{
+//     width: 145px;
+//     float: right;
+//     padding-top: 15px;
+//     padding-bottom: 15px;
+//     font-size: 12px;
+// }
+// .last-cols{
+//     border: 1px solid #80808061;
+//     text-align: center;
+//     margin-right: 15px;
+// }
+// .last-col-text{
+//     position: relative;
+//     bottom: 3px;
+//     left: 3px;
+// }
+
+.my-custom-class {
+    top: 140px;
+    left: 60px;
+    transform-origin: right top;
+  }

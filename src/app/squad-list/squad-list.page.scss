@@ -1,0 +1,114 @@
+/* PAGE HEADER */
+.tabone_header {
+    background: #707072;
+    position: relative;
+}
+.tabone_header_right {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.logo-img {
+    height: 25px;
+    max-width: 25px;
+}
+.chat_top-header {
+    padding: 1px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+.chat_top-header h3 {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    position: relative;
+    right: 20px;
+}
+.chat_top-header p {
+    font-size: 14px;
+    margin-left: 7px;
+    background: #ffffff;
+    padding: 3px 7px;
+    border-radius: 50%;
+    color: #707072;
+}
+
+/* PAGE CONTENT */
+/* FIRST BOX DIV SESSION */
+.main-div{
+    background-image: url(../../assets/icon/squadlist/squad_bg.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+}
+
+.box_div_session {
+    display: flex;
+    background-color: #ffffff;
+    padding: 8px;
+    position: relative;
+    box-shadow: grey -0.5px 0.5px 5px 1px;
+    margin: 13px;
+    border-radius: 4px;
+}
+
+/* SECOND BOX DIV SESSION */
+.second_box {
+    margin-top: 7px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+}
+.contest-image-div {
+    display: flex;
+}
+.image-div_first {
+    height: 75px;
+    max-width: 50%;
+}
+.image-div_first img {
+    height: 100%;
+    width: 100%;
+}
+.box_m {
+    display: flex;
+    // justify-content: center;
+    align-items: center;
+    box-shadow: 0.5px 0px 2px -0.5px;
+    padding-left: 2px;
+}
+.box_m img {
+    height: 12px;
+    border-radius: 50%;
+}
+.box_m p {
+    margin-left: 2px;
+    font-size: 9px;
+    font-weight: 600;
+}
+.image-div {
+    height: 75px;
+    max-width: 33.3%;
+}
+.image-div img {
+    width: 100%;
+    height: 100%;
+}
+.image-div_first {
+    height: 75px;
+    max-width: 50%;
+}
+.image-div_first img {
+    height: 100%;
+    width: 100%;
+}
+.image-div-object {
+    height: 140px;
+    max-width: 50%;
+}
+.image-div-object img {
+    max-width: 100%;
+    border: 0;
+    height: 100%;
+}

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+    <ion-title style="margin-left: -60px;">iQuery COMMENTS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="--background: #707072">
+
+  <form [formGroup]="iQueryCommentForm" (ngSubmit)="toAddComment()">
+    <div>
+
+      <ion-item class="top-container-item" lines="none" *ngIf="userDetails">
+        <ion-input placeholder="Write a comment ....." type="text" style="color:white;" formControlName="comment" [(ngModel)]="userComment.comment" autocapitalize="true"></ion-input>
+        <img [src]="userDetails.profile_pic" alt="" slot="end" class="top-person-img">
+      </ion-item>
+
+    </div>
+
+      <ion-item lines="none" style="--background: #707072;">
+        <p class="top-left-text" *ngIf="commentDetails"> {{commentDetails.length}} Comments</p>
+        <ion-button slot="end" class="top-right-red-button" (click)="toAddComment()" [disabled]="!iQueryCommentForm.valid">
+          <ion-icon name="add-outline" class="add-icon"></ion-icon>
+          ADD YOUR COMMENT</ion-button>
+      </ion-item>
+    </form>
+
+    <div>
+      <p style="padding-left: 20px; background-color: #9e9e9e; height: 45px; padding-top: 10px;" *ngIf="commentDetails?.length==0" >Be the first person to leave a comment ....</p>
+    <div style="background: #707072; height: 152px;" *ngFor="let comment of commentDetails" class="animate__animated animate__fadeIn">
+      <img [src]="comment.commented_userprofile" alt="" class="left-profile-img">
+
+      <div class="container">
+
+        <ion-row>
+          <ion-item lines="none" class="top-item">
+            <h6 class="person-name-text"> {{comment.commented_username}} </h6>
+            <p class="time-text">said on {{comment.commented_at | date}} @ {{comment.commented_at | date:'shortTime'}} </p>
+          </ion-item>
+        </ion-row>
+
+        <ion-row style="background-color: white; height: 60px; width: 320px; border-bottom: 0.5px solid #80808070">
+          <p class="content-text"> {{comment.comment}} </p>
+        </ion-row>
+
+        <!-- <ion-row>
+          <ion-item lines="none" style="width: -webkit-fill-available; height: 41px;">
+            <p style="font-size: 12px;">
+              <img src="../../assets/icon/comments/heart.png" alt="" class="bottom-small-img-icons">
+              0
+            </p>
+
+            <p style="font-size: 12px; margin-left: 15px;">
+              <img src="../../assets/icon/comments/heart.png" alt="" class="bottom-small-img-icons">
+              0
+            </p>
+
+            <p style="font-size: 12px;">
+              <img src="../../assets/icon/comments/blog.png" alt="" class="bottom-small-img-icons">
+              0
+            </p>
+
+            <ion-button slot="end" size="small" shape="round" class="bottom-right-red-button">REPLY</ion-button>
+          </ion-item>
+        </ion-row> -->
+      </div>
+    </div>
+
+  </div>
+
+</ion-content>

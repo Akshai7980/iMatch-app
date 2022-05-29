@@ -1,0 +1,88 @@
+ion-content{
+    --background: url('../../assets/icon/landing/bg3.jpg') 0 0/100% 100% no-repeat;
+}
+.logoHeader{
+    height: 55px;
+    max-width: 195px;
+}
+.loginButton{
+    --background: #fcbb3b;
+    height: 45px;
+    margin-top: 12px;   
+    color: black;
+    font-weight: 800;
+    font-size: small;
+}
+.text-field-icons{
+    height: 16px;
+    width: 14px;
+    margin: -4px 10px 0px 0px;
+}
+.validation{
+    color: white;
+    text-align: center;
+    font-size: 12px; 
+}
+ion-button {
+    text-transform: none;
+   }
+
+   ion-input{
+    margin: -3px 0 0 2px;
+    font-size: 14px;
+   }
+
+   ion-item{
+    border: 1px solid white;
+    border-radius: 25px;
+    background: #36343585;
+    height: 42px;
+    margin-bottom: 18px;
+    color: white;
+    --background: transparent;
+    --ion-color-base: transparent !important;
+   }
+
+   ion-checkbox{
+    width: 14px;
+    height: 14px;
+    margin-left: 5px;
+    margin-bottom: -2px;
+   }
+
+
+   h1 {
+    position: relative;
+    font-size: 15px;
+    margin-top: 35px;
+    z-index: 1;
+    overflow: hidden;
+    text-align: center;
+    color: #c0bfc0;
+}
+h1:before, h1:after {
+    position: absolute;
+    top: 51%;
+    overflow: hidden;
+    width: 50%;
+    height: 1px;
+    content: '\a0';
+    background-color: #c0bfc0;
+}
+h1:before {
+    margin-left: -55%;
+    text-align: right;
+}
+h1:after {
+    margin-left: 13px;
+}
+
+.socialLoginButtons{
+    width: 40px;
+}
+.twitter{
+    margin-left: 33px;
+}
+.gPlus{
+    margin-left: 33px;
+}

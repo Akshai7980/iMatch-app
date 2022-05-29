@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab6" style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 20px;">EDIT PROFILE</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="profile-content"  *ngIf="userDetails">
+    <div style="padding: 25px; text-align: -webkit-center;">
+    <ion-spinner style="position: absolute; top: 55px; left: 46%;" *ngIf="isLoading==true"></ion-spinner>
+      <div style="border: 1px solid #000000bf; height: 95px; width: 95px; border-radius: 50%; background-color: white;">
+        <img *ngIf="userDetails" [src]=userDetails.profile_pic onerror="this.onerror=null;this.src='../../assets/icon/profile/user.png';" alt="" class="profile-img , animate__animated animate__fadeIn animate__delay-1s" (click)="presentActionSheet()">
+      </div>
+        <p class="profile-img-text" (click)="presentActionSheet()">Cancel the profile image</p>
+    </div>
+    
+    <div class="text-field-div">
+      <form [formGroup]="formgroup" (ngSubmit)="onSubmit()">
+
+      <ion-label position="fixed" class="input-field-label">User Name</ion-label>
+
+      <ion-input class="input-field" formControlName="name" type="text" [readonly]="true" [(ngModel)]="userDetails.name" autocapitalize="true"></ion-input>
+
+      <ion-label position="fixed" class="input-field-label">Bio</ion-label>
+      <ion-textarea class="input-field" formControlName="bio" [(ngModel)]="userData.bio" value="{{userDetails.bio}}" autocapitalize="true" autoGrow="true"></ion-textarea>
+
+      <ion-label position="fixed" class="input-field-label">Phone Number</ion-label>
+      <ion-input class="input-field" formControlName="phone" [(ngModel)]="userData.phone" type="number" value="{{userDetails.phone_number}}"></ion-input>
+
+      <ion-label position="fixed" class="input-field-label">Email</ion-label>
+      <ion-input class="input-field" formControlName="email" [readonly]="true" [(ngModel)]="userDetails.email" autocapitalize="true"></ion-input>
+
+      <ion-item class="input-field" style="--padding-start: 7px;" lines="none">
+        <ion-label position="fixed" style="color: grey;" slot="start">Gender</ion-label>
+      <ion-select formControlName="gender" [(ngModel)]="userData.gender" style="--padding-start: 0px;" value="{{userDetails.gender}}">
+        <ion-label>Gender</ion-label>
+        <ion-select-option>Male</ion-select-option>
+        <ion-select-option>Female</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+      <!-- <ion-label position="University Name" class="input-field-label">University Name</ion-label>
+      <ion-input class="input-field" formControlName="university" [(ngModel)]="userData.university" type="text" value="{{userDetails.university_name}}" autocapitalize="true"></ion-input> -->
+
+      <div style="text-align: center;">
+        <ion-button style="text-transform:none;" type="submit" expand="block" shape="round" [disabled]="!formgroup.dirty">Submit</ion-button>
+      </div>
+
+    </form>
+
+    </div>
+  </div>
+
+</ion-content>

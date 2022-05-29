@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 15px;">BEAUTY & FASHION</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="background-color: #707072; padding: 10px; margin: 15px; border-radius: 10px;" *ngFor="let beauty of BeautyFashionDetails" class="animate__animated animate__fadeIn">
+
+    <div style="display: flex; margin-bottom: 10px;">
+      <ion-avatar style="border: 1px solid yellow; padding: 2px; background-color: white; width: 45px; height: 45px;">
+        <img [src]="beauty.sender_profile" alt="">
+      </ion-avatar>
+      <span style="margin: 10px; color: white;"> {{beauty.sender_name}}</span>
+    </div>
+
+    <div style="display: flex; height: 300px;">
+
+      <div style="padding-right: 2px;">
+        <img [src]="beauty.receiver_image" alt="" style="height: 300px;">
+      </div>
+
+      <img src="../../assets/icon/vs.png" alt="" style="position: absolute; left: 45%; top: 34%; height: 35px; width: 35px;">
+      
+      <div style="padding-left: 2px;">
+        <img [src]="beauty.sender_image" alt="" style="height: 300px;">
+      </div>
+
+    </div>
+
+    <div style="margin-top: 15px;">
+      <img src="../../assets/icon/shoot.png" alt="" style="width: 30px; height: 25px; margin-right: 4px;">
+      <span style="position: relative; bottom: 3px;"> {{beauty.total_likecount}} </span>
+      <img src="../../assets/icon/headliners/msg.png" alt="" style="width: 30px; height: 25px; margin-left: 10px; margin-right: 4px;">
+      <span style="position: relative; bottom: 3px;"> {{beauty.total_comment}} </span>
+      <img src="../../assets/icon/headliners/msg.png" alt="" style="width: 30px; height: 25px; margin-left: 10px; margin-right: 4px;">
+      <span style="position: relative; bottom: 3px;"> {{beauty.total_commoncomments}} </span>
+    </div>
+  </div>
+
+</ion-content>

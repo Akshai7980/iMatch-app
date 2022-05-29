@@ -1,0 +1,40 @@
+<ion-tabs>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button (click)="GoToPersonlMatchUpload()">
+      <ion-icon name="add-circle" (click)="TabClicked($event,'Tab1')"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab2">
+      <ion-icon *ngIf="isIcon2Activated===false" style="width: 35px;" class="icon-match" src="../../assets/icon/icon-tab2.svg" (click)="TabClicked($event,'Tab2')"></ion-icon>
+      <ion-img *ngIf="isIcon2Activated===true" style="width: 35px;" class="icon-match" src="../../assets/icon/match1.png" (click)="TabClicked($event,'Tab2')"></ion-img>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab3">
+      <ion-icon *ngIf="isIcon3Activated===false" style="width: 35px;" class="icon-match" src="../../assets/icon/icon-tab3.svg" (click)="TabClicked($event,'Tab3')"></ion-icon>
+      <ion-img *ngIf="isIcon3Activated===true" style="width: 35px;" class="icon-match" src="../../assets/icon/open-match1.png" (click)="TabClicked($event,'Tab3')"></ion-img>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab4">
+      <ion-icon name="search-outline" (click)="TabClicked($event,'Tab4')"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab5">
+      <ion-icon name="notifications-outline" (click)="TabClicked($event,'Tab5')"></ion-icon>
+      <!-- <ion-badge style="margin: -5px 0px 4px -6px;">3</ion-badge> -->
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab6">
+      <ion-icon name="pulse-outline" color="primary" (click)="TabClicked($event,'Tab6')"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab7">
+      <ion-icon name="person-outline" (click)="TabClicked($event,'Tab7')"></ion-icon>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab8">
+      <ion-icon name="home-outline" (click)="TabClicked($event,'Tab8')"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+
+</ion-tabs>

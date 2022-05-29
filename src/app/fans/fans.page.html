@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+    <ion-title style="margin-left: -60px;">FANS</ion-title>
+    <ion-icon name="search" class="top-search-icon" slot="end" (click)="gotoSearchFans()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div>
+    <div style="padding: 10px; display: flex; border-bottom: 2.5px solid #808080a1;" *ngIf="userDetails">
+      <ion-avatar style="height: 57px; width: 57px;border: 1px solid; margin-left: 15px;">
+        <img [src]="userDetails.profile_pic" alt="" (click)="gotoProfile()">
+      </ion-avatar>
+      <ion-label style="margin-left: 15px; font-weight: 600; margin-top: 5px; position: relative; top: 10px;">{{userDetails.name}}</ion-label>
+      <p class="be-a-fan-text" *ngIf="userDetails.userType=='VISITOR'">BE A FAN</p>
+      <img src="../../assets/icon/activity/011.png" alt="" style="position: relative; left: 40%;">
+    </div>
+  </div>
+
+  <div style="padding-left: 25px; font-weight: 600; letter-spacing: 1px;">
+    <p *ngIf="myfans">FANS {{this.myfans.length}} </p>
+  </div>
+
+<ion-item lines="none" class="item-styles , animate__animated animate__fadeIn" *ngFor="let fan of myfans">
+  <ion-avatar style="height: 50px; width: 50px;">
+    <img [src]="fan.profile_pic" alt="">
+  </ion-avatar>
+  <ion-label style="margin-left: 15px;">{{fan.name}}</ion-label>
+  <img src="../../assets/icon/cls.png" alt="" style="height: 30px; width: 30px;" (click)="toRemoveFan($event,fan)">
+</ion-item>
+
+</ion-content>

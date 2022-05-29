@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+        </ion-buttons>
+        <ion-title style="position: relative;right: 20px;">SEARCH iMATCH USERS</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-searchbar mode="ios" [formControl]="searchControl" (keyup)="onSearchInput()" animated></ion-searchbar>
+
+    <div *ngIf="searching" class="spinner-container">
+        <ion-spinner></ion-spinner>
+    </div>
+
+    <div *ngFor=" let user of allUsers">
+        <ion-item lines="none" class="item-styles , animate__animated animate__fadeIn" (click)="gotoVisitorsActivity($event,user)">
+            <div style="margin-left: 15px;">
+                <img [src]="user.profile_pic" style="height: 50px; width: 50px; border-radius: 50%; border: 1px solid black;">
+            </div>
+
+            <ion-label style="margin-left: 15px;">{{user.name}}</ion-label>
+        </ion-item>
+    </div>
+
+</ion-content>

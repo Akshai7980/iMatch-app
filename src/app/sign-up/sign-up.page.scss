@@ -1,0 +1,44 @@
+.bg{
+    --background: #fff url('../../assets/icon/landing/bg3.jpg') no-repeat center center / cover;
+}
+.logo-img{
+    height: 55px;
+    max-width: 195px;
+}
+.input-field{
+    border: 1px solid white;
+    border-radius: 25px;
+    background: #36343585;
+    height: 42px;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 15px;
+      
+}
+.button-sign-up{
+    --background: #fcbb3b;
+    height: 45px;
+    margin-top: 15px;
+    color: black;
+    font-weight: 800;
+    font-size: small;
+}
+.text-field-icons{
+    height: 16px;
+    width: 16px;
+    margin-left: 15px;
+    margin-right: 7px;
+}
+ion-button {
+    text-transform: none;
+   }
+
+.validation{
+    color: white;
+    text-align: center;
+    font-size: 10px;
+   }
+   .select-code{
+    --placeholder-color: #878686 !important;
+    --placeholder-opacity: 0px;
+   }

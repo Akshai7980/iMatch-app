@@ -1,0 +1,63 @@
+<ion-content>
+
+    <div style="text-align: center; margin-top: 80px;">
+      <img src="../../assets/icon/login/logo.png" alt="" class="logoHeader">
+    </div>
+  
+      <div style="padding:30px; margin-top: 55px;">
+  
+        <form [formGroup]="LoginForm" (ngSubmit)="signIn()">
+
+      <div>
+
+      <ion-item lines="none">
+        <ion-input formControlName="email" [(ngModel)]="userData.email" placeholder="Username (eg:Example@gmail.com)" autocomplete="off" [value]="LoginDetails.email" autocapitalize="true">
+          <!-- clear-input="true" -->
+          <img src="../../assets/icon/login/user.png" alt="" class="text-field-icons">
+          </ion-input>
+      </ion-item>
+  
+      <ion-item lines="none">
+        <ion-input formControlName="password" [(ngModel)]="userData.password" placeholder="Password (eg:Example01)" [type]="showPassword ? 'text' : 'password'" [value]="LoginDetails.password">
+          <!-- clear-input="true" -->
+          <img src="../../assets/icon/login/lock.png" alt="" class="text-field-icons">
+         
+        </ion-input>
+        <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'" slot="end" (click)="onPasswordToggle()" color="medium" style="height: 20px; box-shadow: 0px 0px 10px 0px lightgrey; padding: 10px 5px 10px 5px; margin: 0px;"></ion-icon>
+        
+      </ion-item>
+
+    </div>
+
+
+      
+      <div style="margin-top: 25px; position: relative;">
+       
+        <ion-checkbox color="danger" (ionChange)="onMyBooleanChange($event)"></ion-checkbox>
+        <span style="color: #c0bfc0; font-size: 12px; margin-left: 6px;">Remember me</span>
+        <span style="color: #c0bfc0; font-size: 13px; position: absolute; right: 0; top: 4px;" (click)="gotoForgotPassword()">Forgot password?</span>
+
+      </div>
+  
+        <ion-button shape="round" expand="block" class="loginButton" type="submit"> SIGN IN </ion-button>
+
+      </form>
+  
+        <h1>SIGN IN USING</h1>
+
+        <div style="margin-top: 13px; text-align: center;">
+          <img class="socialLoginButtons" src="../../assets/icon/login/fb.png" (click)="FacebookLogin()">
+          <img class="socialLoginButtons twitter" src="../../assets/icon/login/twitter.png" (click)="TwitterLogin()">
+          <img class="socialLoginButtons gPlus" src="../../assets/icon/login/gPlus.png" (click)="GoogleLogin()">
+        </div>
+
+        <div style="margin-top: 25px; text-align: center;">
+          <span style="color: #c0bfc0; font-size: 13px; margin-left: 5%;">Don't have an account ? 
+            <ion-button fill="clear" style="color: #ea6850;margin-bottom: 15px;margin-left: -10px; font-size: 13px;" [routerLink]="['/sign-up']">Sign Up
+            </ion-button> 
+          </span>
+        </div>
+        
+  </div>
+    </ion-content>
+  

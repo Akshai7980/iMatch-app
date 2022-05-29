@@ -1,0 +1,246 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons> -->
+    <img src="../../assets/icon/chat/back.png" alt="" style="height: 16px;width: 10px;position: absolute;left: 20px;" (click)="togoBack()">
+    <div style="text-align: center; font-family: OpenSansRegular; font-size: 16px; color: white;">
+      <div style="height: 22px; width: 22px; border-radius: 50%; padding: 1px 0px; position: absolute; left: 100px; font-size: 13px; font-weight: 600; background-color: white; color: #707072;">
+        <span *ngIf="userDetails" style="font-size: 10px;"> {{this.userDetails.matches_invitationcount}} </span>
+      </div>
+      <span>NOTIFICATION</span>
+    </div>
+
+
+    <!-- <ion-title style="width: 400px; position: relative; left: 15px;">NOTIFICATIONS</ion-title> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div style="margin-top: 15px;">
+
+  <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px"  (click)="openListFans()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+          <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+              <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/fans.png">
+              <span class="banner">0</span>
+          </div>  
+          <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">New fans Gained</span>
+      <img (click)="openMessage()" style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+    </div>
+    <!-- <div class="message" *ngIf="showMessage">
+      <span class="message-date">Validity: 28 Jun 2020</span>
+      <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+    </div> -->
+  </div >
+
+  <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="OpenMatchInvitation()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+      <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+          <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/g.png">
+          <span class="banner" *ngIf="userDetails"> {{userDetails.matches_invitationcount}} </span>
+      </div>  
+      <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">Open Match Invitation</span>
+  <img  style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+</div>
+<!-- <div class="message" *ngIf="showMessage">
+  <span class="message-date">Validity: 28 Jun 2020</span>
+  <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+</div> -->
+  </div>
+</div>
+
+<div style="margin-top: 15px;">
+
+  <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openListSquad()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+          <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+              <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/bg.jpg">
+              <span class="banner">0</span>
+          </div>  
+          <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">Squad List Invitation</span>
+      <img (click)="openMessage()" style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+    </div>
+    <!-- <div class="message" *ngIf="showMessage">
+      <span class="message-date">Validity: 28 Jun 2020</span>
+      <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+    </div> -->
+  </div >
+
+  <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openListBesties()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+      <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+          <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/besties.png">
+          <span class="banner">0</span>
+      </div>  
+      <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">Invitation To Be Bestie</span>
+  <img  style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+</div>
+<!-- <div class="message" *ngIf="showMessage">
+  <span class="message-date">Validity: 28 Jun 2020</span>
+  <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+</div> -->
+  </div>
+</div>
+
+<div style="margin-top: 15px;">
+
+  <!-- <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openFavourite()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+          <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+              <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/fav.png">
+              <span class="banner">0</span>
+          </div>  
+          <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">Added As Favourite</span>
+      <img (click)="openMessage()" style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+    </div> -->
+    <!-- <div class="message" *ngIf="showMessage">
+      <span class="message-date">Validity: 28 Jun 2020</span>
+      <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+    </div> -->
+  <!-- </div> -->
+
+  <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openNewMessages()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+      <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+          <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/message.png">
+          <span class="banner">0</span>
+      </div>  
+      <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">New Messages</span>
+  <img  style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+</div>
+<!-- <div class="message" *ngIf="showMessage">
+  <span class="message-date">Validity: 28 Jun 2020</span>
+  <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+</div> -->
+  </div>
+</div>
+
+<div style="margin-top: 15px;">
+
+  <!-- <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openGroupInvitation()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+          <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+              <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/chat.png">
+              <span class="banner">20</span>
+          </div>  
+          <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">Invited To A Group</span>
+      <img (click)="openMessage()" style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+    </div> -->
+    <!-- <div class="message" *ngIf="showMessage">
+      <span class="message-date">Validity: 28 Jun 2020</span>
+      <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+    </div> -->
+  <!-- </div> -->
+
+  <!-- <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openTagged()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+      <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+          <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/tag.png">
+          <span class="banner">20</span>
+      </div>  
+      <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">You Are Tagged</span>
+  <img  style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+</div> -->
+<!-- <div class="message" *ngIf="showMessage">
+  <span class="message-date">Validity: 28 Jun 2020</span>
+  <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+</div> -->
+  <!-- </div> -->
+</div>
+
+<div style="margin-top: 15px;">
+
+  <!-- <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openTop100()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+          <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+              <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/top100.png">
+              <span class="banner">20</span>
+          </div>  
+          <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">You are among Top 100</span>
+      <img (click)="openMessage()" style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+    </div> -->
+    <!-- <div class="message" *ngIf="showMessage">
+      <span class="message-date">Validity: 28 Jun 2020</span>
+      <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+    </div> -->
+  <!-- </div> -->
+
+  <!-- <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openHeadliners()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+      <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+          <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/headlines.png">
+          <span class="banner">0</span>
+      </div>  
+      <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">You are among Headliners</span>
+  <img  style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+</div> -->
+<!-- <div class="message" *ngIf="showMessage">
+  <span class="message-date">Validity: 28 Jun 2020</span>
+  <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+</div> -->
+  <!-- </div> -->
+</div>
+
+<div style="margin-top: 15px;">
+
+  <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openTrending()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+          <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+              <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/trending.png">
+              <span class="banner">0</span>
+          </div>  
+          <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">Your post is among Trending</span>
+      <img (click)="openMessage()" style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+    </div>
+    <!-- <div class="message" *ngIf="showMessage">
+      <span class="message-date">Validity: 28 Jun 2020</span>
+      <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+    </div> -->
+  </div >
+
+  <!-- <div style="width: 50%; float: left; border: 1px solid transparent; padding: 35px; height: 92px" (click)="openGoodies()">
+    <div style="border: 1px solid gainsboro; padding: 36px; margin: -28px; border-radius: 4%; position: relative; box-shadow: 0px 1px 0px 0px gainsboro, -2px 0px 0px 0px #f21908;">
+      <div style="border: 1px solid #707072; border-radius: 50%; padding: 30px; position: absolute; margin: -31px 0px 0px -32px;">
+          <img style="position: absolute; width: 35px; margin: -16px 0 0 -18px;" src="../../assets/icon/notifications-goodies/goodies.png">
+          <span class="banner">20</span>
+      </div>  
+      <span style="font-family: OpenSansSemiBold; font-size: 11px; position: absolute; margin: -18px 0 0px 40px;">Win in Goodies Of The Moment</span>
+  <img  style="margin-top: 13px; position: absolute; width: 25px; margin-left: 102px; border-bottom-right-radius: 4px; right: 0;" src="../../assets/icon/notifications-goodies/border-button.png">
+</div> -->
+<!-- <div class="message" *ngIf="showMessage">
+  <span class="message-date">Validity: 28 Jun 2020</span>
+  <p class="message-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, commodo consequat. Duis aute irure eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <ion-button shape="round" expand="block" class="click-here-button" (click)="dismissMessage()">CLICK HERE</ion-button>
+
+</div> -->
+  <!-- </div> -->
+</div>
+
+<!-- <ion-item lines="none" class="item-styles" *ngFor=" let noch of Notifications">
+  <strong>{{noch.message}}</strong>
+</ion-item> -->
+
+</ion-content>

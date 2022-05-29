@@ -1,0 +1,72 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/tab6" style="color: white" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+      <ion-title>HELP</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content>
+  <div class="top-section">
+    <div style="font-family: OpenSansBold; font-size: 20px; margin: 20px 0 0px 62px;">How Can We Help You?</div>
+  </div>
+
+  <div style="margin: -120px 0 0 0;">
+      <ion-grid>
+          <ion-row>
+            <ion-col size="8">
+              <div style="height: 35px; margin-left: 10px; margin-right: -18px; font-size: 15px; font-family: OpenSansRegular;">
+                <img style="width: 15px; margin: 0 0 -10px 8px;" src="../../assets/icon/help-invitation-terms/help-search.png">
+                <ion-input style="border: 0.5px solid #707072; margin-top: -20px; height: 40px; --padding-start: 30px; --placeholder-opacity: 1;" placeholder="Enter Here" type="text">
+                    <!-- <img src="../../assets/icon/lock.png"> -->
+         
+                  </ion-input>
+            <!-- Enter Here -->
+              </div>
+            </ion-col>
+            <ion-col size="4">
+              <div style="height: 40px; margin-left: 8px; margin-right: 10px; background-color: #f21908; padding: 9px 0 0px 25px; color: white; font-size: 15px; font-family: OpenSansRegular;">
+                SEND
+              </div>
+            </ion-col>
+           
+          </ion-row>
+        </ion-grid>
+  </div>
+  <div class="bottom-section">
+    <div class="contact-us" (click)="openContactUs('contact')">
+        <img style="width: 45px; margin: 40px 0 8px 72px;" src="../../assets/icon/help-invitation-terms/mag.png">
+        <div style="font-size: 18px; margin: 0 0 0 47px; font-family: OpenSansSemiBold; color: white;">Contact Us</div>      
+    </div>
+
+    <div class="envelope" *ngIf="showContactUs">
+      <div>
+        <div style="color: #f21908; font-family: OpenSansBold; margin: 25px 0 0 85px; font-size: 18px;">Contact Us</div>
+        <div style="margin: 12px 0 0 33px; color: #f21908; font-family: OpenSansBold; font-size: 12px;">Name*</div>
+        <ion-input style="margin: -18px 0 0 90px; border: 0.5px solid #7070724d; height: 20px; width: 155px;"></ion-input>
+        <div style="margin: 12px 0 0 33px; color: #f21908; font-family: OpenSansBold; font-size: 12px;">Name*</div>
+        <ion-input style="margin: -18px 0 0 90px; border: 0.5px solid #7070724d; height: 20px; width: 155px;"></ion-input>
+        <div style="margin: 12px 0 0 33px; color: #f21908; font-family: OpenSansBold; font-size: 12px;">Name*</div>
+        <ion-input style="margin: -18px 0 0 90px; border: 0.5px solid #7070724d; height: 20px; width: 155px;"></ion-input>
+        <div style="margin: 12px 0 0 33px; color: #f21908; font-family: OpenSansBold; font-size: 12px;">Name*</div>
+        <ion-textarea style="margin: -18px 0 0 90px; border: 0.5px solid #7070724d; width: 155px;"></ion-textarea>
+        <ion-button shape="round" expand="block" style="margin: 20px 0 0 85px; color: white; font-size: 10px; width: 110px; height: 30px">SEND NOW</ion-button>
+      </div>
+    </div>
+
+    <div id="contact" class="make-imatch-better" (click)="openFeedback('feedback')">
+      <div style="font-family: OpenSansSemiBold; font-size: 14px; color: white; margin: 25px 0 0 30px; padding-top: 35px;">Make iMatch Better</div>
+      <div style="font-family: OpenSansRegular; font-size: 10px; color: white; margin: 15px 0 0 30px; padding-right: 20px;">Do you have any suggestions to help iMatch be more user friendly or exciting? Please share with us</div>
+    </div>
+
+    <div class="feedback" *ngIf="showFeedback">
+      <div style="width: 400px">
+          <img style="width: 280px; margin-top: 20px; margin-left: -9px;" src="../../assets/icon/help-invitation-terms/help-ribbon.png">
+      </div>
+      <ion-textarea style="height: 195px; width: 240px; --padding-bottom: 135px; margin-bottom: 10px; --padding-top: 0px; margin-left: 5px;"></ion-textarea>
+      <span style="font-family: OpenSansRegular; color: #707072; margin-left: 146px; font-size: 15px;">Thank you</span>
+    </div>
+    <div id="feedback" *ngIf="showFeedback" style="background-color: #707072; height: 20px;"></div>
+  </div>  
+</ion-content>

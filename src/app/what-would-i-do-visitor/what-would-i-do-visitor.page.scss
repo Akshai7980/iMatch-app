@@ -1,0 +1,96 @@
+/* PAGE HEADER */
+.tabone_header {
+    background: #707072;
+    position: relative;
+    height: 50px;
+}
+.tabone_header_left {
+    
+}
+.tabone_header_right {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.logo-img {
+    height: 25px;
+    max-width: 25px;
+}
+
+/* PAGE CONTENT */
+.page-content {
+    padding: 10px;
+}
+.comment-div {
+    display: flex; 
+    position: relative; 
+    align-items: center; 
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.comment-box {
+    padding: 15px;
+    background: #f3f3f3;
+    box-shadow: 0.5px 0.5px 4.5px -0.5px;
+    border-radius: 5px;
+    font-size: 11px;
+    width: 50%;
+    height: 110px;
+    line-height: 17px;
+    font-weight: 700;
+}
+.comment-box-bg {
+    padding: 15px;
+    background-image: url('../../assets/icon/what_would/w-bg.png');
+    box-shadow: 0.5px 0.5px 4.5px -0.5px;
+    border-radius: 5px;
+    font-size: 11px;
+    width: 50%;
+    height: 110px;
+    line-height: 17px;
+    font-weight: 700;
+    background-size: contain;
+}
+.box-image {
+    position: absolute;
+    width: 28px;
+    height: 25px;
+    top: 87px;
+    left: 10px;
+    border: 1px solid #9eacad;
+    padding: 3px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+.box-image_two {
+    position: absolute;
+    width: 28px;
+    height: 25px;
+    top: 87px;
+    left: 200px;
+    border: 1px solid #9eacad;
+    padding: 3px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+.add-button {
+    font-size: 9px;
+    margin-left: 5px;
+    background: #919292;
+    border-radius: 20px;
+    color: #ffffff;
+    padding-left: 0;
+    height: 25px;
+    text-transform: capitalize;
+}
+.comment-area {
+    margin: 0 auto;
+    border-radius: 20px;
+    width: 200px;
+    display: flex;
+    border: 1px solid #919292;
+    align-items: center;
+    font-size: 12px;
+    height: 30px;
+    justify-content: center;
+}

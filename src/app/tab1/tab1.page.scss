@@ -1,0 +1,73 @@
+ion-content{
+    --background: url('../../assets/icon/help-invitation-terms/invitation-bg.png') 0 0/100% 100% no-repeat;
+}
+
+.box{
+    width: 88%;
+    // height: 243px;
+    border: 1px solid transparent;
+    background-color: #707072;
+    margin-left: 6%;
+    margin-top: 6%;
+    border-radius: 5px;
+}
+
+.inner-box{
+    border: 1px solid #e0e0e0;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    margin: 5%;
+    border-radius: 5px;
+
+    
+
+}
+
+.inner-box div{
+    position: relative;
+    ion-img{
+        width: 45%;
+    }
+    ion-thumbnail{
+        border: 1px solid #fcbb3b;
+        position: absolute;
+        right: 4%;
+        top: 12%;
+        height: 65px;
+        width: 65px;
+    }
+    span{
+        position: absolute;
+        right: 10%;
+        top: 90%;
+        font-size: 13px;
+        color: #fcbb3b;
+        font-family: OpenSansRegular;
+    }
+
+    .input-textarea{
+        border: 0.5px solid;
+        color: white;
+    }
+
+    .input-field {
+        border: 1px solid #b6b6b7;
+        background: #cdcdce30;
+        color: white;
+        text-align: center;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    ion-select::part(icon) {
+        display: none !important;
+       }
+
+    ion-select {
+        border: 0.5px solid #ffffff8a;
+        background: #707072;
+        padding: 2px 10px 2px 10px;
+        margin-left: 10px;
+        color: white;
+    }
+}

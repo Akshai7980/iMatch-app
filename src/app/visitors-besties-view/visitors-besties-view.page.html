@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab6" style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios" style="color: white; font-size: 15px;" *ngIf="UserInfo">
+      <span class="top-number">{{this.mybesties.length}}</span>
+        BESTIES
+        <img *ngIf="UserInfo.user_profilepic" [src]="UserInfo.user_profilepic" alt="" class="top-profile-pic" onerror="this.src='../../assets/icon/profile/user.png'">
+        <!-- <ion-icon name="caret-down-outline" class="top-drop-icon"></ion-icon> -->
+      </ion-title> 
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div  *ngFor=" let bestie of mybesties; let i = index;">
+    <ion-item lines="none" class="item-styles , animate__animated animate__fadeIn">
+      <ion-avatar style="height: 50px; width: 50px;">
+        <img [src]="bestie.profile_pic" alt="">
+
+      </ion-avatar>
+      <ion-label class="name-text">{{bestie.name}}</ion-label>
+  
+      <div class="container-inside-item">
+        <ion-row>
+          <ion-col>
+            <img src="../../assets/icon/besties/heart.png" alt="" style="height: 15px; width: 15px;">
+            <span class="text-near-icons">{{bestie.likes}}</span>
+          </ion-col>
+  
+          <ion-col>
+            <img src="../../assets/icon/besties/comment.png" alt="" style="height: 15px; width: 18px;">
+            <span class="text-near-icons">{{bestie.comments}}</span>
+          </ion-col>
+        </ion-row>
+      </div>
+  
+      <!-- <img src="../../assets/icon/besties/add.png" alt="" class="add-img"> -->
+          <!-- <img src="../../assets/icon/besties/drop.png" alt="" class="last-drop-img"> -->
+          <img *ngIf="!showContent[i]" src="../../assets/icon/besties/drop.png" alt="" class="last-drop-img" (click)="ToViewBestiesContent($event, bestie, i, 'show')">
+          <img *ngIf="showContent[i]" src="../../assets/icon/besties/drop.png" alt="" class="last-drop-img" style="transform: rotate(180deg); border-bottom-right-radius: 30px;" (click)="ToViewBestiesContent($event, bestie, i, 'hide')">
+    </ion-item>
+
+    <div *ngIf="showContent[i]==true" class="animate__animated animate__fadeIn animate__delay-0.5s">
+
+      <div>
+        <ion-card style="background-image: linear-gradient(to right, #ee1809 , #8a5a5a); border-radius: 10px; width: -webkit-fill-available;" *ngIf="ourStory">
+          <ion-card-header style="color: white; margin-bottom: 10px;">OUR STORY</ion-card-header>
+          <!-- <img src="../../assets/icon/besties/edit.png" alt="" class="near-card-header-img" (click)="gotoOurStory()"> -->
+          <ion-card-content style="color: white; line-height: 14px; font-size: 12px; position: relative; bottom: 20px;" auto-grow="true"> {{ourStory[0]?.text}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div>
+        <ion-card style="background-image: linear-gradient(to right, #0a0700 , #595d5e); border-radius: 10px; width: -webkit-fill-available;" *ngIf="ourSlogan">
+          <ion-card-header style="color: white; margin-bottom: 10px;">OUR FAVOURITE WORD / SLOGAN</ion-card-header>
+          <!-- <img src="../../assets/icon/besties/edit.png" alt="" class="near-card-header-img" (click)="gotoOurSlogan()"> -->
+          <ion-card-content style="color: white; line-height: 14px; font-size: 12px; position: relative; bottom: 20px;" auto-grow="true"> {{ourSlogan[0]?.text}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+      <div>
+        <ion-card style="background-image: linear-gradient(to right, #e39b09 , #787570); border-radius: 10px; width: -webkit-fill-available;" *ngIf="ourLetter">
+          <ion-card-header style="color: white; margin-bottom: 10px;">A LETTER TO MY BEST FRIEND</ion-card-header>
+          <!-- <img src="../../assets/icon/besties/edit.png" alt="" class="near-card-header-img" (click)="gotoLetter()"> -->
+          <ion-card-content style="color: white; line-height: 14px; font-size: 12px; position: relative; bottom: 20px;" auto-grow="true"> {{ourLetter[0]?.text}}
+          </ion-card-content>
+        </ion-card>
+      </div>
+
+    </div>
+  </div>
+
+</ion-content>

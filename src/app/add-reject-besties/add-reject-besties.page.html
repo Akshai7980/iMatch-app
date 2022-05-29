@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab6" style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title style="position: relative; right: 25px;">BESTIES INVITATIONS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div>
+
+    <div style="padding: 10px;" *ngFor="let invitaion of BestiesInvitaion; let i = index;">
+      <div
+        style="border-top: 30px solid #f21908; border-radius: 13px 13px 5px 5px; box-shadow: 1px 1px 5px 1px grey; background-color: #f21908;">
+
+        <div style="padding: 15px; border-radius: 13px 13px 5px 5px; background-color: white;">
+          <div style="display: flex; justify-content: space-between;">
+
+            <div>
+              <h5 style="font-weight: 600;">Hai ! Layla</h5>
+              <span>You have a bestie invitaion with </span>
+              <p style="margin: 0px; font-weight: 600; font-size: 13px;">2 mutual besties</p>
+            </div>
+            <div style="text-align: center;">
+              <img src="../../assets/icon/profile/user.png" alt=""
+                style="height: 55px; width: 55px; border-radius: 50%; border: 1px solid #707070">
+              <p style="margin: 0px; font-weight: 600; font-size: 13px;">User Name</p>
+            </div>
+          </div>
+
+          <div style="margin-top: 15px;">
+            <!-- <ion-button shape="round" size="small" style="text-transform: none; --background: #344fa1db; color: white; font-weight: 600;"
+            (click)="ViewUserProfile($event, invitaion, i)">
+            View Profile</ion-button> -->
+            <ion-button shape="round" size="small" style="text-transform: none; --background: #ffc107; color: black;"
+              (click)="AddAsBestie($event, invitaion, i)">
+              Add As Bestie</ion-button>
+            <ion-button shape="round" size="small" style="text-transform: none; --background: #707072; color: black;"
+              (click)="RejectBestieInvitation($event, invitaion, i)">
+              Reject Invitaion</ion-button>
+            <ion-button shape="round" size="small" fill="outline" style="text-transform: none; color: black;"
+              (click)="BlockTheUser($event, invitaion, i)">Block This user
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

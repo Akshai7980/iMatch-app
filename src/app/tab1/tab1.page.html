@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <img src="../../assets/icon/chat/back.png" alt="" style="height: 16px;width: 10px;position: absolute;left: 20px;" (click)="togoBack()">
+    <ion-title style="width: 300px;margin-left: 40px;">BEFORE MATCH INVITATION</ion-title>
+    <img src="../../assets/icon/activity/search.png" alt="" style="position: absolute;right: 20px;height: 22px;width: 22px;bottom: 16px;" (click)="gotoSearchUser()">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="margin: 30px 0px 0px 0px;
+  text-align: center;">
+    <!-- <ion-button style="text-transform: none;" (click)="toShare()">Invite Other Users</ion-button> -->
+  </div>
+
+  <div style="padding: 15px; background-color: #707072; margin: 20px; margin-top: 12%;">
+    <div style="border: 1px solid #ffffff8f; padding: 15px; border-radius: 4px; color: #dcdcdc;">
+      <img src="../../assets/icon/help-invitation-terms/bar.png" alt="">
+      <!-- <h6>Hai {{userDetails.name}} !</h6> -->
+      <h2>Whom you want to call for a match ?
+        <!-- <ion-select (ionChange)="toSelectUser($event)" style="background-color: #9e9e9e57; border-radius: 5px; margin-top: 10px; font-size: 17px;">
+          <ion-select-option *ngFor="let user of Users" [value]="user">{{user.name}}</ion-select-option>
+        </ion-select> -->
+      </h2>
+    </div>
+  </div>  
+
+</ion-content>

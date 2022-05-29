@@ -1,0 +1,115 @@
+ion-content{
+    --background: url('../../assets/icon/headliners/headliners-bg.png') 0 0/100% 100% no-repeat;
+}
+
+.slides{
+    border: 1px solid transparent;
+    width: 320px;
+    height: 114px;
+    margin-top: 35px;
+}
+
+ion-item {
+    --background: transparent;
+    --ion-color-base: transparent !important;
+    font-family: OpenSansRegular;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0px 70px 0px 0px;
+    padding: 3px;
+}
+
+.border-bottom{
+    border-bottom: 0.5px solid gray;
+    width: 265px;
+    margin-left: 17px;
+    margin-top: -7px;
+    margin-bottom: 10px;
+}
+
+.slide1-heart{
+    position: absolute;
+    left: 32px;
+    top: 55px;
+}
+.slide1-openMatch{
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 125px;
+}
+.slide1-profile{
+    position: absolute;
+    top: 130px;
+    right: 35px;
+}
+.slide2-top{
+    position: relative;
+    margin-top: 15px;
+    margin-left: -237px;
+}
+.slide2-bottom{
+    position: absolute;
+    margin-left: 135px;
+    margin-top: -3px;
+}
+@media screen and (min-height : 701px) and (max-height : 770px) {
+    .slide1-heart{
+        top: 60px;
+    }
+    .slide1-openMatch{
+        margin-top: 35px;
+    }
+    .slide1-profile{
+        top: 145px;
+    }
+    .slide2-top{
+        margin-top: 20px;
+    }
+    .slide2-bottom{
+        margin-top: 0px;
+    }
+  }
+  @media screen and (min-height : 771px) and (max-height : 810px) {
+    .slide1-heart{
+        top: 65px;
+    }
+    .slide1-openMatch{
+        margin-top: 40px;
+    }
+    .slide1-profile{
+        top: 150px;
+    }
+    .slide2-top{
+        margin-top: 30px;
+    }
+    .slide2-bottom{
+        margin-top: 0px;
+    }
+  }
+  @media screen and (min-height : 811px) and (max-height : 850px) {
+    .slide1-heart{
+        top: 70px;
+    }
+    .slide1-openMatch{
+        margin-top: 50px;
+    }
+    .slide1-profile{
+        top: 160px;
+    }
+    .slide2-top{
+        margin-top: 35px;
+    }
+    .slide2-bottom{
+        margin-top: 15px;
+    }
+  }
+
+  .add-icon{
+    position: relative;
+    left: 117px;
+    top: 17px;
+    color: white;
+    font-weight: bold;
+    background-color: #f21b0a;
+    border-radius: 50%;
+  }

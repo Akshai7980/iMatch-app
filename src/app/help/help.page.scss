@@ -1,0 +1,51 @@
+.top-section{
+    height: 30%;
+
+}
+
+.bottom-section{
+    background-image: url('../../assets/icon/help-invitation-terms/help-bg.png');
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+}
+
+.contact-us{
+    height: 190px;
+    width: 190px;
+    background-image: url('../../assets/icon/help-invitation-terms/bx.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 55px;
+    left: 85px;
+    position: relative
+}
+
+.make-imatch-better{
+    background-image: url('../../assets/icon/help-invitation-terms/bx1.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 190px;
+    width: 190px;
+    position: relative;
+    left: 85px;
+}
+
+.envelope{
+    background-image: url('../../assets/icon/help-invitation-terms/envlp.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 375px;
+    width: 292px;
+    margin: 34px 0 -15px 38px;
+    padding-top: 2px;
+}
+
+.feedback{
+    height: 320px;
+    width: 255px;
+    background-color: #fcbb3b;
+    margin-left: 50px;
+    border-radius: 30px;
+}

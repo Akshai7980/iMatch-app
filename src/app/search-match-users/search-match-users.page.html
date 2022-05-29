@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 15px;">SEARCH iMatch OPPONENT</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar mode="ios" [formControl]="searchControl" (keyup)="onSearchInput($event)" animated></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <!-- <div style="display: flex; margin-left: 20px;" *ngIf="showCategory==true">
+
+    <ion-chip style="background-color: #ffc3008f;" (click)="toListCategory('bestie')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Bestie List</ion-label>
+    </ion-chip>
+
+    <ion-chip style="background-color: #00bcd480;" (click)="toListCategory('squad')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Squad List</ion-label>
+    </ion-chip>
+
+    <ion-chip style="background-color: #ff980087;" (click)="toListCategory('fan')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Fan List</ion-label>
+    </ion-chip>
+
+  </div> -->
+
+  <!-- <div style="display: flex; margin-left: 20px;" *ngIf="showCategory==true">
+    <ion-chip style="background-color: bisque;" (click)="toListCategory('fan-of')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Fan Of List</ion-label>
+    </ion-chip>
+
+    <ion-chip style="background: #8bc34a9e;" (click)="toListCategory('invite')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Invite Others</ion-label>
+    </ion-chip>
+  </div> -->
+
+  <div *ngFor=" let user of allUsers">  
+  <ion-item lines="none" class="item-styles , animate__animated animate__fadeIn">
+        <div>
+      <img [src]="user.profile_pic" style="height: 50px; width: 50px; border-radius: 50%;" (click)="addToMatch($event,user)">
+        </div>
+
+    <ion-label style="margin-left: 15px;" (click)="addToMatch($event,user)">{{user.name}}</ion-label>
+  </ion-item>
+</div>
+
+</ion-content>

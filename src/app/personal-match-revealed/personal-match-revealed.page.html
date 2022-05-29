@@ -1,0 +1,151 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative;right: 25px;">Revealed Count</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<div class="second_box" style="overflow: auto; height: 100%;">
+  <div style="justify-content: space-between; display:flex; margin: 15px;">
+    <img src="../../assets/icon/squadlist/btn1.png" alt="" style="width: 45px;">
+    <img src="../../assets/icon/squadlist/btn3.png" alt="" style="width: 45px;">
+  </div>
+
+  <div style="float: left; padding: 0px 7.5px 0 15px; width: 50%;" >
+
+    <!-- <div class="div-left" *ngFor="let t of test"></div> -->
+
+    <!-- <div class="image-div_first">
+      <img [src]="data.receiver_image" alt="">
+    </div>
+
+    <div style="position: absolute; top: 30%; left: 40%;">
+      <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+    </div>
+
+    <div class="image-div_first">
+      <img [src]="data.sender_image" alt="">
+    </div> -->
+
+    <div class="div-left" *ngFor="let d of type==='sender' ? data.sender_image_winname : data.receiver_image_winname">
+
+      <div style="display: flex; flex-wrap: wrap; position: relative;">
+        <div >
+          <img [src]="d.closed_match_images[0].closed_image" style="width: 40px; height: 85px;">
+        </div>
+  
+        <div style="position: absolute; left: 40px">
+          <img [src]="d.closed_match_images[1].closed_image" style="width: 40px; height: 85px;">
+        </div>
+
+        <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px; position: absolute; top: 28px; left: 28px;">
+
+        <span style="font-weight: bold; font-size: 10px; position: relative; left: 42px; top: 15px"> {{d.loser_name}} </span>
+        <span style="position: relative; left: 5px; top: 38px; font-size: 10px;"> {{d.closed_match_likes}} </span>
+        <img src="../../assets/icon/shoot-grey.png" style="position: relative; left: -27px; top: 39px; width: 12px; height: 10px;">
+        <span style="top: -34px; position: relative; left: 104px; font-size: 12px;"> {{d.created_at | date: 'shortDate'}} </span>
+        <ion-icon  style="top: -32px; position: relative; left: 44px; font-size: 12px;" name="calendar-outline"></ion-icon>
+      </div>
+     
+    </div>
+
+  </div>
+
+  <div style="float: right; padding: 0px 15px 0 7.5px; width: 50%;" >
+
+    <div class="div-left" *ngFor="let d of type==='sender' ? data.sender_image_lossname : data.receiver_image_lossname">
+
+      <div style="display: flex; flex-wrap: wrap; position: relative;">
+        <div >
+          <img [src]="d.closed_match_images[0].closed_image" style="width: 40px; height: 85px;">
+        </div>
+  
+        <div style="position: absolute; left: 40px">
+          <img [src]="d.closed_match_images[1].closed_image" style="width: 40px; height: 85px;">
+        </div>
+
+        <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px; position: absolute; top: 28px; left: 28px;">
+
+        <span style="font-weight: bold; font-size: 10px; position: relative; left: 42px; top: 15px"> {{d.loser_name}} </span>
+        <span style="position: relative; left: 5px; top: 38px; font-size: 10px;"> {{d.closed_match_likes}} </span>
+        <img src="../../assets/icon/shoot-grey.png" style="position: relative; left: -27px; top: 39px; width: 12px; height: 10px;">
+        <span style="top: -34px; position: relative; left: 104px; font-size: 12px;"> {{d.created_at | date: 'shortDate'}} </span>
+        <ion-icon  style="top: -32px; position: relative; left: 44px; font-size: 12px;" name="calendar-outline"></ion-icon>
+      </div>
+     
+    </div>
+
+  </div>
+
+  <!-- <div style="display: flex;margin-top: 8px;">
+    <div style="width: 40%; margin-right: 3px; position: relative;">
+      <div class="contest-image-div">
+        <div class="image-div_first">
+          <img src="../../assets/icon/activity/baby1.jpg" alt="">
+        </div>
+        <div class="image-div_first">
+          <img src="../../assets/icon/activity/baby2.jpg" alt="">
+        </div>
+      </div>
+      <div style="position: absolute; top: 30%; left: 40%;">
+        <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+      </div>
+      <div class="box_m">
+        <div style="display: flex; align-items: center;">
+          <img src="../../assets/icon/man1.png" alt="">
+          <p>kavitha</p>
+        </div>
+        <div style="margin-left: 5px; width: 100%; padding-right: 3px;">
+          <div style="display: flex; align-items: center; line-height: 3px; justify-content: flex-end;">
+            <img src="../../assets/icon/search.png" alt="" style="height: 10px; width: 10px;">
+            <p style="font-weight: 500;">may 6th 2pm</p>
+          </div>
+          <div
+            style="display: flex; align-items: center; line-height: 0px; justify-content: flex-end; margin-top: -5px;">
+            <img src="../../assets/icon/squadlist/shoot-grey.png" alt="" style="height: 10px; width: 13px;">
+            <p style="font-weight: 500;">30m</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="width: 60%; margin-left: 3px; position: relative;">
+      <div class="contest-image-div">
+        <div class="image-div">
+          <img src="../../assets/icon/activity/avengers.jpg" alt="">
+        </div>
+        <div class="image-div">
+          <img src="../../assets/icon/activity/hulk.jpg" alt="">
+        </div>
+        <div class="image-div">
+          <img src="../../assets/icon/activity/aven.jpg" alt="">
+        </div>
+      </div>
+      <div style="position: absolute; top: 30%; left: 27%;">
+        <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+      </div>
+      <div style="position: absolute; top: 30%; left: 60%;">
+        <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+      </div>
+      <div class="box_m">
+        <div style="display: flex; align-items: center;">
+          <img src="../../assets/icon/man1.png" alt="">
+          <p>kavitha</p>
+        </div>
+        <div style="margin-left: 5px; width: 100%; padding-right: 3px;">
+          <div style="display: flex; align-items: center; line-height: 3px; justify-content: flex-end;">
+            <img src="../../assets/icon/search.png" alt="" style="height: 10px; width: 10px;">
+            <p style="font-weight: 500;">may 6th 2pm</p>
+          </div>
+          <div
+            style="display: flex; align-items: center; line-height: 0px; justify-content: flex-end; margin-top: -5px;">
+            <img src="../../assets/icon/squadlist/shoot-grey.png" alt="" style="height: 10px; width: 13px;">
+            <p style="font-weight: 500;">30m</p>
+          </div>
+        </div>
+      </div>
+
+    </div> -->
+  </div>

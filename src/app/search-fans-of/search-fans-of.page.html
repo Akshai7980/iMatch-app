@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 25px;">SEARCH FANS OF</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar mode="ios" [formControl]="searchControl" (keyup)="onSearchInput($event)" animated></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div *ngFor=" let user of allUsers">  
+  <ion-item lines="none" class="item-styles" (click)="addToList($event,user.name,user)">
+        <div>
+      <img [src]="user.profile_pic" style="height: 50px; width: 50px; border-radius: 50%;">
+        </div>
+
+    <ion-label style="margin-left: 15px;">{{user.name}}</ion-label>
+    <img src="../../assets/icon/add.png" alt="" style="height: 30px; width: 30px;">
+  </ion-item>
+</div>
+
+</ion-content>

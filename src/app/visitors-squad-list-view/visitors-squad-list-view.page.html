@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 25px;">SQUAD LIST</ion-title>
+  </ion-toolbar>
+
+  <div style="position: absolute; float: left; top: 5px; right: 0px; padding: 0px 13px 0px 10px;">
+    <img *ngIf="UserInfo.profile_pic == '' || UserInfo.profile_pic == null || UserInfo.profile_pic == undefined" src="../../assets/icon/squadlist/user.png" alt="" style="border-radius: 50%; border: 1px solid white; height: 45px; width: 45px; padding: 5px;">
+    <img *ngIf="UserInfo.profile_pic != '' || UserInfo.profile_pic != null || UserInfo.profile_pic != undefined" [src]="UserInfo.profile_pic" alt="" style="border-radius: 50%; border: 1px solid white; height: 45px; width: 45px; padding: 1px;">
+
+    <ion-icon name="caret-down" style="color: white; position: relative; bottom: 12px; left: 3px;"></ion-icon>
+  </div>
+
+</ion-header>
+
+<ion-content>
+
+  <div style="display: flex; align-items: center; justify-content: center; padding: 7px;">
+    <img src="../../assets/icon/squadlist/heart.png" alt="" style="height: 20px; width: 20px; position: relative; left: 25px;">
+    <p style="font-size: 12px;
+    font-weight: 600;
+    position: relative;
+    left: 35px;">0</p>
+
+      <!-- <ion-chip slot="end" style="background-color: #706f73;
+      height: 30px;
+      position: relative;
+      left: 30%;">
+      <ion-icon name="add-circle" style="font-size: 1.7rem;
+      position: relative;
+      right: 5px;
+      color: #4a494a;
+      margin-right: 1px;"></ion-icon> -->
+        <!-- <img src="../../assets/icon/squadlist/add.png" alt=""> -->
+        <!-- <ion-label style="color: white;
+        font-size: 11px;
+        font-weight: 900;">ADD</ion-label>
+      </ion-chip> -->
+
+    <!-- <div style="position: absolute; float: left; right: 10px; height: 33px; width: 100px; padding: 5px; border-radius: 17px; background-color: #808080b8;">
+      <img src="../../assets/icon/squadlist/add.png" alt="" style="height: 24px; width: 24px;">
+      <span>ADD</span>
+    </div> -->
+  </div>
+
+  <div>
+        <!-- FIRST BOX DIV SECTION  -->
+        <div class="box_div_session , animate__animated animate__fadeIn" *ngFor="let squad of mysquads">
+          <div style="background-color: #707072; padding: 10px; padding-bottom: 0; text-align: center; color: #ffffff; border-radius: 5px;">
+            <img src="../../assets/icon/squadlist/box.png" alt="" style="height: 25px;">
+            <h5 style="line-height: 5px; font-size: 16px; margin-top: 10px;">0</h5>
+            <h6 style="line-height: 5px; font-size: 12px;">MATCHES</h6>
+          </div>
+          <div style="padding-left: 10px;">
+            <h1 style="font-size: 16px; font-weight: 600; margin-top: 5px;">{{squad.name | uppercase}}</h1>
+            <p style="line-height: 0; font-size: 14px;">Invite {{squad.name}} to join your squad</p>
+          </div>
+          <img src="../../assets/icon/squadlist/btn2.png" alt=""
+            style="height: 25px; right: 0; bottom: 0; width:25px; position: absolute;">
+        </div>
+  </div>
+
+</ion-content>

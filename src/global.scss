@@ -1,0 +1,132 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@font-face {
+    font-family: OpenSansLight;
+    src: url("../src/assets/fonts/OpenSans-Light.ttf")
+}
+@font-face {
+    font-family: OpenSansRegular;
+    src: url("../src/assets/fonts/OpenSans-Regular.ttf")
+}
+@font-face {
+    font-family: OpenSansBold;
+    src: url("../src/assets/fonts/OpenSans-Bold.ttf")
+}
+@font-face {
+    font-family: OpenSansSemiBold;
+    src: url("../src/assets/fonts/OpenSans-SemiBold.ttf")
+}
+@font-face {
+    font-family: OpenSansExtraBold;
+    src: url("../src/assets/fonts/OpenSans-ExtraBold.ttf")
+}
+
+@font-face {
+  font-family: "Symbola";
+  src: url("/fonts/Symbola-Emoji.woff") format("woff"),
+    url("/fonts/Symbola-Emoji.ttf") format("ttf");
+}
+
+:root {
+  /* Font family of the entire app */
+  --ion-font-family: OpenSansRegular;
+}
+
+// Menu Modal- Report an issue Design
+.menu-modal .modal-wrapper {
+    height: 60%;
+    width: 75%;
+    margin-left: -7%;
+    top: 15%;
+    bottom: 20%;
+    position: absolute; 
+    display: block;  
+ }
+// Menu Modal- Report an issue Design Ends
+
+//  Menu Search Design Bar
+ .menu-searchbar .searchbar-input.sc-ion-searchbar-md{
+    -webkit-padding-start: 15px !important;
+  }
+
+  .menu-searchbar .searchbar-search-icon.sc-ion-searchbar-md{
+    left: 240px !important;
+  }
+//  Menu Search Bar Design Ends
+
+// Title and Tool bar for entire app design
+  ion-title{
+    text-align: center;
+    font-family: OpenSansRegular;
+    font-size: 16px;
+    color: white;
+  }
+  
+  ion-toolbar{
+    --background: #707072;
+  }
+// Title and Tool bar for entire app design ends
+
+  // Headliners Page Slider Design
+  .headliners-slides .swiper-pagination{
+    position: relative;
+    --bullet-background: black;
+    padding: 55px 0 0 170px;
+
+  }
+  @media screen and (min-height : 600px) and (max-height : 675px) {
+    .headliners-slides .swiper-pagination{
+      padding: 55px 0 0 170px;
+    }
+  }
+  @media screen and (min-height : 676px) and (max-height : 720px) {
+    .headliners-slides .swiper-pagination{
+      padding: 70px 0 0 170px;
+    }
+  }
+  @media screen and (min-height : 721px) and (max-height : 770px) {
+    .headliners-slides .swiper-pagination{
+      padding: 100px 0 0 170px;
+    }
+  }
+  @media screen and (min-height : 771px) and (max-height : 800px) {
+    .headliners-slides .swiper-pagination{
+      padding: 110px 0 0 170px;
+    }
+  }
+  @media screen and (min-height : 801px) and (max-height : 850px) {
+    .headliners-slides .swiper-pagination{
+      padding: 120px 0 0 170px;
+    }
+  }
+
+  .headliners-slides .swiper-pagination-bullet{
+      width: 6px;
+      height: 6px;
+  }
+  // Headliners Page Slider Design Ends

@@ -1,0 +1,80 @@
+/* PAGE HEADER */
+.tabone_header {
+    background: #707072;
+    position: relative;
+    height: 50px;
+}
+.tabone_header_left {
+    
+}
+.tabone_header_right {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+.logo-img {
+    height: 25px;
+    max-width: 25px;
+}
+
+/* PAGE CONTENT */
+.page-background-image {
+    background-color: #d8e0e0; 
+    background-image: url('../../assets/icon/top100/bg1.png');
+    background-attachment: fixed;
+    padding-top: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100%;
+}
+.page-background-div {
+    padding: 10px 60px;
+    background-image: url('../../assets/icon/top100/top100_bg.png');
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: 60px;
+    background-attachment: fixed;
+}
+.logo-div {
+    text-align: center;
+    margin-top: 25px;
+}
+.logo-div img {
+    width: 70px;
+    border: 0.5px solid #aeb4b5;
+    padding: 5px;
+}
+.logo-div h6 {
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 0px;
+}
+.logo-div p {
+    font-size: 11px;
+    font-weight: 700;
+}
+.tot-num {
+    background-color: #f21908;
+    text-align: center;
+}
+.tot-num p {
+    color: #ffffff;
+    line-height: 22px;
+    font-size: 12px;
+}
+.list-items {
+
+}
+.list-items ol {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.list-items ol li {
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 3px;
+}
+.list-items ol li span {
+    float: right;
+}

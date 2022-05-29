@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 15px;">WHAT WOULD I DO IF..</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- PAGE CONTENT SECTION  -->
+<ion-content>
+  <div class="page-content">
+    <div style="text-align: center;">
+    </div>
+
+    <h4 style="font-size: 16px; font-weight: 700;">This week's iQuery</h4>
+    <div class="comment-div">
+      <div class="comment-box-bg">
+        <p class="animate__animated animate__fadeIn" *ngIf="message"> {{message.message1}}</p>
+      </div>
+      <div class="comment-box-bg" style="margin-left: 10px;">
+        <p class="animate__animated animate__fadeIn" *ngIf="message"> {{message.message2}} </p>
+      </div>
+      <img src="../../assets/icon/activity/vs.png" alt="" style="position: absolute; width: 25px; height: 25px;">
+    </div>
+
+    <h4 style="font-size: 16px; font-weight: 700; margin-top: 35px;">WHAT WOULD YOU DO IF</h4>
+
+    <div *ngIf="answers!=''">
+    <div class="comment-div">
+      <div class="comment-box-bg">
+        <p class="animate__animated animate__fadeIn" *ngIf="answers"> {{answers.answer1}} </p>
+      </div>
+      <div class="comment-box-bg" style="margin-left: 10px;">
+        <p class="animate__animated animate__fadeIn" *ngIf="answers"> {{answers.answer2}} </p>
+      </div>
+      <img src="../../assets/icon/activity/vs.png" alt="" style="position: absolute; width: 25px; height: 25px;">
+    </div>
+
+    <div style="display: flex; font-size: 12px; font-weight: 600; justify-content: center; margin-bottom: 15px" *ngFor="let Query of MyiQuery">
+      <div>
+        <p> {{Query.query1}} </p>
+        <img *ngIf="Query.total_likecount_query1=='0'" src="../../assets/icon/shoot-grey.png" alt="" style="height: 20px; width: 25px; margin-left: 15px;" (click)="toLikeiQuery1($event,Query)">
+        <img *ngIf="Query.total_likecount_query1!='0'" src="../../assets/icon/what_would/shoot.png" alt="" style="height: 20px; width: 25px; margin-left: 15px;" (click)="toLikeiQuery1($event,Query)"> <span style="position: relative; bottom: 5px; left: 2px;"> {{Query.total_likecount_query1}} </span>
+        <img src="../../assets/icon/besties/comment.png" alt="" style="height: 20px; width: 25px; margin-left: 15px;" (click)="toCommentiQuery1($event,Query)"> <span style="position: relative; bottom: 6px; left: 2px;"> {{Query.total_commentcount_query1}} </span>
+      </div>
+
+      <div>
+        <p> {{Query.query2}} </p>
+            <img *ngIf="Query.total_likecount_query2=='0'" src="../../assets/icon/shoot-grey.png" alt="" style="height: 20px; width: 25px; margin-left: 15px;" (click)="toLikeiQuery2($event,Query)">
+            <img *ngIf="Query.total_likecount_query2!='0'"src="../../assets/icon/what_would/shoot.png" alt="" style="height: 20px; width: 25px; margin-left: 15px;" (click)="toLikeiQuery2($event,Query)"> <span style="position: relative; bottom: 5px; left: 2px;"> {{Query.total_likecount_query2}} </span>
+            <img src="../../assets/icon/besties/comment.png" alt="" style="height: 20px; width: 25px; margin-left: 15px;" (click)="toCommentiQuery2($event,Query)"> <span style="position: relative; bottom: 6px; left: 5px;"> {{Query.total_commentcount_query2}} </span>
+          </div>
+    </div>
+
+  </div>
+
+  </div>
+
+</ion-content>

@@ -1,0 +1,394 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="home-content">
+    <div class="activity-fans" >
+      <div style=" width: 14%; margin-top: 15px; position: relative; bottom: 15px; margin-right: 11px;" *ngIf="UserInfo" (click)="gotoVisitorsFans($event,UserInfo)">
+        <p class="activity_para_one" style="font-weight: 100px">FANS</p>
+        <P class="activity_para_two animate__fadeIn" style="margin-top: -5px;">{{UserInfo.fans_count}}</P>
+      </div>
+      <div class="border-line"></div>
+
+      <div style="width: 14%; margin-top: 15px; position: relative; bottom: 15px; margin-right: 11px;" *ngIf="UserInfo" (click)="gotoVisitorsFansOf($event,UserInfo)">
+        <p class="activity_para_one">FAN OF</p>
+        <P class="activity_para_two animate__fadeIn" style="margin-top: -5px; margin-left: 2px;">{{UserInfo.fans_of_count}}</P>
+      </div>
+      <div class="border-line"></div>
+
+      <div style="width: 15%; margin-top: 15px; position: relative; bottom: 15px; margin-right: 11px;" *ngIf="UserInfo" (click)="gotoVisitorsBesties($event,UserInfo)">
+        <p class="activity_para_one">BESTIES</p>
+        <P class="activity_para_two ; animate__animated animate__fadeIn" style="margin-top: -5px; margin-left: 5px;">{{UserInfo.bestie_count}}</P>
+      </div>
+      <div class="border-line"></div>
+
+      <div style="width: 20%; margin-top: 15px; position: relative; bottom: 15px; margin-right: 11px;" *ngIf="UserInfo" (click)="gotoVisitorsSquadList($event,UserInfo)">
+        <p class="activity_para_one">SQUAD LIST</p>
+        <P class="activity_para_two animate__fadeIn" style="margin-top: -5px; margin-left: 5px;">{{UserInfo.squad_count}}</P>
+      </div>
+
+      <div style="right: 40px; position: absolute; text-align: center; top: 10px;">
+        <!-- <img src="../../assets/icon/activity/man1.png" alt="" class="pro-image"> -->
+        <!-- <img src="../../assets/icon/activity/add.png" alt="" class="pro-image"> -->
+        <img  *ngIf="UserInfo" [src]="UserInfo.user_profilepic" alt="" class="pro-image animate__fadeIn" style="padding: 2px;" onerror="this.onerror=null;this.src='../../assets/icon/profile/user.png';">
+
+        <p  *ngIf="UserInfo" class="activity_para_two" style="font-size: 10px; font-family: OpenSansLight; margin-top: -4px; font-weight: 900;">{{UserInfo.username}}</p>
+      </div>
+    </div>
+
+    <div class="activity-fans_text">
+      <div style="width: 72%; text-align: center; margin-top: 5px; margin-bottom: -7px; position: relative; bottom: 10px; left: 5px;" *ngIf="UserInfo">
+        <P class="activity_para_two" style="font-size: 10px; font-family: OpenSansLight; font-weight: 600;">MATCHES</P>
+        <P class="activity_para_two" style="margin: 0; font-family: OpenSansSemiBold;    position: relative; bottom: 7px;">{{UserInfo.match_count}}</P>
+      </div>
+      <!-- <div style="right: 18px; position: absolute;"> -->
+        <div style="right: 110px; position: absolute; top: 65px;">
+        <!-- <div style="margin: 0 0 0 45px;"> -->
+          <div>
+          <!-- <img src="../../assets/icon/activity/edit.png" alt="" class="text_logo-img" style="height: 8px; width: 8px; margin: 0 0 6px -7px;"> -->
+          <!-- <P class="activity_para_two" style="margin-left: 4px;font-size: 7px; margin-top: -20.5px; font-family: OpenSansLight; font-weight: 100;">Traditional Artist</P> -->
+          <P class="activity_para_two" style="margin-left: 4px;font-size: 7px; margin-top: -20.5px; font-family: OpenSansLight; font-weight: 100;"></P>
+        </div>
+        <div style="position: relative; right: 7px;">
+          <!-- <div style="display: flex; margin-left: 38px; margin-top: -3px;"> -->
+          <!-- <img src="../../assets/icon/activity/heart.png" alt="" class="text_logo-img" style="height: 8px; width: 8px;"> -->
+          <!-- <P class="activity_para_two" style="margin-left: 4px;font-size: 7px; margin-top: -2px; font-family: OpenSansLight; font-weight: 100;">Passionate About Cretivity</P> -->
+          <P class="activity_para_two" style="margin-left: 4px;font-size: 7px; margin-top: -2px; font-family: OpenSansLight; font-weight: 100;"></P>
+        </div>
+        <div style="position: relative; bottom: 13px; right: 7px;">
+          <!-- <div style="display: flex; margin-left: 38px; margin-top: -4px;"> -->
+          <!-- <img src="../../assets/icon/activity/funny.png" alt="" class="text_logo-img" style="height: 8px; width: 8px; margin-top: -0.5px;"> -->
+          <!-- <P class="activity_para_two" style="margin-left: 4px;font-size: 7px; margin-top: -1.5px; font-family: OpenSansLight; font-weight: 100;">Aspiring Art Professional...</P> -->
+          <P class="activity_para_two" style="margin-left: 4px;font-size: 7px; margin-top: -1.5px; font-family: OpenSansLight; font-weight: 100;"></P>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity-fans_text">
+      <div style="width: 70%; padding-left: 10px;">
+        <ion-fab style="left: 17px; top: 83px; width: 35px;" vertical="top" horizontal="end" slot="fixed">
+          <ion-fab-button style="width: 33px; height: 33px;">
+            <!-- <ion-button shape="round" size="small" class="match_button">MATCH</ion-button> -->
+            <img src="../../assets/icon/activity/plus.png" alt="" style="height: 15px; width: auto;">
+            <!-- <ion-icon style="width: 20px;" name="add-sharp"></ion-icon> -->
+          </ion-fab-button>
+        </ion-fab>
+        <!-- <ion-button fill="clear" class="match_button">MATCH</ion-button> -->
+      </div>
+      <div style="display: flex; justify-content: space-around; width: 30%; align-items: center; margin-top: -15px;">
+        <img src="../../assets/icon/activity/drop_play.png" alt="" (click)="Popover($event)" style="height: 15px;width: 15px; position: relative; right: -20px;">
+        <!-- <img src="../../assets/icon/activity/01.png" alt="" style="height: 30px;width: 30px;"> -->
+      </div>
+    </div>
+
+    <div style="position: absolute; top: -1px; right: 21px">
+      <!-- <img src="../../assets/icon/activity/badge-2.png" alt="" style="height: 30px;width: 30px;"> -->
+    </div>
+    <div style="position: absolute; top: 30px; right: 20px" (click)="toShareProfile()">
+      <img src="../../assets/icon/activity/share.png" alt="" style="height: 13px;width: 13px;">
+    </div>
+
+    <!--SLIDE SECTION  -->
+    <div class="recommended_section" style="position: relative; top: 20px;">
+      <!-- <div style="display: flex; justify-content: space-around; margin-bottom: 2px;">
+        <img src="../../assets/icon/activity/off.png" class="toggle-button" alt="">
+        <img src="../../assets/icon/activity/off.png" class="toggle-button" alt="">
+        <img src="../../assets/icon/activity/off.png" class="toggle-button" alt="">
+        <img src="../../assets/icon/activity/off.png" class="toggle-button" alt=""> -->
+        <!-- <img src="../../assets/icon/activity/off.png" class="toggle-button" alt="">
+        <img src="../../assets/icon/activity/off.png" class="toggle-button" alt=""> -->
+      <!-- </div> -->
+      <div class="recommended_main_div">
+        
+        <div style="display: flex; overflow-x: auto;">
+          <div style="width: 30%;">
+            <div class="recommended_sub_div" (click)="gotoOngoingContest($event,UserInfo)">
+              <!-- <img src="../../assets/icon/activity/add.png" alt=""> -->
+              <img src="../../assets/icon/activity/012.png" alt="" style="width: 100%; height: 40px;position: relative; bottom: 10px;">
+            </div>
+            <p>ONGOING CONTEST</p>
+          </div>
+
+          <div style="margin-left: 5px; width: 30%;">
+            <div class="recommended_sub_div" (click)="gotoWhatWouldIDoIf($event,UserInfo)">
+              <!-- <img src="../../assets/icon/activity/add.png" alt=""> -->
+              <img src="../../assets/icon/activity/minus.png" alt="" style="width: 100%;height: 15px;">
+            </div>
+            <p>WHAT WOULD I DO IF</p>
+          </div>
+
+          <div style="margin-left: 5px; width: 30%;">
+            <div class="recommended_sub_div">
+              <!-- <img src="../../assets/icon/activity/add.png" alt=""> -->
+              <img src="../../assets/icon/activity/minus.png" alt="" style="width: 100%;height: 15px;">
+            </div>
+            <p>MY FAVES / LUXURY ITEMS & WHERE TO GET</p>
+          </div>
+
+          <div style="margin-left: 5px; width: 30%;">
+            <div id="end" class="recommended_sub_div" (click)="gotoVisitorsBestMoments($event,UserInfo)">
+              <!-- <img src="../../assets/icon/activity/add.png" alt=""> -->
+              <img src="../../assets/icon/activity/minus.png" alt="" style="width: 100%;height: 15px;">
+            </div>
+            <p>BEST MOMENTS</p>
+          </div>
+
+          <div style="margin-left: 5px; width: 30%;">
+            <div id="end" class="recommended_sub_div">
+              <!-- <img src="../../assets/icon/activity/add.png" alt=""> -->
+              <img src="../../assets/icon/activity/minus.png" alt="" style="width: 100%;height: 15px;">
+            </div>
+            <p>BESTIES ACTIONS</p>
+          </div>
+
+          <div style="margin-left: 5px; width: 30%;">
+            <div id="end" class="recommended_sub_div">
+              <!-- <img src="../../assets/icon/activity/add.png" alt=""> -->
+              <img src="../../assets/icon/activity/minus.png" alt="" style="width: 100%;height: 15px;">
+            </div>
+            <p>BESTIES ACTIONS</p>
+          </div>
+        </div>
+
+        <div class="recommended-next-arrow">
+          <img  src="../../assets/icon/activity/arrow.png" alt="" class="logo-img">
+          <!-- (click)="scrollTo('end')" -->
+        </div>
+      </div>
+
+      <!--PERSONAL MATCH SECTION  -->
+      <div class="personal_match_section">
+        <div style="display: flex; align-items: center;">
+          <p style="font-family: OpenSansExtraBold; font-size: 14px;" (click)="toShowPersonalMatch()">Personal Match</p>
+          <img *ngIf="!showImageIcons" src="../../assets/icon/activity/drop.png" alt="" (click)="toShowImageIcons()">
+          <img *ngIf="showImageIcons" src="../../assets/icon/activity/drop.png" alt="" (click)="toHideImageIcons()">
+          </div>
+        <div>
+          <ion-button fill="clear" class="open_match_button" (click)="toShowOpenMatch()">OPEN MATCH</ion-button>
+        </div>
+      </div>
+
+      <div *ngIf="showImageIcons" class="animate__animated animate__fadeIn" style="display: flex;justify-content: space-around;text-align: center;margin: 15px 95px;">
+        <div class="personal-match-img-icons">
+          <img src="../../assets/icon/img.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('image')">
+        </div>
+        <div class="personal-match-img-icons">
+          <img src="../../assets/icon/vid.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('video')">
+        </div>
+        <div class="personal-match-img-icons">
+          <img src="../../assets/icon/aud.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('audio')">      
+        </div>
+        <div class="personal-match-img-icons">
+          <img src="../../assets/icon/attach.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('attachment')">
+        </div>
+        <div class="personal-match-img-icons">
+          <img src="../../assets/icon/link.png" alt="" style="height: 15px;width: 15px;" (click)="gotoImageIcon('link')">
+        </div>
+    </div>
+
+      <!-- vs images first  -->
+      <p *ngIf='PersonalMatch?.length==0' class="no-game-found" style="text-align: center;background-color: #70707238;padding: 15px;border-radius: 5px;">Currently this user is having no Personal Matches to display here !!!</p>
+      <!--     -->
+      <div style="display: flex; flex-wrap: wrap; margin-top: 10px; margin-left: 10px;" *ngIf="!showPersonalMatch" class="animate__animated animate__fadeInLeft">
+        <div style="width: 23%; margin-right: 5px; position: relative;" *ngFor="let match of PersonalMatch; let i = index" (click)="goToPersonalMatch($event, match, i, 'personal')">
+          <div class="contest-image-div">
+            <div class="image-div_first">
+              <img [src]="match.receiver_image" alt="" onerror="this.src='../../assets/icon/mixed-icons.jpg';" class="animate__animated animate__fadeIn animate__delay-0.5s">
+            </div>
+            <div class="image-div_first">
+              <img [src]="match.sender_image" alt="" onerror="this.src='../../assets/icon/mixed-icons.jpg';" class="animate__animated animate__fadeIn animate__delay-0.5s">
+            </div>
+          </div>
+          <div style="position: absolute; top: 20%; left: 35%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div class="box_m">
+            <img src="../../assets/icon/activity/shoot.png" alt="">
+            <p>{{match.likes}}</p>
+          </div>
+        </div>
+
+        <!-- <div style="width: 60%; margin-left: 3px; position: relative;">
+          <div class="contest-image-div">
+            <div class="image-div">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+            <div class="image-div">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+            <div class="image-div">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+          </div>
+          <div style="position: absolute; top: 30%; left: 27%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div style="position: absolute; top: 30%; left: 60%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div class="box_m">
+            <img src="../../assets/icon/activity/shoot.png" alt="">
+            <p>0</p>
+          </div>
+        </div> -->
+      </div>
+
+      <p *ngIf='OpenMatch?.length==0' class="no-game-found" style="text-align: center;background-color: #70707238;padding: 15px;border-radius: 5px;">Currently this user is having no Open Matches to display here !!!</p>
+      <!--    (click)="goToOpenMatch($event,open)" -->
+      <div style="display: flex; flex-wrap: wrap; margin-top: 10px; margin-left: 10px;" *ngIf="showOpenMatch" class="animate__animated animate__fadeInRight">
+        <div style="width: 23%; margin-right: 5px; position: relative;" *ngFor="let open of OpenMatch, let i = index" (click)="goToVisitorsOpenMatch($event, open , i)">
+          <div class="contest-image-div">
+            <div class="image-div_first">
+              <img [src]="open.receiver_image" onerror="this.src='../../assets/icon/mixed-icons.jpg';" alt="" class="animate__animated animate__fadeIn animate__delay-0.5s">
+            </div>
+            <div class="image-div_first">
+              <img [src]="open.sender_image" onerror="this.src='../../assets/icon/mixed-icons.jpg';" alt="" class="animate__animated animate__fadeIn animate__delay-0.5s">
+            </div>
+          </div>
+          <div style="position: absolute; top: 30%; left: 40%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div class="box_m">
+            <img src="../../assets/icon/activity/shoot.png" alt="">
+            <p>{{open.total_likecount}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- vs images second  -->
+      <!-- <div style="margin-top: 0px;display: flex;">
+        <div style="width: 50%; margin-right: 3px; position: relative;">
+
+          <div>
+            <div class="contest-image-div">
+              <div class="image-div_first" style="height: 70px;">
+                <img src="../../assets/icon/activity/grey.png" alt="">
+              </div>
+              <div class="image-div_first" style="height: 70px;">
+                <img src="../../assets/icon/activity/grey.png" alt="">
+              </div>
+            </div>
+            <div class="contest-image-div">
+              <div class="image-div_first" style="height: 70px;">
+                <img src="../../assets/icon/activity/grey.png" alt="">
+              </div>
+              <div class="image-div_first" style="height: 70px;">
+                <img src="../../assets/icon/activity/grey.png" alt="">
+              </div>
+            </div>
+          </div>
+
+          <div style="position: absolute; top: 35%; left: 41%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div style="position: absolute; top: 26%; left: 42%;">
+            <img src="../../assets/icon/activity/vid1.png" alt="" style="width: 10px; height: 10px;">
+          </div>
+          <div style="position: absolute; top: 26%; left: 90%;">
+            <img src="../../assets/icon/activity/vid1.png" alt="" style="width: 10px; height: 10px;">
+          </div>
+          <div style="position: absolute; top: 68%; left: 42%;">
+            <img src="../../assets/icon/activity/vid1.png" alt="" style="width: 10px; height: 10px;">
+          </div>
+          <div style="position: absolute; top: 68%; left: 90%;">
+            <img src="../../assets/icon/activity/vid1.png" alt="" style="width: 10px; height: 10px;">
+          </div>
+
+          <div class="box_m">
+            <img src="../../assets/icon/activity/shoot.png" alt="">
+            <p>0</p>
+          </div>
+        </div>
+
+        <div style="width: 50%; margin-left: 3px; position: relative;">
+          <div class="contest-image-div">
+            <div class="image-div-object">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+            <div class="image-div-object">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+          </div>
+          <div style="position: absolute; top: 35%; left: 44%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div style="position: absolute; top: 69%; left: 43%;">
+            <img src="../../assets/icon/activity/aud1.png" alt="" style="width: 12px; height: 15px;">
+          </div>
+          <div style="position: absolute; top: 67%; left: 90%;">
+            <img src="../../assets/icon/activity/aud1.png" alt="" style="width: 12px; height: 15px;">
+          </div>
+
+          <div class="box_m">
+            <img src="../../assets/icon/activity/shoot.png" alt="">
+            <p>0</p>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- vs images third  -->
+      <!-- <div style="display: flex;margin-top: 0px;">
+
+        <div style="width: 60%; margin-right: 3px; position: relative;">
+          <div class="contest-image-div">
+            <div class="image-div">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+            <div class="image-div">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+            <div class="image-div">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+          </div>
+          <div style="position: absolute; top: 25%; left: 27%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div style="position: absolute; top: 25%; left: 60%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div style="position: absolute; top: 47%; left: 24%;">
+            <img src="../../assets/icon/activity/link1.png" alt="" style="width: 15px; height: 20px;">
+          </div>
+          <div style="position: absolute; top: 47%; left: 57%;">
+            <img src="../../assets/icon/activity/link1.png" alt="" style="width: 15px; height: 20px;">
+          </div>
+          <div style="position: absolute; top: 47%; left: 90%;">
+            <img src="../../assets/icon/activity/link1.png" alt="" style="width: 15px; height: 20px;">
+          </div>
+
+          <div class="box_m">
+            <img src="../../assets/icon/activity/shoot.png" alt="">
+            <p>0</p>
+          </div>
+        </div>
+
+        <div style="width: 40%; margin-left: 3px; position: relative;">
+          <div class="contest-image-div">
+            <div class="image-div_first">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+            <div class="image-div_first">
+              <img src="../../assets/icon/activity/grey.png" alt="">
+            </div>
+          </div>
+          <div style="position: absolute; top: 25%; left: 40%;">
+            <img src="../../assets/icon/activity/vs.png" alt="" style="width: 25px; height: 25px;">
+          </div>
+          <div class="box_m">
+            <img src="../../assets/icon/activity/shoot.png" alt="">
+            <p>0</p>
+          </div>
+        </div>
+
+      </div> -->
+
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,42 @@
+.box {
+    width: 155px;
+    border: 1px solid white;
+    border-bottom-color: #707072 !important;
+    padding: 65px;
+    border-radius: 7px;
+    background-image: url('../../assets/icon/trending/1.jpg');
+    position: relative;
+    z-index: 1;
+    margin: 30px 0 20px 20px;
+
+  }
+
+.box-description{
+    width: 153px;
+    height: 50px;
+    border: 1px solid #707072;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: #707072;
+    position: absolute;
+    margin: -27px 0px 0 21px;
+    padding-left: 8px;
+    padding-top: 10px;
+    font-size: 11px;
+    color: white;
+    font-family: OpenSansRegular;
+}
+
+.banner{
+    height: 35px;
+    width: 35px;
+    background-color: #f21908;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    z-index: 2;
+    margin: 20px 0px 0px 10px;
+    text-align: center;
+    padding-top: 8px;
+    color: white;
+}

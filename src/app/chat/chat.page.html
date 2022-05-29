@@ -1,0 +1,129 @@
+<ion-header [translucent]="true">
+  <ion-toolbar style="--background: #707072;">
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title mode="ios" style="color: white; font-size: 15px;">
+    <!-- <span class="top-number">4</span> -->
+      CHAT
+
+      <img *ngIf="userDetails" [src]="userDetails.profile_pic" alt="" class="top-profile-pic" (click)="gotoProfile()">
+
+      <ion-icon name="ellipse" class="top-green-light-icon"></ion-icon>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+  
+  <ion-content [fullscreen]="true">
+
+    <div class="top-container">
+
+      <ion-row>
+
+        <div>
+          <ion-col (click)="gotoNewMessage()">
+            <img src="../../assets/icon/chat/edit.png" alt="" class="edit-icon-img">
+          </ion-col>
+  
+          <ion-col (click)="gotoNewMessage()">
+            <strong class="top-heading-text">NEW MESSAGE</strong>
+          </ion-col>
+        </div>
+
+
+        <!-- <ion-col>
+          <div class="container-search-icon-img">
+            <img src="../../assets/icon/chat/search.png" alt="" class="search-icon-img">
+          </div>
+        </ion-col> -->
+      </ion-row>
+      
+    </div>
+
+    <!-- Show Empty Chat List -->
+
+    <div *ngIf="chatList?.length==0" style="text-align: center;">
+
+      <div style="border-radius: 50%;text-align: center;padding: 40px;height: 300px;width: 300px;background-color: #70707259;margin-top: 40px;display: inline-block;">
+        <img src="../../assets/icon/chat/chat.png" alt="" style="height: 230px;width: 230px;">
+      </div>
+
+      <h4 style="font-weight: 600;margin-top: 35px;">No Chats Available !!!</h4>
+
+      <p class="animate__animated animate__fadeOut animate__delay-3s">
+         <strong>Click -> New Message</strong> , then add a 
+         <strong>iMatch user</strong> to your <strong>chat list</strong> ...</p>
+
+    </div>
+
+        <!-- Show Empty Chat List Ends -->
+
+        <!-- <div *ngIf="chatList?.length!=0"> -->
+          <ion-item (click)="openMessage($event,chat,i)" lines="none" style="--padding-start:0px;border-bottom: 1px solid #80808033;" *ngFor="let chat of chatList, let i = index , let color of ChatEndColors" class="animate__animated animate__fadeIn">
+            <ion-thumbnail class="img-thumnail-side-border" style="border-right: 14px solid #f21908;">
+              <img [src]="chat.profile_pic" alt="" style="height: 92px; width: 100%;" onerror="this.src='../../assets/icon/profile/user.png';">
+            </ion-thumbnail>
+            <ion-label class="profile-img-label"> {{chat.name}}</ion-label> 
+            <!-- <span> {{chat.last_seen | date}} </span> -->
+            <ion-icon *ngIf="chat.online_offline_status === 'online'" name="ellipse" class="label-green-icon"></ion-icon>
+            <ion-icon *ngIf="chat.online_offline_status !== 'online'" name="ellipse" style="font-size: 11px; position: relative; bottom: 20px;"></ion-icon>
+            <p *ngIf="chat?.last_message!==null" class="text-under-label"> {{chat.last_message}} </p>
+            <p *ngIf="chat?.last_message===null && chat.filetype==='photo'" class="text-under-label"> {{chat.filetype}} </p>
+            <p *ngIf="chat?.last_message===null && chat.filetype==='video'" class="text-under-label"> {{chat.last_message}} </p>
+            <p *ngIf="chat.online_offline_status === 'online'" slot="end" class="now-text">Now</p>
+          </ion-item>
+        <!-- </div> -->
+
+
+    <!-- <ion-item lines="none" style="--padding-start:0px;border-bottom: 1px solid #80808033;">
+      <ion-thumbnail class="img-thumnail-side-border" style="border-right: 14px solid #fcbb3b">
+        <img src="../../assets/icon/chat/2.jpg" alt="" style="height: 92px; width: 100%;">
+      </ion-thumbnail>
+      <ion-label class="profile-img-label">Dominika Faniz</ion-label>
+      <ion-icon name="ellipse" class="label-green-icon"></ion-icon>
+      <p class="text-under-label">Hi jakub,how is it going?....</p>
+      <p slot="end" class="now-text">Now</p>
+    </ion-item> -->
+
+    <!-- <ion-item lines="none" style="--padding-start:0px;border-bottom: 1px solid #80808033;">
+      <ion-thumbnail class="img-thumnail-side-border" style="border-right: 14px solid #707072">
+        <img src="../../assets/icon/chat/3.jpg" alt="" style="height: 92px; width: 100%;">
+      </ion-thumbnail>
+      <ion-label class="profile-img-label">Dominika Faniz</ion-label>
+      <ion-icon name="ellipse" class="label-green-icon"></ion-icon>
+      <p class="text-under-label">Hi jakub,how is it going?....</p>
+      <p slot="end" class="now-text">Now</p>
+    </ion-item> -->
+
+    <!-- <ion-item lines="none" style="--padding-start:0px;border-bottom: 1px solid #80808033;">
+      <ion-thumbnail class="img-thumnail-side-border" style="border-right: 14px solid #f21908;">
+        <img src="../../assets/icon/chat/4.jpg" alt="" style="height: 92px; width: 100%;">
+      </ion-thumbnail>
+      <ion-label class="profile-img-label">Dominika Faniz</ion-label>
+      <ion-icon name="ellipse" class="label-green-icon"></ion-icon>
+      <p class="text-under-label">Hi jakub,how is it going?....</p>
+      <p slot="end" class="now-text">Now</p>
+    </ion-item> -->
+
+    <!-- <ion-item lines="none" style="--padding-start:0px;border-bottom: 1px solid #80808033;">
+      <ion-thumbnail class="img-thumnail-side-border" style="border-right: 14px solid #fcbb3b">
+        <img src="../../assets/icon/chat/5.jpg" alt="" style="height: 92px; width: 100%;">
+      </ion-thumbnail>
+      <ion-label class="profile-img-label">Dominika Faniz</ion-label>
+      <ion-icon name="ellipse" class="label-green-icon"></ion-icon>
+      <p class="text-under-label">Hi jakub,how is it going?....</p>
+      <p slot="end" class="now-text">Now</p>
+    </ion-item> -->
+
+    <!-- <ion-item lines="none" style="--padding-start:0px;border-bottom: 1px solid #80808033;">
+      <ion-thumbnail class="img-thumnail-side-border" style="border-right: 14px solid #707072">
+        <img src="../../assets/icon/chat/6.jpg" alt="" style="height: 92px; width: 100%;">
+      </ion-thumbnail>
+      <ion-label class="profile-img-label">Dominika Faniz</ion-label>
+      <ion-icon name="ellipse" class="label-green-icon"></ion-icon>
+      <p class="text-under-label">Hi jakub,how is it going?....</p>
+      <p slot="end" class="now-text">Now</p>
+    </ion-item> -->
+
+  </ion-content>
+  

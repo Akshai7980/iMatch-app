@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative; right: 20px;">ADD BEST MOMENTS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div style="padding: 15px; background-color: #707072; margin: 20px; ">
+    <div style="border: 1px solid #ffffff8f; padding: 15px; border-radius: 4px; color: #dcdcdc;">
+
+      <form [formGroup]="BestMomentForm" (ngSubmit)="toAddCaption()">
+
+        <div>
+
+          <div style="text-align: center;">
+            <ion-textarea formControlName="caption" [value]="BestMomentDetails.caption" [readonly]="BestMomentDetails.caption != '' && BestMomentDetails.caption != null" [(ngModel)]="userCaption.caption" autocapitalize="true" placeholder="Enter Your Caption" style="background-color: grey; border-radius: 10px; padding: 5px; margin-top: 20px; margin-bottom: 5px;"> </ion-textarea>
+            <ion-button style="text-transform: none; margin-bottom: 30px;" size="small" shape="round" [disabled]="!BestMomentForm.valid" type="submit">Upload Caption</ion-button>
+          </div>
+
+        </div>
+
+    </form>
+
+      <div style="padding: 25px; background-color: #ededed; border-radius: 20px; text-align: center;">
+
+      <img src="../../assets/icon/newspaper.png" onerror="this.src='../../assets/icon/newspaper.png';" alt=""  style="border-radius: 50%;" (click)="toShowButtons()">
+
+      <div style="display: flex; margin: 15px 0px 10px 0px;" *ngIf="ShowButtons" class="animate__animated animate__slideInUp">
+
+        <div>
+          <ion-button style="text-transform: none;" size="small" shape="round" (click)="toUploadFromGallery()">
+            Gallery Upload</ion-button>
+        </div>
+
+        <div>
+          <ion-button style="text-transform: none;" size="small" shape="round" (click)="toUploadFromCamera()">
+            Camera Upload</ion-button>
+        </div>
+
+      </div>
+      </div>
+
+    </div>
+  </div>  
+
+</ion-content>

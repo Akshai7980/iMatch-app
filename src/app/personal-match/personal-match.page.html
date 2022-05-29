@@ -1,0 +1,179 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title style="position: relative;right: 25px;">PERSONAL MATCH</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <div class="top-icons-container">
+    <ion-row>
+      <ion-col class="col-icon" (click)="IconCategorize('image')">
+        <img src="../../assets/icon/img.png" alt="" style="height: 17px;width: 15px;">
+      </ion-col>
+
+      <ion-col class="col-icon" (click)="IconCategorize('video')">
+        <img src="../../assets/icon/vid.png" alt="" style="height: 17px;width: 15px;">
+      </ion-col>
+
+      <ion-col class="col-icon" (click)="IconCategorize('audio')">
+        <img src="../../assets/icon/aud.png" alt="" style="height: 17px;width: 15px;">      
+      </ion-col>
+
+      <ion-col class="col-icon" (click)="IconCategorize('attachment')">
+        <img src="../../assets/icon/attach.png" alt="" style="height: 17px;width: 15px;">
+      </ion-col>
+
+      <ion-col style="border: 1px solid #bebebf; border-radius: 5px;" (click)="IconCategorize('link')">
+        <img src="../../assets/icon/link.png" alt="" style="height: 17px;width: 15px;">
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-slides pager="true" #slides style="padding: 15px;">
+
+    <!-- slide starts here -->
+<ion-slide *ngFor="let match of PersonalMatch; let i = index" class="animate__animated animate__flipInY">
+
+  <div style=" margin: 10px;box-shadow: 1px 1px 10px 0px;padding: 5px 5px 30px 5px;margin-top: 0px !important;border-radius: 3px; border-top: 2px solid #80808078 ; margin-bottom: 50px;">
+
+    <div style=" display: flex; ">
+
+      <div>
+
+        <div style="background-color: #7070728f; padding: 5px; border-radius: 5px; margin-bottom: 15px;">
+          <img *ngIf="match.receiver_image_type==='image' || match.receiver_image_type===''" [src]="match.receiver_image"  alt="" onerror="this.src='../../assets/icon/no_media.png';" style=" border-radius: 7px; height: 255px; width: 195px;" (click)="toViewReceiverMatchImage($event,match)">
+          <ion-textarea *ngIf="match.receiver_image_type==='text'" readonly class="text-match-style" autoGrow>{{match.receiver_image}}</ion-textarea>
+          <!-- <img *ngIf="match.receiver_image_type==='link' || match.receiver_image_type==='file'" [src]="match.receiver_image"  alt="" onerror="this.onerror=null;this.src='../../assets/icon/no_media.png';" style=" border-radius: 7px; height: 255px; width: 195px;" (click)="toViewReceiverMatchImage($event,match)"> -->
+          <video *ngIf="match.receiver_image_type==='video'" [src]="match.receiver_image" controls style="height: 255px; width: 185px;"></video>
+          <audio *ngIf="match.receiver_image_type==='audio'" [src]="match.receiver_image" controls style="height: 185px; width: 165px;"></audio>
+          <div style="width: 160px; height: auto; padding: 15px">
+          <a *ngIf="match.receiver_image_type==='link' || match.receiver_image_type==='file'" [href]="match.receiver_image">{{match.receiver_image}}</a>
+          </div>
+          <!-- <a *ngIf="match.receiver_image_type==='link'" [href]="match.receiver_image">{{match.receiver_image}}</a> -->
+
+          <!-- <p style="margin: 0; font-size: 14px;"> {{match.receiver_image_win}} Wins</p>
+          <p style="margin: 0; font-size: 14px;"> {{match.receiver_image_loss}} Lost</p>
+
+          <p style="margin: 0; font-size: 14px;"> {{match.receiver_anonymous_count}} Anonymous</p>
+          <p (click)="openRevealedCount(i, 'receiver')" style="margin: 0; font-size: 14px;"> {{match.receiver_reveal_count}} Revealed</p> -->
+
+          <p *ngIf="userDetails.userType==='owner'" (click)="openCount(i, 'receiver')" style="margin: 0; font-size: 14px;"> 
+            <img *ngIf="PersonalMatch[i].receiver_image_closedstatus===1" style="width: 30px;" src="../../assets/icon/shoot-grey.png" alt="">
+            <!-- {{+match.receiver_image_win + +match.receiver_image_loss}} -->
+          </p>
+        </div>
+
+      </div>
+
+      <div style=" padding: 3px; "></div>
+
+      <div style=" position: absolute; height: 30px; top: 20%; right: 46%; ">
+        <img src="../../assets/icon/vs.png" alt="">
+      </div>
+
+      <div>
+
+        <div style="background-color: #7070728f; padding: 5px; border-radius: 5px; margin-bottom: 15px;">
+          <img *ngIf="match.sender_image_type==='image' || match.sender_image_type===''" [src]="match.sender_image" alt="" onerror="this.src='../../assets/icon/no_media.png';" style=" border-radius: 7px; height: 255px; width: 195px;" (click)="toViewSenderMatchImage($event,match)">
+          <ion-textarea *ngIf="match.sender_image_type==='text' || match.sender_image_type===''" readonly class="text-match-style" autoGrow>{{match.sender_image}}</ion-textarea>
+          <!-- <img *ngIf="match.sender_image_type==='link' || match.sender_image_type==='' || match.sender_image_type==='file'" [src]="match.sender_image"  alt="" onerror="this.onerror=null;this.src='../../assets/icon/no_media.png'" style=" border-radius: 7px; height: 255px; width: 195px;" (click)="toViewReceiverMatchImage($event,match)"> -->
+          <video *ngIf="match.sender_image_type==='video'" [src]="match.sender_image" controls style="height: 255px; width: 185px;"></video>
+          <audio *ngIf="match.sender_image_type==='audio'" [src]="match.sender_image" controls style="height: 185px; width: 165px;"></audio>
+          <div style="width: 160px; height: auto; padding: 15px">
+            <a *ngIf="match.sender_image_type==='link' || match.sender_image_type==='' || match.sender_image_type==='file'" [href]="match.sender_image">{{match.sender_image}}</a>
+          </div>
+          <!-- <p style="margin: 0; font-size: 14px;"> {{match.sender_image_win}} Wins</p>
+          <p style="margin: 0; font-size: 14px;"> {{match.sender_image_loss}} Lost</p>
+
+          <p style="margin: 0; font-size: 14px;"> {{match.sender_anonymous_count}} Anonymous</p>
+          <p (click)="openRevealedCount(i, 'sender')" style="margin: 0; font-size: 14px;"> {{match.sender_reveal_count}} Revealed</p> -->
+
+
+          <p *ngIf="userDetails.userType==='owner'" (click)="openCount(i, 'sender')" style="margin: 0; font-size: 14px;"> 
+            <img *ngIf="PersonalMatch[i].sender_image_closedstatus===1" style="width: 30px;" src="../../assets/icon/shoot-grey.png" alt="">
+            <!-- {{+match.sender_image_win + +match.sender_image_loss}}  -->
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div>
+
+      <div style="position: relative; bottom: 6%; margin-top: 30px;">
+        <img [src]="match.sender_profile" alt="" onerror="this.src='../../assets/icon/no_media.png';" style="border-radius: 50%; height: 40px; width: 40px; border: 1px solid;">
+        <p style=" font-size: 14px; margin: 0px; font-weight: 600; position: relative;">{{match.receiver_name}}</p>
+
+        <h3> {{match.caption}} </h3>
+      </div>
+
+    </div>
+
+    <div style="display: flex;position: relative;left: 10%;">
+
+      <div (click)="ToSendReceiverLike($event,match)">
+        <!-- <img src="../../assets/icon/shoot.png" alt="" style=" width: 29px;height: 25px; margin-top: 10px; "> -->
+        <img src="../../assets/icon/newIc-1 (1).png" alt="" style=" width: 45px;height: 45px;">
+        <span style="margin-left: 10px; position: relative; bottom: 15px;">{{match.receiver_likecount}}</span>
+      </div>
+
+      <div style="position: relative;left: 40%;" (click)="ToSendSenderLike($event,match)">
+        <!-- <img src="../../assets/icon/shoot.png" alt="" style=" width: 29px;height: 25px; margin-top: 10px; "> -->
+        <img src="../../assets/icon/newIc-1 (1).png" alt="" style=" width: 45px;height: 45px;">
+        <span style="margin-left: 10px; position: relative; bottom: 15px;">{{match.sender_likecount}}</span>
+      </div>
+
+    </div>
+
+    <div style="display: flex; position: relative;left: 35%;top: 15px;">
+
+      <div style="margin-left: 20px;">
+        <span style="font-weight: 600; font-size: 15px; position: relative; bottom: 11px;"> {{match.total_commoncomments}} </span>
+        <img src="../../assets/icon/02.png" alt="" style="height: 27px; width: 30px; margin-left: 11px;" (click)="gotoPersonalMatchComments($event,match)">
+      </div>
+
+      <div style="position: relative; bottom: -8px; background-color: white; width: 35px; height: 35px; border-radius: 50%; box-shadow: 0.5px 0.5px 9px 3px grey; left: 115px;">
+        <img src="../../assets/icon/03.png" alt="" style="height: 22px;margin-top: 6px;" (click)="toShowMatchHistory($event,match)">
+      </div>
+    </div>
+
+    <!-- <div style="background-color: #8080803d;padding:23px 0px 15px 0px;margin: 45px -5px -5px;">
+      <div style="position: relative;bottom: 45px;background-color: white;width: 35px;height: 35px;border-radius: 50%;box-shadow: 0.5px 0.5px 5px 0px grey;left: 35px;">
+        <img src="../../assets/icon/03.png" alt="" style="height: 22px;margin-top: 6px;" (click)="toShowMatchHistory($event,match)">
+      </div>
+
+      <div style="display: flex; position: relative;bottom: 35px;margin-left: 10px;">
+
+        <div style="height: 45px;margin-left: 20px;">
+        <p style="margin: 0px !important;font-weight: 600;"> {{match.agree_count}} </p>
+          <img src="../../assets/icon/01.png" alt="" (click)="toLikePersonalMatch($event,match)">
+          <p style="color: grey; margin: 0px !important;position: relative;bottom: 3px;font-size: 13px;">i Agree</p>
+        </div>
+
+        <div style="height: 45px;margin-left: 55px;">
+          <p style="margin: 0px !important;font-weight: 600;"> {{match.disagree_count}} </p>
+          <img src="../../assets/icon/01a.png" alt="" (click)="toDisLikePersonalMatch($event,match)">
+          <p style="color: grey; margin: 0px !important;position: relative;bottom: 3px;font-size: 13px;">i Disagree</p>
+        </div>
+
+        <div style="height: 40px;margin-left: 55px;position: relative;top: 15px">
+          <img src="../../assets/icon/02.png" alt="" (click)="toCommentPersonalMatch($event,match)">
+          <span style="position: relative;bottom: 19px;margin-left: 5px;font-weight: 600;"> {{match.total_commoncomments}} </span>
+        </div>
+
+      </div>
+
+    </div> -->
+  </div>
+
+</ion-slide>
+<!-- slide ends here -->
+
+</ion-slides>
+
+</ion-content>

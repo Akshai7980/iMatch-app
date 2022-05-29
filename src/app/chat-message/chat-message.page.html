@@ -1,0 +1,136 @@
+<ion-header style="margin-bottom: 20px;">
+  <div class="tabone_header">
+    <div class="chat_top-header">
+      <h3 *ngIf="chatDetails"> {{chatDetails.name}} </h3>
+      <p> Last seen {{chatDetails.last_seen | date}} </p>
+      <div style="display: flex; justify-content: center; margin-top: 20px;">
+        <img *ngIf="ChattedUser" [src]="ChattedUser[3]?.profile_pic" onerror="this.src='../../assets/icon/profile/user.png';" alt="" class="chat-img-circle" (click)="toViewNextChat($event,ChattedUser[3])">
+        <img *ngIf="ChattedUser" [src]="ChattedUser[2]?.profile_pic" onerror="this.src='../../assets/icon/profile/user.png';" alt="" class="chat-img-circle" (click)="toViewNextChat($event,ChattedUser[2])">
+        <img *ngIf="chatDetails" [src]="chatDetails.profile_pic" alt="" onerror="this.src='../../assets/icon/profile/user.png';" class="chat-image-centre">
+        <img *ngIf="ChattedUser" [src]="ChattedUser[1]?.profile_pic" onerror="this.src='../../assets/icon/profile/user.png';" alt="" class="chat-img-circle" (click)="toViewNextChat($event,ChattedUser[1])">
+        <img *ngIf="ChattedUser" [src]="ChattedUser[0]?.profile_pic" onerror="this.src='../../assets/icon/profile/user.png';" alt="" class="chat-img-circle" (click)="toViewNextChat($event,ChattedUser[0])">
+      </div>
+    </div>
+    <div style="position: absolute; padding: 10px; top: 5px;">
+      <ion-buttons slot="start">
+        <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+    </div>
+    <div style="position: absolute; padding: 10px; right: 0px; top: 5px;" (click)="gotoSettings()">
+      <ion-buttons>
+        <img src="../../assets/icon/chat-message/settings.png" alt="" class="logo-img">
+      </ion-buttons>
+    </div>
+   
+  </div>
+</ion-header>
+
+<!-- PAGE CONTENT SECTION  -->
+<ion-content [fullscreen]="true" [scrollEvents]="true">
+
+<div style="padding: 15px; padding-top: 0px; padding-bottom: 25px;" *ngFor="let message of chatMessage; let i = index">
+
+  <div>
+
+  <!-- ODD CHAT MESSAGE -->
+
+    <div style="display: flex; align-items: flex-start; position: relative; margin-top: 15px;" *ngIf="message.userid_from == chatDetails.userid">
+      <div class="chat-image-profile">
+        <img [src]="chatDetails.profile_pic" alt="">
+      </div>
+      <div class="chat-div-head">
+
+        <div class="chat-div">
+          <p  *ngIf="message.filetype==='' || message.filetype!='link'"> {{message.message}} </p>
+          <a *ngIf="message.filetype==='link'" [href]="message.message"> {{message.message}} </a>
+        </div>
+
+        <div *ngIf="message.message===null" style="padding: 5px 5px 12px 5px; background: #ffffff; border-radius: 5px; box-shadow: 0px 1px 7px -3px; text-align: end; display: flex; justify-content: center;">
+          <img [src]="message.filename" alt="" style="height: 300px; width: 65%; object-fit: cover;" (click)="ClickedOnImage($event, message, i)">
+        </div>
+
+
+      </div>
+      <p class="chat-time"> {{message.send_at | date:'shortTime'}} </p>
+    </div>
+
+      <!-- EVEN CHAT MESSAGE -->
+  <div style="display: flex; align-items: flex-start; position: relative; margin-top: 15px;" *ngIf="message.userid_from == userDetails.userid">
+    <div class="chat-div-head">
+
+      <div class="second-chat-div" *ngIf="message.message!==null">
+        <p> {{message.message}} </p>
+      </div>
+
+      <div style="padding: 5px 5px 12px 5px; background: #ffffff; border-radius: 5px; box-shadow: 0px 1px 7px -3px; text-align: end; display: flex; justify-content: center;">
+        <img *ngIf="message.filename!=''" [src]="message.filename" alt="" style="height: 300px; width: 65%; object-fit: cover;" (click)="ClickedOnImage($event, message, i)">
+      </div>
+
+    </div>
+    <div class="second-chat-image-profile">
+      <img *ngIf="userDetails" [src]="userDetails.profile_pic" alt="">
+    </div>
+    <p class="second-chat-time"> {{message.send_at | date:'shortTime'}} </p>
+  </div>
+
+  </div>
+
+</div>
+
+<!-- <div style="padding: 45px;">
+
+</div> -->
+
+  <!-- <div>
+
+  </div> -->
+
+</ion-content>
+
+  <!-- TYPE NEW MESSAGE -->
+
+  <p class="animate__animated animate__flash animate__infinite" *ngIf="isTyping==true" style="color: grey; margin: 0px 0px 5px 20px;"> {{userDetails.name}} is typing ...</p>
+
+  <ion-footer class="ion-no-border">
+    <ion-toolbar style="--background: white;">
+      <form [formGroup]="MessageForm" (ngSubmit)="chatSubmit()">
+      <div style="display: flex; align-items: center;">
+        <div class="searchbar_div">
+
+          <ion-item lines="none" class="type_inputfield" style="--padding-start: 5px;">
+            <div (click)="showEnlargedView()">
+              <img src="../../assets/icon/chat-message/add.png" alt="" class="text-field-icons" *ngIf="!showPlusView">
+              <img src="../../assets/icon/chat-message/add.png" alt="" style="width: 15px; height: 15px;" *ngIf="showPlusView" class="animate__animated animate__zoomIn animate__delay-5s">
+            </div>
+            <ion-input placeholder="Type Message" type="text" class="ion-input-message" formControlName="message" [(ngModel)]="userMessage.message" autocapitalize="true" (keyup)="onChange($event)">
+            </ion-input>
+            <img src="../../assets/icon/chat-message/aud.png" alt="" style="width: 15px; height: 20px;" (click)="toShareAudio()">
+          </ion-item>
+
+        </div>
+        <div>
+          <ion-button style="--border-radius: 50%; height: 40px; width: 45px;" type="submit" [disabled]="!MessageForm.valid">
+            <ion-icon shape="round" name="send-sharp"></ion-icon>
+          </ion-button>
+        </div>
+        
+      </div>
+    </form>
+    </ion-toolbar>
+  </ion-footer>
+
+  <ion-footer *ngIf="showPlusView" style="position: absolute; top: 83%;width: 200px;">
+    <ion-toolbar style="border-radius: 50%; position: relative; bottom: 45px; left: -38px;" class="animate__animated animate__zoomIn animate__delay-0.5s">
+      <div  style="position: relative; border-radius: 50%; height: 200px; width: 200px;" class="animate__animated animate__zoomIn animate__delay-0.5s">
+        <div style="display: grid; top: 20px; position: relative; left: 76px;">
+          <!-- <img src="../../assets/icon/chat/1.png" alt="" style="height: 26px; width: 26px;" (click)="toShareFile()"> -->
+          <img src="../../assets/icon/chat/2.png" alt="" style="height: 25px; width: 25px; position: relative; left: 38px; bottom: 0px;" (click)="toShareAttachment()">
+          <img src="../../assets/icon/chat/3.png" alt="" style="height: 20px; width: 25px; position: relative; left: 75px; top: 9px;" (click)="toShareImage()">
+          <img src="../../assets/icon/chat/4.png" alt="" style="height: 27px; width: 27px; position: relative; top: 30px; left: 55px;" (click)="toShareContact()">
+          <img src="../../assets/icon/chat-message/add.png" alt="" style="height: 40px; width: 40px; position: relative; right: 23px; bottom: 16px;" (click)="showEnlargedView()">
+        </div>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+
+  <!-- TYPE NEW MESSAGE ENDS HERE -->

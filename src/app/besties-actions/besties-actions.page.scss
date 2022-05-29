@@ -1,0 +1,124 @@
+/* PAGE HEADER */
+.tabone_header {
+    background: #919292;
+    position: relative;
+}
+.tabone_header_left {
+    
+}
+.tabone_header_right {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    position: absolute;
+    right: -10px;
+    top: 14px;
+}
+.logo-img {
+    height: 25px;
+    max-width: 25px;
+}
+.chat_top-header {
+    padding: 1px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+.chat_top-header h3 {
+    font-size: 16px;
+    letter-spacing: 0.5px;
+}
+.chat_top-header p {
+    font-size: 14px;
+    margin-right: 7px;
+    background: #ffffff;
+    padding: 3px 5px;
+    border-radius: 50%;
+    color: #707072;
+}
+
+/* PAGE CONTENT */
+/* FIRST BOX DIV SESSION */
+.box_div_session {
+    display: flex;
+    background-color: #707072;
+    padding: 5px;
+    position: relative;
+    box-shadow: -0.5px 0.5px 2px 0px;
+}
+
+/* SECOND BOX DIV SESSION */
+.second_box {
+    margin-top: 7px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.squadList_background {
+    background-color: #d8e0e0; 
+    padding: 10px;
+    /* background-position: center; */
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+.contest-image-div {
+    display: flex;
+}
+.image-div {
+    height: 75px;
+    max-width: 33.3%;
+}
+.image-div_first {
+    height: 75px;
+    max-width: 50%;
+}
+.image-div_first img {
+    height: 100%;
+    width: 100%;
+}
+.image-div img {
+    width: 100%;
+    height: 100%;
+}
+.box_m {
+    display: flex;
+    align-items: center;
+    padding-top: 3px;
+}
+.box_m img {
+    height: 15px;
+}
+.box_m p {
+    margin-left: 4px;
+    font-size: 10px;
+    line-height: 0px;
+    font-weight: 600;
+}
+/* SECOND IMAGE DIV SESSION */
+.image-div-object {
+    height: 90px;
+    max-width: 50%;
+}
+.image-div-object img {
+    max-width: 100%;
+    border: 0;
+    height: 100%;
+}
+.right_content {
+    padding-left: 6px;
+    width: 70%;
+    background: #898a8a;
+    margin-left: 5px;
+    position: relative;
+    padding-right: 20px;
+}
+.right_content_time {
+    font-size: 8px;
+    color: #ffffff;
+    right: 5px;
+    bottom: 0;
+    position: absolute;
+    line-height: 0px;
+}

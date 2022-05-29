@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+        <ion-back-button style="color: white" icon="chevron-back"></ion-back-button>
+      </ion-buttons>
+    <ion-title style="position: relative;right: 25px;">INVITATION</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="invitationDetails">
+
+  <!-- <ion-slides pager="true"> -->
+
+    <!-- <ion-slide> -->
+
+      <div style="text-align: center; margin-top: 15vh;" *ngIf="invitationDetails==''">
+
+        <div>
+          <img src="../../assets/icon/download.jpeg" alt="" style="border: 15px solid #9E9E9E; border-radius: 50%; height: 300px; width: 300px;">
+        </div>
+
+        <div>
+          <h4 style="background: #9E9E9E; padding: 10px; border-radius: 35px;">Currently you are having no invitations</h4>
+        </div>
+
+      </div>
+
+<!-- <ion-slides pager="true"> -->
+
+  <!-- <ion-slide> -->
+
+  <div class="box , animate__animated animate__fadeIn" *ngFor="let invite of invitationDetails; let i=index">
+    <div class="inner-box">
+      <div>
+          <ion-img src="../../assets/icon/help-invitation-terms/bar.png"></ion-img>
+          <ion-thumbnail slot="end">
+            <img [src]="invite.user_profile">
+          </ion-thumbnail>
+          <span>{{invite.sender_name}}</span>
+
+      </div>
+      <div style="font-size: 13px; text-align: center; margin-left: 5%; margin-top: 15%; margin-right: 5%; color: #fcfcfc;" >
+        {{invite.caption}}
+      </div>
+
+      <!-- <div style="text-align: center; margin-top: 8%;" *ngIf="!showUploadSection">
+        <ion-button (click)="openUploadSection($event,invite)" shape="round" style="height: 40px; font-size: 13px; width: 245px;">CLICK TO SEE THE DETAILS</ion-button>
+        <ion-ripple-effect type="bounded"></ion-ripple-effect>
+      </div> -->
+      <div style="background-color: #444446; margin-top: 15%; padding: 8px; border-right: 1px solid #e0e0e0; text-align: center;">
+        <div>
+          <div style="font-size: 13px; color: #fcfcfc; text-align: center; margin-left: 11px; margin-right: 11px; margin-top: 11px;">{{invite.description}}</div>
+
+          <div style="margin-top: 20px; margin-bottom: 20px; display: flex;" *ngIf="hideImageSpace[i]==true">
+
+          <img style="width: 42%; height: 160px; margin-left: 10px; filter: blur(8px);" [src]="invite.receiver_image" onerror="this.onerror=null;this.src='../../assets/icon/no_media.png'">
+
+            <img *ngIf="FileTransferResponse?.length!=0 && isImage[i]==true" style="right: 10px; position: absolute; top: 0px; width: 42%; height: 160px;" [src]="FileTransferResponse.filename" onerror="this.onerror=null;this.src='../../assets/icon/loader.gif';">
+            <img *ngIf="FileTransferResponse?.length===0" style="right: 10px; position: absolute; top: 0px; width: 42%; " src="../../assets/icon/bg2new.png" (click)="presentActionSheet($event, invite, i)">
+            <video *ngIf="FileTransferResponse?.length!=0 && isVideo[i]==true" style="right: 10px; position: absolute; top: 0px; width: 42%; height: 160px;" [src]="FileTransferResponse.filename" controls controlsList="nodownload" onerror="this.onerror=null;this.src='../../assets/icon/loader.gif';"></video>
+            <audio *ngIf="FileTransferResponse?.length!=0 && isAudio[i]==true" style="right: 10px; position: absolute; top: 0px; width: 42%; " [src]="FileTransferResponse.filename" controls controlsList="nodownload" onerror="this.onerror=null;this.src='../../assets/icon/loader.gif';"></audio>
+          </div>
+
+          <div *ngIf="isLink[i]==true" class="animate__animated animate__fadeIn">
+
+            <div style="margin: 15px; text-align: -webkit-center;">
+              <img style="width: 140px; height: 145px; margin-left: 10px; filter: blur(8px);" [src]="invite.receiver_image" onerror="this.onerror=null;this.src='../../assets/icon/no_media.png'" (click)="presentActionSheet($event,invite,i)">
+            </div>
+
+            <form [formGroup]="LinkInputForm">
+            <ion-textarea formControlName="link" [(ngModel)]="userLink.link" placeholder="Enter Your Link" class="input-field" auto-grow="true" type="url"></ion-textarea>
+            </form>
+          </div>
+
+          <div *ngIf="isWording[i]==true" class="animate__animated animate__fadeIn">
+
+            <div style="margin: 15px; text-align: -webkit-center;">
+              <img style="width: 140px; height: 145px; margin-left: 10px; filter: blur(8px);" [src]="invite.receiver_image" onerror="this.onerror=null;this.src='../../assets/icon/no_media.png'" (click)="presentActionSheet($event,invite,i)">
+            </div>
+
+            <!-- <form [formGroup]="LinkInputForm"> -->
+            <ion-textarea [(ngModel)]="InvitationWording" placeholder="Enter Your Wording" class="input-field" auto-grow="true" type="text"></ion-textarea>
+            <!-- </form> -->
+          </div>
+
+        </div>
+        <ion-button color="warning" style="font-family: OpenSansBold; font-size: 12px; width: 120px; height: 34px;" (click)="acceptInvitation($event, invite, i)">BRING IT ON!</ion-button>
+        <ion-button (click)="closeUploadSection($event, invite, i)" color="warning" style="font-family: OpenSansBold; font-size: 12px; width: 120px; height: 34px; margin-left: 18px;">NO THANKS</ion-button>
+      </div>
+      
+    </div>
+  </div>
+
+    <!-- </ion-slide> -->
+
+  <!-- </ion-slides> -->
+
+</ion-content>

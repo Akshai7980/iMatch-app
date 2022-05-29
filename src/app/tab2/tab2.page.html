@@ -1,0 +1,206 @@
+<!-- 
+<ion-content [fullscreen]="true">
+
+  <div class="top-icons-container">
+    <ion-row>
+      <ion-col class="col-icon">
+        <img src="../../assets/icon/img.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('image')">
+      </ion-col>
+
+      <ion-col class="col-icon">
+        <img src="../../assets/icon/vid.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('video')">
+      </ion-col>
+
+      <ion-col class="col-icon">
+        <img src="../../assets/icon/aud.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('audio')">      
+      </ion-col>
+
+      <ion-col class="col-icon">
+        <img src="../../assets/icon/attach.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('attachment')">
+      </ion-col>
+
+      <ion-col style="border: 1px solid #bebebf; border-radius: 5px;">
+        <img src="../../assets/icon/link.png" alt="" style="height: 17px;width: 15px;" (click)="gotoImageIcon('link')">
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <ion-slides pager="true">
+
+    <div style="text-align: center; padding: 50px;" *ngIf="ongoingDetails==''">
+      <div>
+        <img src="../../assets/icon/landing/splash.jpg" alt="" style="height: 290px; width: 290px; border-radius: 50%; border: 15px solid #9E9E9E;">
+      </div>
+
+      <div>
+        <h4>Currently You Are Having No Ongoing Matches</h4>
+      </div>
+    </div>
+
+        slide starts here
+    <ion-slide *ngFor="let details of ongoingDetails" class="animate__animated animate__flipInY">
+
+      <div style=" margin: 10px;box-shadow: 1px 1px 10px 0px;padding: 5px;margin-top: 0px !important;border-radius: 3px; border-top: 2px solid #80808078 ; margin-bottom: 35px;">
+
+        <div style=" display: flex; ">
+
+          <div>
+
+            <div>
+              <img [src]="details.receiver_image" alt="" style=" border-radius: 7px; height: 255px; width: 195px; filter: blur(8px);">
+            </div>
+
+            <div style=" border-radius: 50%;height: 45px;width: 45px;float: right;position: relative;bottom: 25px;right: 15px;background-color: white;border: 1px solid grey; ">
+              <img *ngIf="details.userliked_receiver=='0'" src="../../assets/icon/04.png" alt="" style=" width: 29px;height: 25px; margin-top: 10px; " (click)="toLikeForReceiver($event,details)">
+              <img *ngIf="details.userliked_receiver>='1'" src="../../assets/icon/shoot.png" alt="" style=" width: 29px;height: 25px; margin-top: 10px; " (click)="toLikeForReceiver($event,details)">
+            </div>
+
+            <div style="text-align: start">
+              <img [src]="details.receiver_profile" alt="" style=" border-radius: 50%; height: 40px; width: 40px; float: left; border: 1px solid;">
+              <p style=" font-size: 14px; margin-top: 25px; font-weight: 600; position: relative; left: 10px; text-align: left;">{{details.receiver_name}}</p>
+            </div>
+
+            <h6 style="font-size: 16px !important; margin: 0px !important; margin-top: 45px !important;">{{details.description}}</h6>
+
+          </div>
+
+          <div style=" padding: 3px; "></div>
+
+          <div style=" position: absolute; height: 30px; top: 20%; right: 46%; ">
+            <img src="../../assets/icon/vs.png" alt="">
+          </div>
+
+          <div>
+
+            <div>
+              <img [src]="details.sender_image" alt="" style=" border-radius: 7px; height: 255px; width: 195px; filter: blur(8px);">
+            </div>
+
+            <div style=" border-radius: 50%; height: 45px; width: 45px; float: right; position: relative; bottom: 25px; right: 15px; background-color: white; border: 1px solid grey;">
+              <img *ngIf="details.userliked_sender=='0'" src="../../assets/icon/04.png" alt="" style=" width: 29px; height: 25px; margin-top: 10px;" (click)="toLikeForSender($event,details)">
+              <img *ngIf="details.userliked_sender>='1'" src="../../assets/icon/shoot.png" alt="" style=" width: 29px;height: 25px; margin-top: 10px; " (click)="toLikeForReceiver($event,details)">
+            </div>
+            <div style="text-align: start">
+              <img [src]="details.sender_profile" alt="" style="border-radius: 50%; height: 40px; width: 40px; float: left; border: 1px solid;">
+              <p style="font-size: 14px; margin-top: 25px; font-weight: 600; position: relative; left: 10px; text-align: left;">{{details.sender_name}}</p>
+            </div>
+            <h6 style="font-size: 16px !important; margin: 0px !important; margin-top: 45px !important;">{{details.description}}</h6>
+
+          </div>
+
+        </div>
+
+        <div style="display: flex; margin-top: 15px; position: relative; left: 25%; top: 18px;">
+          <div>
+            <span style="font-weight: 600; font-size: 15px;">{{details.total_likecount}}</span>
+            <img src="../../assets/icon/likes.png" alt="" style="height: 27px; width: 30px; margin-left: 11px;" (click)="toshowPersonalScores($event,details)">
+          </div>
+
+          <div style="margin-left: 20px;">
+            <span style="font-weight: 600; font-size: 15px;">{{details.total_comment_count}}</span>
+            <img src="../../assets/icon/share.png" alt="" style="height: 27px; width: 30px; margin-left: 11px;" (click)="openComments($event,details)">
+          </div>
+        </div>
+
+        <div style="background-color: #8080803d;padding: 7px;margin-top: 45px;height: 55px;">
+          <img src="../../assets/icon/03.png" alt="" style="height: 20px;">
+          <span style="font-size: 14px;color: grey;margin-left: 15px;"> {{RemainingTime | date: 'hh:mm:ss'}} / {{details.time_duration}} </span>
+         
+        </div>
+      </div>
+
+      <div *ngIf="showPersonalScores" style="position: absolute; top: 76%; border: 1px solid #8080808c; border-radius: 5px;">
+          <div (click)="toHidePopover()">
+            <ion-item lines="none">
+
+                <ion-avatar>
+                  <ion-img [src]="details.receiver_profile"></ion-img>
+                </ion-avatar>
+
+                <span style="margin-left: 12px;font-size: 14px;">{{details.receiver_name}}</span>
+                  <ion-img src="../../assets/icon/shoot.png" style="height: 25px; margin-left: 20px;"></ion-img>
+                <span>{{details.receiver_likecount}}</span>
+
+            </ion-item>
+
+            <ion-item lines="none">
+
+              <ion-avatar>
+                <ion-img [src]="details.sender_profile"></ion-img>
+              </ion-avatar>
+
+              <span style="margin-left: 12px;font-size: 14px;">{{details.sender_name}}</span>
+                <ion-img src="../../assets/icon/shoot.png" style="height: 25px; margin-left: 20px;"></ion-img>
+              <span>{{details.sender_likecount}}</span>
+
+            </ion-item>
+          </div>
+      </div>
+
+    </ion-slide>
+     slide ends here 
+
+  </ion-slides>
+
+</ion-content> -->
+
+
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <img src="../../assets/icon/chat/back.png" alt="" style="height: 16px;width: 10px;position: absolute;left: 20px;" (click)="togoBack()">
+      <ion-title style="width: 300px;margin-left: 40px;">CALL FOR A MATCH</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar mode="ios" [formControl]="searchControl" (keyup)="onSearchInput($event)" animated></ion-searchbar>
+
+  <div *ngIf="searching" class="spinner-container">
+    <ion-spinner></ion-spinner>
+  </div>
+
+  <div style="display: flex; margin-left: 20px;" *ngIf="showCategory==true">
+
+    <ion-chip style="background-color: #ffc3008f;" (click)="toListCategory('bestie')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Bestie List</ion-label>
+    </ion-chip>
+
+    <ion-chip style="background-color: #00bcd480;" (click)="toListCategory('squad')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Squad List</ion-label>
+    </ion-chip>
+
+    <ion-chip style="background-color: #ff980087;" (click)="toListCategory('fan')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Fan List</ion-label>
+    </ion-chip>
+
+  </div>
+
+  <div style="display: flex; margin-left: 20px;" *ngIf="showCategory==true">
+    <ion-chip style="background-color: bisque;" (click)="toListCategory('fan-of')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Fan Of List</ion-label>
+    </ion-chip>
+
+    <ion-chip style="background: #8bc34a9e;" (click)="toListCategory('invite')">
+      <ion-icon name="caret-forward-circle"></ion-icon>
+      <ion-label style="font-size: 12px; font-weight: 600;">Invite Others</ion-label>
+    </ion-chip>
+  </div>
+
+  <div *ngFor=" let user of allUsers" (click)="gotoVisitorsActivity($event,user)">  
+    <ion-item lines="none" class="item-styles , animate__animated animate__fadeIn">
+          <div>
+        <img [src]="user.profile_pic" style="height: 50px; width: 50px; border-radius: 50%;">
+          </div>
+  
+      <ion-label style="margin-left: 15px;">{{user.name}}</ion-label>
+
+      <!-- <img src="../../assets/icon/add.png" alt="" style="height: 30px; width: 30px;" (click)="gotoVisitorsActivity($event,user)"> -->
+    </ion-item>
+  </div>
+
+</ion-content>
